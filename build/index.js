@@ -2,11 +2,11 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/scripts/ExampleReactComponent.js":
-/*!**********************************************!*\
-  !*** ./src/scripts/ExampleReactComponent.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/scripts/Navbar.js"
+/*!*******************************!*\
+  !*** ./src/scripts/Navbar.js ***!
+  \*******************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -14,58 +14,238 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function ExampleReactComponent() {
-  const [clickCount, setClickCount] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 rounded-md",
-    onClick: () => setClickCount(prev => prev + 1)
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
-    className: "text-xl"
-  }, "Hello from React!"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "text-sm"
-  }, "You have clicked on this component", " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "text-yellow-200 font-bold"
-  }, clickCount), " times."));
+const NAV_LINKS = [{
+  label: "Home",
+  href: "/"
+}, {
+  label: "About Us",
+  href: "/about-us"
+}, {
+  label: "Services",
+  href: "/services"
+}, {
+  label: "Gallery",
+  href: "/gallery"
+}, {
+  label: "Markets We Serve",
+  href: "/markets-we-serve"
+}, {
+  label: "Contact Us",
+  href: "/contact-us"
+}];
+const PHONE = "(555) 123-4567";
+const EMAIL = "info@imveragroupinc.com";
+function Navbar() {
+  const [menuOpen, setMenuOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [scrolled, setScrolled] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("header", {
+    className: "w-full",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "bg-[#0f1c2e] text-white text-sm",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "flex items-center gap-5 text-gray-300",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+            href: `tel:${PHONE.replace(/\D/g, "")}`,
+            className: "flex items-center gap-1.5 hover:text-white transition-colors duration-200",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+              className: "w-3.5 h-3.5 flex-shrink-0",
+              fill: "none",
+              stroke: "currentColor",
+              viewBox: "0 0 24 24",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: 2,
+                d: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              className: "hidden sm:inline",
+              children: PHONE
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+            href: `mailto:${EMAIL}`,
+            className: "flex items-center gap-1.5 hover:text-white transition-colors duration-200",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+              className: "w-3.5 h-3.5 flex-shrink-0",
+              fill: "none",
+              stroke: "currentColor",
+              viewBox: "0 0 24 24",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: 2,
+                d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              className: "hidden sm:inline",
+              children: EMAIL
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+          href: "/contact-us",
+          className: "inline-flex items-center gap-1.5 bg-[#d4a843] hover:bg-[#c49a38] text-[#0f1c2e] text-xs font-semibold px-4 py-1.5 rounded transition-colors duration-200 tracking-wide whitespace-nowrap",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+            className: "w-3.5 h-3.5 flex-shrink-0",
+            fill: "none",
+            stroke: "currentColor",
+            viewBox: "0 0 24 24",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              strokeWidth: 2,
+              d: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            })
+          }), "Request a Scope Review"]
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("nav", {
+      className: `bg-white w-full z-50 transition-shadow duration-300 ${scrolled ? "shadow-md" : "border-b border-gray-100"}`,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "flex items-center justify-between h-16 lg:h-[70px]",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            href: "/",
+            className: "flex items-center gap-2 flex-shrink-0",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: "flex items-center gap-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "w-8 h-8 bg-[#0f1c2e] rounded flex items-center justify-center",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "text-[#d4a843] font-bold text-sm leading-none",
+                  children: "IG"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+                className: "font-bold text-[#0f1c2e] text-lg tracking-tight leading-tight hidden sm:block",
+                children: ["Imvera", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "text-[#d4a843]",
+                  children: "."
+                })]
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
+            className: "hidden lg:flex items-center gap-1",
+            children: NAV_LINKS.map(link => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+                href: link.href,
+                className: "relative text-sm font-medium text-gray-600 hover:text-[#0f1c2e] px-3 py-2 rounded transition-colors duration-200 group",
+                children: [link.label, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "absolute bottom-0 left-3 right-3 h-[2px] bg-[#d4a843] scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left rounded-full"
+                })]
+              })
+            }, link.href))
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            href: "/contact-us",
+            className: "hidden lg:inline-flex items-center gap-1.5 bg-[#0f1c2e] hover:bg-[#1a2f4a] text-white text-sm font-semibold px-5 py-2.5 rounded transition-colors duration-200",
+            children: "Get in Touch"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            className: "lg:hidden p-2 rounded text-gray-600 hover:text-[#0f1c2e] hover:bg-gray-100 transition-colors",
+            onClick: () => setMenuOpen(prev => !prev),
+            "aria-label": "Toggle menu",
+            "aria-expanded": menuOpen,
+            children: menuOpen ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+              className: "w-6 h-6",
+              fill: "none",
+              stroke: "currentColor",
+              viewBox: "0 0 24 24",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: 2,
+                d: "M6 18L18 6M6 6l12 12"
+              })
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+              className: "w-6 h-6",
+              fill: "none",
+              stroke: "currentColor",
+              viewBox: "0 0 24 24",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: 2,
+                d: "M4 6h16M4 12h16M4 18h16"
+              })
+            })
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: `lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? "max-h-[500px] border-t border-gray-100" : "max-h-0"}`,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "bg-white px-4 pb-4 pt-2 flex flex-col gap-1",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "flex flex-col gap-1 py-2 mb-1 border-b border-gray-100 text-xs text-gray-400",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+              href: `tel:${PHONE.replace(/\D/g, "")}`,
+              className: "hover:text-gray-700 flex items-center gap-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+                className: "w-3.5 h-3.5",
+                fill: "none",
+                stroke: "currentColor",
+                viewBox: "0 0 24 24",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  strokeWidth: 2,
+                  d: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                })
+              }), PHONE]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+              href: `mailto:${EMAIL}`,
+              className: "hover:text-gray-700 flex items-center gap-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+                className: "w-3.5 h-3.5",
+                fill: "none",
+                stroke: "currentColor",
+                viewBox: "0 0 24 24",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  strokeWidth: 2,
+                  d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                })
+              }), EMAIL]
+            })]
+          }), NAV_LINKS.map(link => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            href: link.href,
+            className: "text-sm font-medium text-gray-700 hover:text-[#0f1c2e] hover:bg-gray-50 px-3 py-2.5 rounded transition-colors duration-150",
+            onClick: () => setMenuOpen(false),
+            children: link.label
+          }, link.href)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            href: "/contact-us",
+            className: "mt-2 text-center bg-[#d4a843] hover:bg-[#c49a38] text-[#0f1c2e] text-sm font-semibold px-5 py-3 rounded transition-colors duration-200",
+            children: "Request a Scope Review"
+          })]
+        })
+      })]
+    })]
+  });
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ExampleReactComponent);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Navbar);
 
-/***/ }),
+/***/ },
 
-/***/ "./src/scripts/Person.js":
-/*!*******************************!*\
-  !*** ./src/scripts/Person.js ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-class Person {
-  constructor(name) {
-    this.name = name;
-    this.greet();
-  }
-  greet() {
-    console.log(`Hello, my name is ${this.name}.`);
-  }
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Person);
-
-/***/ }),
-
-/***/ "./node_modules/react-dom/client.js":
+/***/ "./node_modules/react-dom/client.js"
 /*!******************************************!*\
   !*** ./node_modules/react-dom/client.js ***!
   \******************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+(__unused_webpack_module, exports, __webpack_require__) {
 
 
 
 var m = __webpack_require__(/*! react-dom */ "react-dom");
-if (false) {} else {
+if (false) // removed by dead control flow
+{} else {
   var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
   exports.createRoot = function(c, o) {
     i.usingClientEntryPoint = true;
@@ -86,27 +266,37 @@ if (false) {} else {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ "react":
+/***/ "react"
 /*!************************!*\
   !*** external "React" ***!
   \************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["React"];
 
-/***/ }),
+/***/ },
 
-/***/ "react-dom":
+/***/ "react-dom"
 /*!***************************!*\
   !*** external "ReactDOM" ***!
   \***************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["ReactDOM"];
 
-/***/ })
+/***/ },
+
+/***/ "react/jsx-runtime"
+/*!**********************************!*\
+  !*** external "ReactJSXRuntime" ***!
+  \**********************************/
+(module) {
+
+module.exports = window["ReactJSXRuntime"];
+
+/***/ }
 
 /******/ 	});
 /************************************************************************/
@@ -128,6 +318,12 @@ module.exports = window["ReactDOM"];
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
+/******/ 		if (!(moduleId in __webpack_modules__)) {
+/******/ 			delete __webpack_module_cache__[moduleId];
+/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
+/******/ 		}
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
@@ -177,26 +373,25 @@ module.exports = window["ReactDOM"];
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _scripts_Person__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/Person */ "./src/scripts/Person.js");
-/* harmony import */ var _scripts_ExampleReactComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/ExampleReactComponent */ "./src/scripts/ExampleReactComponent.js");
-/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
+/* harmony import */ var _scripts_Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts/Navbar */ "./src/scripts/Navbar.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 
-
-const person1 = new _scripts_Person__WEBPACK_IMPORTED_MODULE_1__["default"]("Brad");
-if (document.querySelector("#render-react-example-here")) {
-  const root = react_dom_client__WEBPACK_IMPORTED_MODULE_3__.createRoot(document.querySelector("#render-react-example-here"));
-  root.render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_scripts_ExampleReactComponent__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+if (document.querySelector("#render-navbar-here")) {
+  const root = react_dom_client__WEBPACK_IMPORTED_MODULE_2__.createRoot(document.querySelector("#render-navbar-here"));
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_scripts_Navbar__WEBPACK_IMPORTED_MODULE_0__["default"], {}));
 }
 })();
 
