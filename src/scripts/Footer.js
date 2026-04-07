@@ -31,18 +31,21 @@ const HEADQUARTERS = "Duluth, Georgia"
 
 function Footer() {
   return (
-    <footer className="bg-[#0f1c2e] text-white mt-auto">
+    <footer style={{ backgroundColor: "#162525", color: "white" }} className="mt-auto">
 
       {/* ── CTA Banner ── */}
-      <div className="border-b border-white/10">
+      <div style={{ borderBottom: "1px solid rgba(241,246,242,0.08)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <p className="text-lg font-semibold text-white">Ready to start your next project?</p>
-            <p className="text-sm text-gray-400 mt-0.5">Our team is ready to walk you through every detail.</p>
+            <p className="text-sm mt-0.5" style={{ color: "#7fa89e" }}>Our team is ready to walk you through every detail.</p>
           </div>
           <a
             href="/contact-us"
-            className="inline-flex items-center gap-2 bg-[#d4a843] hover:bg-[#c49a38] text-[#0f1c2e] font-semibold text-sm px-6 py-3 rounded transition-colors duration-200 whitespace-nowrap flex-shrink-0"
+            className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded transition-colors duration-200 whitespace-nowrap flex-shrink-0"
+            style={{ backgroundColor: "#2A9D93", color: "#F1F6F2" }}
+            onMouseEnter={e => e.currentTarget.style.backgroundColor = "#238c83"}
+            onMouseLeave={e => e.currentTarget.style.backgroundColor = "#2A9D93"}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -59,30 +62,36 @@ function Footer() {
           {/* Column 1 — Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 bg-[#d4a843] rounded flex items-center justify-center flex-shrink-0">
-                <span className="text-[#0f1c2e] font-bold text-sm leading-none">IG</span>
+              <div
+                className="w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+                style={{ backgroundColor: "#1e3333" }}
+              >
+                <span className="font-bold text-sm leading-none" style={{ color: "#6FC061" }}>IG</span>
               </div>
               <span className="font-bold text-white text-lg tracking-tight">
-                Imvera<span className="text-[#d4a843]">.</span>
+                Imvera<span style={{ color: "#2A9D93" }}>.</span>
               </span>
             </div>
             <p className="text-sm font-semibold text-white">Imvera Group Inc.</p>
-            <p className="text-xs text-gray-400 mt-1 leading-relaxed">
+            <p className="text-xs mt-1 leading-relaxed" style={{ color: "#7fa89e" }}>
               Commercial Interior Construction<br />
               Southeast United States
             </p>
-            <div className="mt-5 flex flex-col gap-2 text-xs text-gray-400">
+            <div className="mt-5 flex flex-col gap-2 text-xs" style={{ color: "#7fa89e" }}>
               <a
                 href={`tel:${PHONE.replace(/\D/g, "")}`}
-                className="flex items-center gap-2 hover:text-white transition-colors duration-200"
+                className="flex items-center gap-2 transition-colors duration-200"
+                style={{ color: "inherit" }}
+                onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
+                onMouseLeave={e => e.currentTarget.style.color = "#7fa89e"}
               >
-                <svg className="w-3.5 h-3.5 text-[#d4a843] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#2A9D93" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 {PHONE}
               </a>
               <div className="flex items-center gap-2">
-                <svg className="w-3.5 h-3.5 text-[#d4a843] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#2A9D93" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -93,7 +102,7 @@ function Footer() {
 
           {/* Column 2 — Services */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest text-[#d4a843] uppercase mb-4">
+            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#2A9D93" }}>
               Our Services
             </h4>
             <ul className="flex flex-col gap-2">
@@ -101,9 +110,15 @@ function Footer() {
                 <li key={service}>
                   <a
                     href="/services"
-                    className="text-sm text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-sm flex items-center gap-2 transition-colors duration-200 group"
+                    style={{ color: "#7fa89e" }}
+                    onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
+                    onMouseLeave={e => e.currentTarget.style.color = "#7fa89e"}
                   >
-                    <span className="w-1 h-1 rounded-full bg-[#d4a843] flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <span
+                      className="w-1 h-1 rounded-full flex-shrink-0 transition-opacity"
+                      style={{ backgroundColor: "#6FC061", opacity: 0.6 }}
+                    />
                     {service}
                   </a>
                 </li>
@@ -113,7 +128,7 @@ function Footer() {
 
           {/* Column 3 — Markets */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest text-[#d4a843] uppercase mb-4">
+            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#2A9D93" }}>
               Markets We Serve
             </h4>
             <ul className="flex flex-col gap-2">
@@ -121,9 +136,15 @@ function Footer() {
                 <li key={market}>
                   <a
                     href="/markets-we-serve"
-                    className="text-sm text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-sm flex items-center gap-2 transition-colors duration-200"
+                    style={{ color: "#7fa89e" }}
+                    onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
+                    onMouseLeave={e => e.currentTarget.style.color = "#7fa89e"}
                   >
-                    <span className="w-1 h-1 rounded-full bg-[#d4a843] flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <span
+                      className="w-1 h-1 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: "#6FC061", opacity: 0.6 }}
+                    />
                     {market}
                   </a>
                 </li>
@@ -133,7 +154,7 @@ function Footer() {
 
           {/* Column 4 — Helpful Links */}
           <div>
-            <h4 className="text-xs font-semibold tracking-widest text-[#d4a843] uppercase mb-4">
+            <h4 className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: "#2A9D93" }}>
               Helpful Links
             </h4>
             <ul className="flex flex-col gap-2">
@@ -141,9 +162,15 @@ function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-sm flex items-center gap-2 transition-colors duration-200"
+                    style={{ color: "#7fa89e" }}
+                    onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
+                    onMouseLeave={e => e.currentTarget.style.color = "#7fa89e"}
                   >
-                    <span className="w-1 h-1 rounded-full bg-[#d4a843] flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <span
+                      className="w-1 h-1 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: "#6FC061", opacity: 0.6 }}
+                    />
                     {link.label}
                   </a>
                 </li>
@@ -155,15 +182,27 @@ function Footer() {
       </div>
 
       {/* ── Bottom Bar ── */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
+      <div style={{ borderTop: "1px solid rgba(241,246,242,0.08)" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs" style={{ color: "#4d7069" }}>
           <p>© 2026 Imvera Group Inc. All Rights Reserved.</p>
           <div className="flex items-center gap-4">
-            <a href="/privacy-policy" className="hover:text-gray-300 transition-colors duration-200">
+            <a
+              href="/privacy-policy"
+              className="transition-colors duration-200"
+              style={{ color: "inherit" }}
+              onMouseEnter={e => e.currentTarget.style.color = "#7fa89e"}
+              onMouseLeave={e => e.currentTarget.style.color = "#4d7069"}
+            >
               Privacy Policy
             </a>
-            <span className="text-white/20">·</span>
-            <a href="/terms-and-conditions" className="hover:text-gray-300 transition-colors duration-200">
+            <span style={{ color: "rgba(241,246,242,0.15)" }}>·</span>
+            <a
+              href="/terms-and-conditions"
+              className="transition-colors duration-200"
+              style={{ color: "inherit" }}
+              onMouseEnter={e => e.currentTarget.style.color = "#7fa89e"}
+              onMouseLeave={e => e.currentTarget.style.color = "#4d7069"}
+            >
               Terms &amp; Conditions
             </a>
           </div>

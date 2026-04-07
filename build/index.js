@@ -43,9 +43,15 @@ const PHONE = "678-836-3266";
 const HEADQUARTERS = "Duluth, Georgia";
 function Footer() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("footer", {
-    className: "bg-[#0f1c2e] text-white mt-auto",
+    style: {
+      backgroundColor: "#162525",
+      color: "white"
+    },
+    className: "mt-auto",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "border-b border-white/10",
+      style: {
+        borderBottom: "1px solid rgba(241,246,242,0.08)"
+      },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -53,12 +59,21 @@ function Footer() {
             className: "text-lg font-semibold text-white",
             children: "Ready to start your next project?"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-            className: "text-sm text-gray-400 mt-0.5",
+            className: "text-sm mt-0.5",
+            style: {
+              color: "#7fa89e"
+            },
             children: "Our team is ready to walk you through every detail."
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
           href: "/contact-us",
-          className: "inline-flex items-center gap-2 bg-[#d4a843] hover:bg-[#c49a38] text-[#0f1c2e] font-semibold text-sm px-6 py-3 rounded transition-colors duration-200 whitespace-nowrap flex-shrink-0",
+          className: "inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded transition-colors duration-200 whitespace-nowrap flex-shrink-0",
+          style: {
+            backgroundColor: "#2A9D93",
+            color: "#F1F6F2"
+          },
+          onMouseEnter: e => e.currentTarget.style.backgroundColor = "#238c83",
+          onMouseLeave: e => e.currentTarget.style.backgroundColor = "#2A9D93",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
             className: "w-4 h-4",
             fill: "none",
@@ -82,15 +97,23 @@ function Footer() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "flex items-center gap-2 mb-3",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "w-8 h-8 bg-[#d4a843] rounded flex items-center justify-center flex-shrink-0",
+              className: "w-8 h-8 rounded flex items-center justify-center flex-shrink-0",
+              style: {
+                backgroundColor: "#1e3333"
+              },
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                className: "text-[#0f1c2e] font-bold text-sm leading-none",
+                className: "font-bold text-sm leading-none",
+                style: {
+                  color: "#6FC061"
+                },
                 children: "IG"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
               className: "font-bold text-white text-lg tracking-tight",
               children: ["Imvera", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                className: "text-[#d4a843]",
+                style: {
+                  color: "#2A9D93"
+                },
                 children: "."
               })]
             })]
@@ -98,15 +121,29 @@ function Footer() {
             className: "text-sm font-semibold text-white",
             children: "Imvera Group Inc."
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
-            className: "text-xs text-gray-400 mt-1 leading-relaxed",
+            className: "text-xs mt-1 leading-relaxed",
+            style: {
+              color: "#7fa89e"
+            },
             children: ["Commercial Interior Construction", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "Southeast United States"]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: "mt-5 flex flex-col gap-2 text-xs text-gray-400",
+            className: "mt-5 flex flex-col gap-2 text-xs",
+            style: {
+              color: "#7fa89e"
+            },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
               href: `tel:${PHONE.replace(/\D/g, "")}`,
-              className: "flex items-center gap-2 hover:text-white transition-colors duration-200",
+              className: "flex items-center gap-2 transition-colors duration-200",
+              style: {
+                color: "inherit"
+              },
+              onMouseEnter: e => e.currentTarget.style.color = "#F1F6F2",
+              onMouseLeave: e => e.currentTarget.style.color = "#7fa89e",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
-                className: "w-3.5 h-3.5 text-[#d4a843] flex-shrink-0",
+                className: "w-3.5 h-3.5 flex-shrink-0",
+                style: {
+                  color: "#2A9D93"
+                },
                 fill: "none",
                 stroke: "currentColor",
                 viewBox: "0 0 24 24",
@@ -120,7 +157,10 @@ function Footer() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
               className: "flex items-center gap-2",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("svg", {
-                className: "w-3.5 h-3.5 text-[#d4a843] flex-shrink-0",
+                className: "w-3.5 h-3.5 flex-shrink-0",
+                style: {
+                  color: "#2A9D93"
+                },
                 fill: "none",
                 stroke: "currentColor",
                 viewBox: "0 0 24 24",
@@ -140,48 +180,84 @@ function Footer() {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
-            className: "text-xs font-semibold tracking-widest text-[#d4a843] uppercase mb-4",
+            className: "text-xs font-semibold tracking-widest uppercase mb-4",
+            style: {
+              color: "#2A9D93"
+            },
             children: "Our Services"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
             className: "flex flex-col gap-2",
             children: SERVICES.map(service => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
                 href: "/services",
-                className: "text-sm text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group",
+                className: "text-sm flex items-center gap-2 transition-colors duration-200 group",
+                style: {
+                  color: "#7fa89e"
+                },
+                onMouseEnter: e => e.currentTarget.style.color = "#F1F6F2",
+                onMouseLeave: e => e.currentTarget.style.color = "#7fa89e",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  className: "w-1 h-1 rounded-full bg-[#d4a843] flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity"
+                  className: "w-1 h-1 rounded-full flex-shrink-0 transition-opacity",
+                  style: {
+                    backgroundColor: "#6FC061",
+                    opacity: 0.6
+                  }
                 }), service]
               })
             }, service))
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
-            className: "text-xs font-semibold tracking-widest text-[#d4a843] uppercase mb-4",
+            className: "text-xs font-semibold tracking-widest uppercase mb-4",
+            style: {
+              color: "#2A9D93"
+            },
             children: "Markets We Serve"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
             className: "flex flex-col gap-2",
             children: MARKETS.map(market => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
                 href: "/markets-we-serve",
-                className: "text-sm text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group",
+                className: "text-sm flex items-center gap-2 transition-colors duration-200",
+                style: {
+                  color: "#7fa89e"
+                },
+                onMouseEnter: e => e.currentTarget.style.color = "#F1F6F2",
+                onMouseLeave: e => e.currentTarget.style.color = "#7fa89e",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  className: "w-1 h-1 rounded-full bg-[#d4a843] flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity"
+                  className: "w-1 h-1 rounded-full flex-shrink-0",
+                  style: {
+                    backgroundColor: "#6FC061",
+                    opacity: 0.6
+                  }
                 }), market]
               })
             }, market))
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
-            className: "text-xs font-semibold tracking-widest text-[#d4a843] uppercase mb-4",
+            className: "text-xs font-semibold tracking-widest uppercase mb-4",
+            style: {
+              color: "#2A9D93"
+            },
             children: "Helpful Links"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
             className: "flex flex-col gap-2",
             children: NAV_LINKS.map(link => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
                 href: link.href,
-                className: "text-sm text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group",
+                className: "text-sm flex items-center gap-2 transition-colors duration-200",
+                style: {
+                  color: "#7fa89e"
+                },
+                onMouseEnter: e => e.currentTarget.style.color = "#F1F6F2",
+                onMouseLeave: e => e.currentTarget.style.color = "#7fa89e",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  className: "w-1 h-1 rounded-full bg-[#d4a843] flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity"
+                  className: "w-1 h-1 rounded-full flex-shrink-0",
+                  style: {
+                    backgroundColor: "#6FC061",
+                    opacity: 0.6
+                  }
                 }), link.label]
               })
             }, link.href))
@@ -189,23 +265,40 @@ function Footer() {
         })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "border-t border-white/10",
+      style: {
+        borderTop: "1px solid rgba(241,246,242,0.08)"
+      },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500",
+        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs",
+        style: {
+          color: "#4d7069"
+        },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
           children: "\xA9 2026 Imvera Group Inc. All Rights Reserved."
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "flex items-center gap-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
             href: "/privacy-policy",
-            className: "hover:text-gray-300 transition-colors duration-200",
+            className: "transition-colors duration-200",
+            style: {
+              color: "inherit"
+            },
+            onMouseEnter: e => e.currentTarget.style.color = "#7fa89e",
+            onMouseLeave: e => e.currentTarget.style.color = "#4d7069",
             children: "Privacy Policy"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-            className: "text-white/20",
+            style: {
+              color: "rgba(241,246,242,0.15)"
+            },
             children: "\xB7"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
             href: "/terms-and-conditions",
-            className: "hover:text-gray-300 transition-colors duration-200",
+            className: "transition-colors duration-200",
+            style: {
+              color: "inherit"
+            },
+            onMouseEnter: e => e.currentTarget.style.color = "#7fa89e",
+            onMouseLeave: e => e.currentTarget.style.color = "#4d7069",
             children: "Terms & Conditions"
           })]
         })]
@@ -252,7 +345,7 @@ const NAV_LINKS = [{
   label: "Contact Us",
   href: "/contact-us"
 }];
-const PHONE = "(555) 123-4567";
+const PHONE = "678-836-3266";
 const EMAIL = "info@imveragroupinc.com";
 function Navbar() {
   const [menuOpen, setMenuOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
@@ -265,14 +358,25 @@ function Navbar() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("header", {
     className: "w-full",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "bg-[#0f1c2e] text-white text-sm",
+      style: {
+        backgroundColor: "#162525"
+      },
+      className: "text-white text-sm",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "flex items-center gap-5 text-gray-300",
+          className: "flex items-center gap-5",
+          style: {
+            color: "#a8bfbb"
+          },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
             href: `tel:${PHONE.replace(/\D/g, "")}`,
-            className: "flex items-center gap-1.5 hover:text-white transition-colors duration-200",
+            className: "flex items-center gap-1.5 transition-colors duration-200",
+            style: {
+              color: "inherit"
+            },
+            onMouseEnter: e => e.currentTarget.style.color = "#F1F6F2",
+            onMouseLeave: e => e.currentTarget.style.color = "#a8bfbb",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
               className: "w-3.5 h-3.5 flex-shrink-0",
               fill: "none",
@@ -290,7 +394,12 @@ function Navbar() {
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
             href: `mailto:${EMAIL}`,
-            className: "flex items-center gap-1.5 hover:text-white transition-colors duration-200",
+            className: "flex items-center gap-1.5 transition-colors duration-200",
+            style: {
+              color: "inherit"
+            },
+            onMouseEnter: e => e.currentTarget.style.color = "#F1F6F2",
+            onMouseLeave: e => e.currentTarget.style.color = "#a8bfbb",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
               className: "w-3.5 h-3.5 flex-shrink-0",
               fill: "none",
@@ -309,7 +418,13 @@ function Navbar() {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
           href: "/contact-us",
-          className: "inline-flex items-center gap-1.5 bg-[#d4a843] hover:bg-[#c49a38] text-[#0f1c2e] text-xs font-semibold px-4 py-1.5 rounded transition-colors duration-200 tracking-wide whitespace-nowrap",
+          className: "inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-1.5 rounded transition-colors duration-200 tracking-wide whitespace-nowrap",
+          style: {
+            backgroundColor: "#2A9D93",
+            color: "#F1F6F2"
+          },
+          onMouseEnter: e => e.currentTarget.style.backgroundColor = "#238c83",
+          onMouseLeave: e => e.currentTarget.style.backgroundColor = "#2A9D93",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
             className: "w-3.5 h-3.5 flex-shrink-0",
             fill: "none",
@@ -325,50 +440,80 @@ function Navbar() {
         })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("nav", {
-      className: `bg-white w-full z-50 transition-shadow duration-300 ${scrolled ? "shadow-md" : "border-b border-gray-100"}`,
+      className: `w-full z-50 transition-shadow duration-300 ${scrolled ? "shadow-md" : ""}`,
+      style: {
+        backgroundColor: "#F1F6F2",
+        borderBottom: scrolled ? "none" : "1px solid #dde8e5"
+      },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "flex items-center justify-between h-16 lg:h-[70px]",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
             href: "/",
-            className: "flex items-center gap-2 flex-shrink-0",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-              className: "flex items-center gap-2",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                className: "w-8 h-8 bg-[#0f1c2e] rounded flex items-center justify-center",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  className: "text-[#d4a843] font-bold text-sm leading-none",
-                  children: "IG"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
-                className: "font-bold text-[#0f1c2e] text-lg tracking-tight leading-tight hidden sm:block",
-                children: ["Imvera", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  className: "text-[#d4a843]",
-                  children: "."
-                })]
+            className: "flex items-center gap-2.5 flex-shrink-0",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "w-8 h-8 rounded flex items-center justify-center",
+              style: {
+                backgroundColor: "#162525"
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                className: "font-bold text-sm leading-none",
+                style: {
+                  color: "#6FC061"
+                },
+                children: "IG"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+              className: "font-bold text-lg tracking-tight leading-tight hidden sm:block",
+              style: {
+                color: "#162525"
+              },
+              children: ["Imvera", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                style: {
+                  color: "#2A9D93"
+                },
+                children: "."
               })]
-            })
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
             className: "hidden lg:flex items-center gap-1",
             children: NAV_LINKS.map(link => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
                 href: link.href,
-                className: "relative text-sm font-medium text-gray-600 hover:text-[#0f1c2e] px-3 py-2 rounded transition-colors duration-200 group",
+                className: "relative text-sm font-medium px-3 py-2 rounded transition-colors duration-200 group block",
+                style: {
+                  color: "#585858"
+                },
+                onMouseEnter: e => e.currentTarget.style.color = "#162525",
+                onMouseLeave: e => e.currentTarget.style.color = "#585858",
                 children: [link.label, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-                  className: "absolute bottom-0 left-3 right-3 h-[2px] bg-[#d4a843] scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left rounded-full"
+                  className: "absolute bottom-0 left-3 right-3 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left rounded-full",
+                  style: {
+                    backgroundColor: "#2A9D93"
+                  }
                 })]
               })
             }, link.href))
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
             href: "/contact-us",
-            className: "hidden lg:inline-flex items-center gap-1.5 bg-[#0f1c2e] hover:bg-[#1a2f4a] text-white text-sm font-semibold px-5 py-2.5 rounded transition-colors duration-200",
+            className: "hidden lg:inline-flex items-center gap-1.5 text-white text-sm font-semibold px-5 py-2.5 rounded transition-colors duration-200",
+            style: {
+              backgroundColor: "#162525"
+            },
+            onMouseEnter: e => e.currentTarget.style.backgroundColor = "#2A9D93",
+            onMouseLeave: e => e.currentTarget.style.backgroundColor = "#162525",
             children: "Get in Touch"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-            className: "lg:hidden p-2 rounded text-gray-600 hover:text-[#0f1c2e] hover:bg-gray-100 transition-colors",
+            className: "lg:hidden p-2 rounded transition-colors",
+            style: {
+              color: "#585858"
+            },
             onClick: () => setMenuOpen(prev => !prev),
             "aria-label": "Toggle menu",
             "aria-expanded": menuOpen,
+            onMouseEnter: e => e.currentTarget.style.backgroundColor = "#dde8e5",
+            onMouseLeave: e => e.currentTarget.style.backgroundColor = "transparent",
             children: menuOpen ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
               className: "w-6 h-6",
               fill: "none",
@@ -388,21 +533,33 @@ function Navbar() {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
                 strokeLinecap: "round",
                 strokeLinejoin: "round",
-                strokeWidth: 2,
+                "stroke-Width": 2,
                 d: "M4 6h16M4 12h16M4 18h16"
               })
             })
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: `lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? "max-h-[500px] border-t border-gray-100" : "max-h-0"}`,
+        className: `lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? "max-h-[500px]" : "max-h-0"}`,
+        style: {
+          borderTop: menuOpen ? "1px solid #dde8e5" : "none"
+        },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "bg-white px-4 pb-4 pt-2 flex flex-col gap-1",
+          className: "px-4 pb-4 pt-2 flex flex-col gap-1",
+          style: {
+            backgroundColor: "#F1F6F2"
+          },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: "flex flex-col gap-1 py-2 mb-1 border-b border-gray-100 text-xs text-gray-400",
+            className: "flex flex-col gap-1.5 py-2 mb-1 text-xs",
+            style: {
+              borderBottom: "1px solid #dde8e5",
+              color: "#585858"
+            },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
               href: `tel:${PHONE.replace(/\D/g, "")}`,
-              className: "hover:text-gray-700 flex items-center gap-2",
+              className: "flex items-center gap-2 transition-colors duration-150",
+              onMouseEnter: e => e.currentTarget.style.color = "#162525",
+              onMouseLeave: e => e.currentTarget.style.color = "#585858",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
                 className: "w-3.5 h-3.5",
                 fill: "none",
@@ -417,7 +574,9 @@ function Navbar() {
               }), PHONE]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
               href: `mailto:${EMAIL}`,
-              className: "hover:text-gray-700 flex items-center gap-2",
+              className: "flex items-center gap-2 transition-colors duration-150",
+              onMouseEnter: e => e.currentTarget.style.color = "#162525",
+              onMouseLeave: e => e.currentTarget.style.color = "#585858",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
                 className: "w-3.5 h-3.5",
                 fill: "none",
@@ -433,12 +592,29 @@ function Navbar() {
             })]
           }), NAV_LINKS.map(link => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
             href: link.href,
-            className: "text-sm font-medium text-gray-700 hover:text-[#0f1c2e] hover:bg-gray-50 px-3 py-2.5 rounded transition-colors duration-150",
+            className: "text-sm font-medium px-3 py-2.5 rounded transition-colors duration-150",
+            style: {
+              color: "#585858"
+            },
+            onMouseEnter: e => {
+              e.currentTarget.style.color = "#162525";
+              e.currentTarget.style.backgroundColor = "#dde8e5";
+            },
+            onMouseLeave: e => {
+              e.currentTarget.style.color = "#585858";
+              e.currentTarget.style.backgroundColor = "transparent";
+            },
             onClick: () => setMenuOpen(false),
             children: link.label
           }, link.href)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
             href: "/contact-us",
-            className: "mt-2 text-center bg-[#d4a843] hover:bg-[#c49a38] text-[#0f1c2e] text-sm font-semibold px-5 py-3 rounded transition-colors duration-200",
+            className: "mt-2 text-center text-sm font-semibold px-5 py-3 rounded transition-colors duration-200",
+            style: {
+              backgroundColor: "#2A9D93",
+              color: "#F1F6F2"
+            },
+            onMouseEnter: e => e.currentTarget.style.backgroundColor = "#238c83",
+            onMouseLeave: e => e.currentTarget.style.backgroundColor = "#2A9D93",
             children: "Request a Scope Review"
           })]
         })
