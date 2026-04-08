@@ -13,3 +13,8 @@ function boilerplate_add_support() {
 }
 
 add_action('after_setup_theme', 'boilerplate_add_support');
+
+wp_localize_script('ourmainjs', 'imveraAjax', [
+  'url'   => admin_url('admin-post.php'),
+  'nonce' => wp_create_nonce('imvera_inquiry'),
+]);
