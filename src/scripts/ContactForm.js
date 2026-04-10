@@ -141,8 +141,10 @@ function ContactForm({ variant = "dark", title, subtitle }) {
     full_name: "", company: "", phone: "", email: "",
     service: "", state: "", message: "",
   })
-  const [focused, setFocused] = useState({})
-  const [status, setStatus]   = useState(null) // null | "sending" | "success" | "error"
+  const [focused,  setFocused]  = useState({})
+  const [agreed,   setAgreed]   = useState(false)
+  const [agreeErr, setAgreeErr] = useState(false)
+  const [status,   setStatus]   = useState(null) // null | "sending" | "success" | "error"
 
   const set = (key) => (e) => setFields((prev) => ({ ...prev, [key]: e.target.value }))
   const onFocus = (key) => () => setFocused((prev) => ({ ...prev, [key]: true }))
@@ -150,6 +152,8 @@ function ContactForm({ variant = "dark", title, subtitle }) {
 
   async function handleSubmit(e) {
     e.preventDefault()
+    if (!agreed) { setAgreeErr(true); return }
+    setAgreeErr(false)
     setStatus("sending")
     try {
       const body = new FormData(e.target)
@@ -293,6 +297,70 @@ function ContactForm({ variant = "dark", title, subtitle }) {
             style={{ ...inputStyles(variant, focused.message), resize: "none" }}
           />
         </Field>
+
+        {/* Terms & Privacy checkbox */}
+        <label style={{
+          display:    "flex",
+          alignItems: "flex-start",
+          gap:        "0.625rem",
+          cursor:     "pointer",
+          padding:    "0.75rem",
+          borderRadius: "0.5rem",
+          border:     `1px solid ${agreeErr ? "#f87171" : agreed ? "#2A9D93" : isDark ? "rgba(241,246,242,0.1)" : "#dde8e5"}`,
+          background: agreeErr
+            ? "rgba(248,113,113,0.06)"
+            : agreed
+              ? isDark ? "rgba(42,157,147,0.08)" : "rgba(42,157,147,0.05)"
+              : isDark ? "rgba(241,246,242,0.03)" : "#F1F6F2",
+          transition: "border-color 0.2s, background 0.2s",
+        }}>
+          {/* Custom checkbox */}
+          <div
+            onClick={() => { setAgreed(prev => !prev); setAgreeErr(false) }}
+            style={{
+              width:          "1.125rem",
+              height:         "1.125rem",
+              borderRadius:   "0.25rem",
+              border:         `2px solid ${agreed ? "#2A9D93" : agreeErr ? "#f87171" : isDark ? "rgba(241,246,242,0.25)" : "#c5d0cc"}`,
+              background:     agreed ? "linear-gradient(135deg, #6FC061, #2A9D93)" : "transparent",
+              flexShrink:     0,
+              marginTop:      "1px",
+              display:        "flex",
+              alignItems:     "center",
+              justifyContent: "center",
+              transition:     "all 0.15s",
+            }}
+          >
+            {agreed && (
+              <svg width="10" height="10" fill="none" stroke="white" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+              </svg>
+            )}
+          </div>
+          <span style={{ fontSize: "0.75rem", lineHeight: 1.5, color: isDark ? "#b8d4ce" : "#585858" }}>
+            I have read and agree to the{" "}
+            <a href="/privacy-policy" target="_blank" rel="noopener noreferrer"
+               style={{ color: "#2A9D93", textDecoration: "underline" }}>
+              Privacy Policy
+            </a>
+            {" "}and{" "}
+            <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer"
+               style={{ color: "#2A9D93", textDecoration: "underline" }}>
+              Terms &amp; Conditions
+            </a>
+            {" "}of Imvera Group Inc. *
+          </span>
+        </label>
+
+        {/* Checkbox error message */}
+        {agreeErr && (
+          <p style={{ fontSize: "0.7rem", color: "#f87171", display: "flex", alignItems: "center", gap: "0.25rem", marginTop: "-0.25rem" }}>
+            <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+            </svg>
+            You must agree to the Terms &amp; Conditions and Privacy Policy to continue.
+          </p>
+        )}
 
         {/* Error state */}
         {status === "error" && (

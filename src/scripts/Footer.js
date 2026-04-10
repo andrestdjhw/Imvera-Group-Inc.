@@ -61,17 +61,16 @@ function Footer() {
 
           {/* Column 1 — Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-3">
-              <div
-                className="w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: "#1e3333" }}
-              >
-                <span className="font-bold text-sm leading-none" style={{ color: "#6FC061" }}>IG</span>
-              </div>
-              <span className="font-bold text-white text-lg tracking-tight">
-                Imvera<span style={{ color: "#2A9D93" }}>.</span>
-              </span>
-            </div>
+
+            {/* ── Logo ── */}
+            <a href="/" className="inline-flex mb-4">
+              <img
+                src="/wp-content/uploads/2026/04/IMVERA_Imagotipo_Horizontal-Blanco.png"
+                alt="Imvera Group Inc."
+                style={{ height: "32px", width: "auto", display: "block" }}
+              />
+            </a>
+
             <p className="text-sm font-semibold text-white">Imvera Group Inc.</p>
             <p className="text-xs mt-1 leading-relaxed" style={{ color: "#7fa89e" }}>
               Commercial Interior Construction<br />
@@ -115,10 +114,7 @@ function Footer() {
                     onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
                     onMouseLeave={e => e.currentTarget.style.color = "#7fa89e"}
                   >
-                    <span
-                      className="w-1 h-1 rounded-full flex-shrink-0 transition-opacity"
-                      style={{ backgroundColor: "#6FC061", opacity: 0.6 }}
-                    />
+                    <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: "#6FC061", opacity: 0.6 }} />
                     {service}
                   </a>
                 </li>
@@ -141,10 +137,7 @@ function Footer() {
                     onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
                     onMouseLeave={e => e.currentTarget.style.color = "#7fa89e"}
                   >
-                    <span
-                      className="w-1 h-1 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: "#6FC061", opacity: 0.6 }}
-                    />
+                    <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: "#6FC061", opacity: 0.6 }} />
                     {market}
                   </a>
                 </li>
@@ -167,10 +160,7 @@ function Footer() {
                     onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
                     onMouseLeave={e => e.currentTarget.style.color = "#7fa89e"}
                   >
-                    <span
-                      className="w-1 h-1 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: "#6FC061", opacity: 0.6 }}
-                    />
+                    <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: "#6FC061", opacity: 0.6 }} />
                     {link.label}
                   </a>
                 </li>
