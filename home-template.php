@@ -11,10 +11,49 @@ get_header(); ?>
      ============================================================ -->
 <section class="relative min-h-screen flex items-stretch overflow-hidden" style="background-color: #162525;">
 
-  <!-- Background jobsite image -->
-  <div class="absolute inset-0 z-0">
-    <div class="w-full h-full"
-         style="background-image: url('<?php echo get_theme_file_uri('/images/hero-jobsite.jpg'); ?>'); background-size: cover; background-position: center;">
+  <!-- Hero slideshow styles -->
+  <style>
+    .ig-slide {
+      position: absolute; inset: 0;
+      opacity: 0;
+      animation: igFade 18s infinite;
+      overflow: hidden;
+    }
+    .ig-slide:nth-child(1) { animation-delay: 0s; }
+    .ig-slide:nth-child(2) { animation-delay: 6s;  }
+    .ig-slide:nth-child(3) { animation-delay: 12s; }
+    @keyframes igFade {
+      0%        { opacity: 0;   transform: scale(1);      }
+      5%        { opacity: 1;   transform: scale(1);      }
+      28%       { opacity: 1;   transform: scale(1.035);  }
+      33%       { opacity: 0;   transform: scale(1.04);   }
+      100%      { opacity: 0;   transform: scale(1);      }
+    }
+
+    /* Trust bar ticker */
+    .ig-ticker-track {
+      display: flex;
+      gap: 0;
+      animation: igTicker 20s linear infinite;
+      width: max-content;
+    }
+    .ig-ticker-track:hover { animation-play-state: paused; }
+    @keyframes igTicker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+
+  <!-- Background slideshow -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <div class="ig-slide">
+      <img src="/wp-content/uploads/2026/04/ImveraHero1-scaled.jpg" alt="Hero slide 1" class="w-full h-full object-cover">
+    </div>
+    <div class="ig-slide">
+      <img src="/wp-content/uploads/2026/04/ImveraHero2-scaled.jpg" alt="Hero slide 2" class="w-full h-full object-cover">
+    </div>
+    <div class="ig-slide">
+      <img src="/wp-content/uploads/2026/04/ImveraHero3-scaled.jpg" alt="Hero slide 3" class="w-full h-full object-cover">
     </div>
     <!-- Dark directional overlay -->
     <div class="absolute inset-0"
@@ -73,11 +112,11 @@ get_header(); ?>
         </div>
       </div>
 
-      <!-- Right: Inline Contact Form -->
+      <!-- Right: Inline Contact Form (React component) -->
       <div id="render-contact-form-here"
-          data-variant="dark"
-          data-title="Send an Inquiry"
-          data-subtitle="Get a Response Within 1 Business Day">
+           data-variant="dark"
+           data-title="Send an Inquiry"
+           data-subtitle="Get a Response Within 1 Business Day">
       </div>
 
     </div>
@@ -88,35 +127,38 @@ get_header(); ?>
 <!-- ============================================================
      SECTION 02 — TRUST BAR
      ============================================================ -->
-<section style="background-color: #0f1a1a; border-top: 1px solid rgba(42,157,147,0.15); border-bottom: 1px solid rgba(42,157,147,0.15);">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 text-center lg:text-left">
+<section style="background-color: #0f1a1a; border-top: 1px solid rgba(42,157,147,0.15); border-bottom: 1px solid rgba(42,157,147,0.15); overflow: hidden;">
 
+  <?php
+  $stats = [
+    ['num' => '7',   'label' => 'States',   'desc' => 'Active Operations Across the Southeast'],
+    ['num' => '6',   'label' => 'Trades',   'desc' => 'Complete Interior Scope Under One Contract'],
+    ['num' => '12+', 'label' => 'Years',    'desc' => 'Hands-On Commercial Construction Experience'],
+    ['num' => '1',   'label' => 'Standard', 'desc' => 'Consistent Execution in Every Market We Operate'],
+  ];
+  ?>
+
+  <!-- Ticker — all breakpoints -->
+  <div class="py-8">
+    <div class="ig-ticker-track">
       <?php
-      $stats = [
-        ['num' => '7',   'label' => 'States',   'desc' => 'Active Operations Across the Southeast'],
-        ['num' => '6',   'label' => 'Trades',   'desc' => 'Complete Interior Scope Under One Contract'],
-        ['num' => '12+', 'label' => 'Years',    'desc' => 'Hands-On Commercial Construction Experience'],
-        ['num' => '1',   'label' => 'Standard', 'desc' => 'Consistent Execution in Every Market We Operate'],
-      ];
-      foreach ($stats as $i => $stat) :
-        $is_last = $i === count($stats) - 1;
-      ?>
-        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-4"
-             style="<?php echo !$is_last ? 'border-right: 1px solid rgba(42,157,147,0.2); padding-right: 2rem;' : ''; ?>">
+      // Duplicate stats twice for seamless loop
+      $ticker_items = array_merge($stats, $stats);
+      foreach ($ticker_items as $stat) : ?>
+        <div class="flex items-center gap-4 px-10" style="border-right: 1px solid rgba(42,157,147,0.15);">
           <span class="text-4xl xl:text-5xl font-bold leading-none flex-shrink-0"
                 style="background: linear-gradient(135deg, #6FC061, #2A9D93); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
             <?php echo $stat['num']; ?>
           </span>
-          <div>
+          <div class="whitespace-nowrap">
             <p class="font-semibold text-sm leading-tight text-white"><?php echo $stat['label']; ?></p>
-            <p class="text-xs mt-0.5 leading-relaxed" style="color: #4d7069;"><?php echo $stat['desc']; ?></p>
+            <p class="text-xs mt-0.5" style="color: #4d7069;"><?php echo $stat['desc']; ?></p>
           </div>
         </div>
       <?php endforeach; ?>
-
     </div>
   </div>
+
 </section>
 
 
@@ -129,7 +171,7 @@ get_header(); ?>
 
       <div class="relative">
         <div class="aspect-[4/3] rounded-xl overflow-hidden bg-gray-200">
-          <img src="<?php echo get_theme_file_uri('/images/about-jobsite.jpg'); ?>"
+          <img src="/wp-content/uploads/2026/04/WhoWeRImvera-scaled.png"
                alt="Imvera Group crew on active commercial jobsite"
                class="w-full h-full object-cover">
         </div>
@@ -190,12 +232,12 @@ get_header(); ?>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <?php
       $services = [
-        ['slug' => 'eco-grip-flooring',    'title' => 'ECO Grip Flooring',         'desc' => 'Certified installation for commercial kitchens, food service, and compliance-driven environments.',   'img' => 'service-eco-grip.jpg'],
-        ['slug' => 'cabinets-countertops', 'title' => 'Cabinets &amp; Countertops', 'desc' => 'Corian and commercial casework installation to a zero-tolerance finishing standard.',                'img' => 'service-cabinets.jpg'],
-        ['slug' => 'acoustical-ceilings',  'title' => 'Acoustical Ceilings',        'desc' => 'Armstrong and USG systems. Up to 1,400 sq ft per day. Restaurants, medical, retail.',              'img' => 'service-ceilings.jpg'],
-        ['slug' => 'frp-installation',     'title' => 'FRP Installation',           'desc' => 'Southern Building Products FRP for kitchens, restrooms, healthcare, and retail.',                    'img' => 'service-frp.jpg'],
-        ['slug' => 'drywall-finishing',    'title' => 'Drywall &amp; Finishing',     'desc' => 'Fire-rated and moisture-resistant assemblies. Dedicated crews. Smooth finish only.',                 'img' => 'service-drywall.jpg'],
-        ['slug' => 'metal-framing',        'title' => 'Metal Framing',              'desc' => '16, 18, 20 gauge non-structural interior framing. Executed from drawings. Inspection-ready.',        'img' => 'service-framing.jpg'],
+        ['slug' => 'eco-grip-flooring',    'title' => 'ECO Grip Flooring',         'desc' => 'Certified installation for commercial kitchens, food service, and compliance-driven environments.',   'url' => '/wp-content/uploads/2026/04/Eco-Grip-Flooring-scaled.jpg'],
+        ['slug' => 'cabinets-countertops', 'title' => 'Cabinets &amp; Countertops', 'desc' => 'Corian and commercial casework installation to a zero-tolerance finishing standard.',                'url' => '/wp-content/uploads/2026/04/CabinetsCounterTops-scaled.jpg'],
+        ['slug' => 'acoustical-ceilings',  'title' => 'Acoustical Ceilings',        'desc' => 'Armstrong and USG systems. Up to 1,400 sq ft per day. Restaurants, medical, retail.',              'url' => '/wp-content/uploads/2026/04/AcousticalCeilings-scaled.jpg'],
+        ['slug' => 'frp-installation',     'title' => 'FRP Installation',           'desc' => 'Southern Building Products FRP for kitchens, restrooms, healthcare, and retail.',                    'url' => '/wp-content/uploads/2026/04/FRP-Installation-scaled.jpg'],
+        ['slug' => 'drywall-finishing',    'title' => 'Drywall &amp; Finishing',     'desc' => 'Fire-rated and moisture-resistant assemblies. Dedicated crews. Smooth finish only.',                 'url' => '/wp-content/uploads/2026/04/DrywallFinishing-scaled.jpg'],
+        ['slug' => 'metal-framing',        'title' => 'Metal Framing',              'desc' => '16, 18, 20 gauge non-structural interior framing. Executed from drawings. Inspection-ready.',        'url' => '/wp-content/uploads/2026/04/Metal-Framing-scaled.jpg'],
       ];
       foreach ($services as $service) : ?>
         <a href="/services/<?php echo esc_attr($service['slug']); ?>"
@@ -204,7 +246,7 @@ get_header(); ?>
            onmouseover="this.style.borderColor='rgba(42,157,147,0.4)'; this.style.boxShadow='0 8px 24px rgba(42,157,147,0.1)'"
            onmouseout="this.style.borderColor='#e8efed'; this.style.boxShadow='none'">
           <div class="aspect-[16/9] overflow-hidden bg-gray-100">
-            <img src="<?php echo get_theme_file_uri('/images/' . $service['img']); ?>"
+            <img src="<?php echo esc_url($service['url']); ?>"
                  alt="<?php echo esc_attr(strip_tags($service['title'])); ?>"
                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -258,7 +300,7 @@ get_header(); ?>
 
       <div class="lg:sticky lg:top-24">
         <div class="aspect-[3/4] rounded-xl overflow-hidden bg-gray-700">
-          <img src="<?php echo get_theme_file_uri('/images/why-imvera-crew.jpg'); ?>"
+          <img src="/wp-content/uploads/2026/04/ImveraGroupInc-scaled.png"
                alt="Imvera Group uniformed crew on active commercial jobsite"
                class="w-full h-full object-cover">
         </div>
@@ -331,14 +373,14 @@ get_header(); ?>
 
     <?php
     $gallery_photos = [
-      ['img' => 'gallery-eco-grip-1.jpg',  'label' => 'ECO Grip Flooring',   'sector' => 'Food Service'],
-      ['img' => 'gallery-eco-grip-2.jpg',  'label' => 'ECO Grip Flooring',   'sector' => 'Commercial Kitchen'],
-      ['img' => 'gallery-drywall-1.jpg',   'label' => 'Drywall',             'sector' => 'Commercial TI'],
-      ['img' => 'gallery-ceilings-1.jpg',  'label' => 'Acoustical Ceilings', 'sector' => 'Armstrong System'],
-      ['img' => 'gallery-frp-1.jpg',       'label' => 'FRP Installation',    'sector' => 'Commercial Kitchen'],
-      ['img' => 'gallery-framing-1.jpg',   'label' => 'Metal Framing',       'sector' => 'Healthcare Buildout'],
-      ['img' => 'gallery-cabinets-1.jpg',  'label' => 'Cabinets',            'sector' => 'Countertop Install'],
-      ['img' => 'gallery-crew-1.jpg',      'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
+      ['url' => '', 'label' => 'ECO Grip Flooring',   'sector' => 'Food Service'],
+      ['url' => '', 'label' => 'ECO Grip Flooring',   'sector' => 'Commercial Kitchen'],
+      ['url' => '', 'label' => 'Drywall',             'sector' => 'Commercial TI'],
+      ['url' => '', 'label' => 'Acoustical Ceilings', 'sector' => 'Armstrong System'],
+      ['url' => '', 'label' => 'FRP Installation',    'sector' => 'Commercial Kitchen'],
+      ['url' => '', 'label' => 'Metal Framing',       'sector' => 'Healthcare Buildout'],
+      ['url' => '', 'label' => 'Cabinets',            'sector' => 'Countertop Install'],
+      ['url' => '', 'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
     ];
     ?>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -347,7 +389,7 @@ get_header(); ?>
       ?>
         <div class="<?php echo $span; ?> group relative overflow-hidden rounded-lg bg-gray-200"
              style="aspect-ratio: <?php echo ($i === 0 || $i === 5) ? '2/1' : '1/1'; ?>">
-          <img src="<?php echo get_theme_file_uri('/images/' . $photo['img']); ?>"
+          <img src="<?php echo esc_url($photo['url']); ?>"
                alt="<?php echo esc_attr($photo['label'] . ' — ' . $photo['sector']); ?>"
                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <!-- Hover overlay with Moss Green → Verdigris gradient tint -->
