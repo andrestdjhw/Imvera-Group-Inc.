@@ -55,7 +55,7 @@ get_header(); ?>
       </h1>
 
       <p class="text-lg leading-relaxed mb-6 max-w-2xl" style="color: #b8d4ce;">
-        Commercial casework and Corian countertop installation for food service, healthcare, retail, and office interiors. Executed to a finishing standard where errors are not acceptable — and do not occur.
+        Commercial casework and Corian countertop installation for food service, healthcare, retail, and office interiors. Executed to a finishing standard where errors are not acceptable and do not occur.
       </p>
 
       <!-- Zero-defect callout -->
@@ -66,7 +66,7 @@ get_header(); ?>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
         </svg>
         <p class="text-sm" style="color: #b8d4ce;">
-          <strong class="text-white">Dedicated installation crews</strong> — not rotated in from framing or drywall. The finishing standard holds because the crew is built for this trade.
+          <strong class="text-white">Dedicated installation crews</strong> not rotated in from framing or drywall. The finishing standard holds because the crew is built for this trade.
         </p>
       </div>
 
@@ -115,10 +115,10 @@ get_header(); ?>
           Precision Work for High-Visibility Commercial Interiors.
         </h2>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          Imvera Group provides commercial cabinet and countertop installation for food service, healthcare, retail, and office interior buildouts across the Southeast. This is precision work — Imvera executes to a finishing standard where errors are not acceptable and do not occur.
+          Imvera Group provides commercial cabinet and countertop installation for food service, healthcare, retail, and office interior buildouts across the Southeast. This is precision work Imvera executes to a finishing standard where errors are not acceptable and do not occur.
         </p>
         <p class="text-base leading-relaxed" style="color: #585858;">
-          We install commercial casework and Corian countertop systems for the national food service operators, healthcare providers, and franchise rollout programs that require consistent, brand-compliant, inspection-ready results across multiple locations. Our installation crews are dedicated to this trade — not rotated in from framing or drywall — which is why the finishing standard holds across every project.
+          We install commercial casework and Corian countertop systems for the national food service operators, healthcare providers, and franchise rollout programs that require consistent, brand compliant, inspection ready results across multiple locations. Our installation crews are dedicated to this trade not rotated in from framing or drywall which is why the finishing standard holds across every project.
         </p>
       </div>
 
@@ -135,7 +135,7 @@ get_header(); ?>
             <p class="text-xs font-semibold tracking-widest uppercase mb-2" style="color: #2A9D93;">Execution Standard</p>
             <h3 class="text-white font-bold text-xl mb-3 leading-snug">No Errors. No Exceptions.</h3>
             <p class="text-sm leading-relaxed" style="color: #7fa89e;">
-              Cabinet and countertop installation is the highest-visibility finish work on any commercial interior. It is what owners, franchisees, and health inspectors see first. Imvera's installation crews operate to a zero-defect finishing standard — because in this trade, the finishing is the product.
+              Cabinet and countertop installation is the highest-visibility finish work on any commercial interior. It is what owners, franchisees, and health inspectors see first. Imvera's installation crews operate to a zero-defect finishing standard because in this trade, the finishing is the product.
             </p>
           </div>
         </div>
@@ -241,7 +241,7 @@ get_header(); ?>
           Primary Sectors.
         </h2>
         <p class="text-sm leading-relaxed" style="color: #585858;">
-          Cabinet and countertop work appears in the highest-visibility areas of every commercial interior — the environments where finish quality is immediately apparent and brand compliance is non-negotiable.
+          Cabinet and countertop work appears in the highest-visibility areas of every commercial interior the environments where finish quality is immediately apparent and brand compliance is non negotiable.
         </p>
       </div>
 
@@ -250,12 +250,12 @@ get_header(); ?>
         $sectors = [
           [
             'title' => 'Food Service & QSR Franchise',
-            'desc'  => 'National food service operators and QSR franchise rollout programs requiring brand-compliant casework and countertops across multiple locations simultaneously.',
+            'desc'  => 'National food service operators and QSR franchise rollout programs requiring brand compliant casework and countertops across multiple locations simultaneously.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>',
           ],
           [
             'title' => 'Healthcare & Medical Office',
-            'desc'  => 'Outpatient facilities, medical offices, and healthcare buildouts with integrated casework requirements and sanitation-grade finishing standards.',
+            'desc'  => 'Outpatient facilities, medical offices, and healthcare buildouts with integrated casework requirements and sanitation grade finishing standards.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>',
           ],
           [
@@ -265,7 +265,7 @@ get_header(); ?>
           ],
           [
             'title' => 'Multi-Unit Residential',
-            'desc'  => 'Large-scale residential developments requiring consistent cabinet installation across every unit — same execution standard at scale.',
+            'desc'  => 'Large scale residential developments requiring consistent cabinet installation across every unit same execution standard at scale.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>',
           ],
         ];

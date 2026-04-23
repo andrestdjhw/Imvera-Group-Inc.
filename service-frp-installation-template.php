@@ -55,7 +55,7 @@ get_header(); ?>
       </h1>
 
       <p class="text-lg leading-relaxed mb-6 max-w-2xl" style="color: #b8d4ce;">
-        Southern Building Products FRP systems for commercial interiors where wall surface durability, moisture resistance, and compliance are non-negotiable. Installed correctly to meet health department, USDA, and facility standards.
+        Southern Building Products FRP systems for commercial interiors where wall surface durability, moisture resistance, and compliance are non negotiable. Installed correctly to meet health department, USDA, and facility standards.
       </p>
 
       <!-- Output callout -->
@@ -109,13 +109,13 @@ get_header(); ?>
           <div class="flex-1 max-w-xs h-px" style="background: linear-gradient(to right, rgba(42,157,147,0.4), transparent);"></div>
         </div>
         <h2 class="text-3xl sm:text-4xl font-bold leading-tight mb-5" style="color: #162525;">
-          Compliance-Critical Wall Systems. Installed Correctly.
+          Compliance Critical Wall Systems. Installed Correctly.
         </h2>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          FRP is a critical finish system in food service, healthcare, and industrial interior applications — and it must be installed correctly to meet health department, USDA, and facility compliance standards. A failed FRP installation is not a cosmetic issue. It is an inspection failure.
+          FRP is a critical finish system in food service, healthcare, and industrial interior applications and it must be installed correctly to meet health department, USDA, and facility compliance standards. A failed FRP installation is not a cosmetic issue. It is an inspection failure.
         </p>
         <p class="text-base leading-relaxed" style="color: #585858;">
-          Imvera installs Southern Building Products FRP wall panel systems using Fast Grab adhesive for permanent, compliant bond — with a three-person crew capable of 480 square feet per day on the production rate that food service and healthcare schedules require.
+          Imvera installs Southern Building Products FRP wall panel systems using Fast Grab adhesive for permanent, compliant bond with a three person crew capable of 480 square feet per day on the production rate that food service and healthcare schedules require.
         </p>
       </div>
 
@@ -168,13 +168,13 @@ get_header(); ?>
       $installs = [
         [
           'title' => 'Southern Building Products FRP Systems',
-          'desc'  => 'Full-surface FRP wall panel installation using Fast Grab adhesive for food service, healthcare, and retail environments. Permanent bond, compliant finish, correct sequence.',
+          'desc'  => 'Full surface FRP wall panel installation using Fast Grab adhesive for food service, healthcare, and retail environments. Permanent bond, compliant finish, correct sequence.',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>',
           'highlight' => true,
         ],
         [
           'title' => 'Moisture-Resistant Surface Systems',
-          'desc'  => 'High-regulation commercial interiors requiring cleanable, moisture-resistant wall surfaces. Health department and USDA compliance-driven installations in kitchens and wet areas.',
+          'desc'  => 'High regulation commercial interiors requiring cleanable, moisture resistant wall surfaces. Health department and USDA compliance driven installations in kitchens and wet areas.',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>',
           'highlight' => false,
         ],
@@ -186,7 +186,7 @@ get_header(); ?>
         ],
         [
           'title' => 'Wall Protection for Compliance Environments',
-          'desc'  => 'FRP in restrooms, back-of-house corridors, and any commercial interior area requiring long-term wall surface protection and maintenance-free compliance.',
+          'desc'  => 'FRP in restrooms, back of house corridors, and any commercial interior area requiring long term wall surface protection and maintenance free compliance.',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>',
           'highlight' => false,
         ],
@@ -248,7 +248,7 @@ get_header(); ?>
           Primary Sectors.
         </h2>
         <p class="text-sm leading-relaxed" style="color: #585858;">
-          FRP is specified wherever wall surface performance directly affects compliance outcomes — health department inspections, USDA approval, or sanitation certification.
+          FRP is specified wherever wall surface performance directly affects compliance outcomes health department inspections, USDA approval, or sanitation certification.
         </p>
       </div>
 
@@ -257,7 +257,7 @@ get_header(); ?>
         $sectors = [
           [
             'title' => 'Commercial Kitchens & Food Service',
-            'desc'  => 'Back-of-house wall systems for restaurants, QSR chains, and food service operators. Health department and USDA compliance-driven installation.',
+            'desc'  => 'Back of house wall systems for restaurants, QSR chains, and food service operators. Health department and USDA compliance driven installation.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>',
           ],
           [
@@ -272,7 +272,7 @@ get_header(); ?>
           ],
           [
             'title' => 'Retail Wall Protection',
-            'desc'  => 'FRP in retail environments where wall protection and moisture resistance are required — stock rooms, prep areas, and back-of-house commercial spaces.',
+            'desc'  => 'FRP in retail environments where wall protection and moisture resistance are required stock rooms, prep areas, and back-of-house commercial spaces.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>',
           ],
         ];

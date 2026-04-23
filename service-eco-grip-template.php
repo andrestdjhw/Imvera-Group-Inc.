@@ -57,7 +57,7 @@ get_header(); ?>
       </h1>
 
       <p class="text-lg leading-relaxed mb-6 max-w-2xl" style="color: #b8d4ce;">
-        Imvera Group is a certified ECO Grip commercial flooring installer — one of a select group of contractors authorized to install this specialty flooring system for commercial food service, healthcare, and high-compliance interior environments across the Southeast.
+        Imvera Group is a certified ECO Grip commercial flooring installer one of a select group of contractors authorized to install this specialty flooring system for commercial food service, healthcare, and high-compliance interior environments across the Southeast.
       </p>
 
       <!-- Certified credential callout -->
@@ -67,7 +67,7 @@ get_header(); ?>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
         </svg>
         <p class="text-sm" style="color: #b8d4ce;">
-          <strong class="text-white">Certified installer status</strong> — required by leading national food service operators before awarding interior flooring contracts. Not common in the Southeast market.
+          <strong class="text-white">Certified installer status</strong> required by leading national food service operators before awarding interior flooring contracts. Not common in the Southeast market.
         </p>
       </div>
 
@@ -114,7 +114,7 @@ get_header(); ?>
           A Precision System. Not a Standard Installation.
         </h2>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          ECO Grip is not a standard flooring installation. It is a precision system that requires exact surface preparation, proprietary adhesive application, seam sealing, drain integration, and final finishing — executed in the correct sequence to meet food service compliance and long-term durability requirements.
+          ECO Grip is not a standard flooring installation. It is a precision system that requires exact surface preparation, proprietary adhesive application, seam sealing, drain integration, and final finishing executed in the correct sequence to meet food service compliance and long-term durability requirements.
         </p>
         <p class="text-base leading-relaxed" style="color: #585858;">
           Imvera's certified crews have performed this installation in commercial kitchens and food service environments across multiple states, building a process that consistently delivers inspection-ready results.
@@ -194,7 +194,7 @@ get_header(); ?>
         [
           'phase' => 'Phase 4',
           'title' => 'Seam Sealing',
-          'desc'  => 'Precision reveal cuts at all seam joints. Tape masking and proprietary seam sealer application. Tape removal before sealer sets. Full perimeter angle installation with ECO Grip-supplied hardware.',
+          'desc'  => 'Precision reveal cuts at all seam joints. Tape masking and proprietary seam sealer application. Tape removal before sealer sets. Full perimeter angle installation with ECO Grip supplied hardware.',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>',
         ],
         [

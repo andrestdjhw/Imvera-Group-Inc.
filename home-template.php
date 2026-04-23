@@ -82,7 +82,7 @@ get_header(); ?>
         </h1>
 
         <p class="text-base leading-relaxed mb-4 max-w-xl" style="color: #b8d4ce;">
-          Imvera Group delivers disciplined commercial interior execution across framing, drywall, flooring, ceilings, FRP, and cabinetry — with the labor stability, daily communication, and multi-state consistency that general contractors depend on.
+          Imvera Group delivers disciplined commercial interior execution across framing, drywall, flooring, ceilings, FRP, and cabinetry with the labor stability, daily communication, and multi-state consistency that general contractors depend on.
         </p>
         <p class="text-base leading-relaxed mb-8 max-w-xl" style="color: #7fa89e;">
           No surprises. No rework. No drama. Just execution that protects your schedule, passes inspections, and closes scopes cleanly.
@@ -191,7 +191,7 @@ get_header(); ?>
           Commercial construction runs on thin margins. GCs operating inside 6% cannot absorb inspection failures, rework events, or schedule delays caused by unreliable subcontractors.
         </p>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          Imvera Group was built to eliminate that risk. Across six commercial interior trade disciplines — all self-performed by our own dedicated crews — we deliver the execution discipline, labor stability, and communication standards that GC partners depend on across the Southeast.
+          Imvera Group was built to eliminate that risk. Across six commercial interior trade disciplines all self-performed by our own dedicated crews we deliver the execution discipline, labor stability, and communication standards that GC partners depend on across the Southeast.
         </p>
         <p class="text-base leading-relaxed mb-8 italic pl-4" style="color: #585858; border-left: 4px solid #2A9D93;">
           We don't aim to be the loudest presence on a project. We aim to be the most reliable one.
@@ -313,7 +313,7 @@ get_header(); ?>
           ['title' => 'Self-Performed. No Brokered Labor.',   'desc' => 'Every trade executed by our own dedicated crews. No third-party labor. The same accountability standard on every project.'],
           ['title' => 'Daily Communication & Photo Updates',  'desc' => 'GC partners receive daily progress reports with photo documentation. The information arrives before you ask.'],
           ['title' => 'Multi-State. One Standard.',           'desc' => 'Active across 7 states. The same execution quality in Atlanta as in Charlotte as in Nashville. Geography does not change our performance.'],
-          ['title' => 'Immediate Response. No Delays.',       'desc' => 'We respond immediately to GC requests — local or out of state. When the work is there, we show up.'],
+          ['title' => 'Immediate Response. No Delays.',       'desc' => 'We respond immediately to GC requests local or out of state. When the work is there, we show up.'],
           ['title' => '1-Year Workmanship Warranty',          'desc' => 'All completed installations are backed by a 1-year workmanship warranty. We stand behind every scope we execute.'],
         ];
         foreach ($reasons as $reason) : ?>

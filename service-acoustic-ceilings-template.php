@@ -55,7 +55,7 @@ get_header(); ?>
       </h1>
 
       <p class="text-lg leading-relaxed mb-6 max-w-2xl" style="color: #b8d4ce;">
-        Armstrong and USG acoustical ceiling systems for commercial and institutional environments across the Southeast. 1,400 square feet per day with a two-person crew. Schedule performance that compressed commercial timelines require.
+        Armstrong and USG acoustical ceiling systems for commercial and institutional environments across the Southeast. 1,400 square feet per day with a two person crew. Schedule performance that compressed commercial timelines require.
       </p>
 
       <!-- Output callout -->
@@ -65,7 +65,7 @@ get_header(); ?>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
         </svg>
         <p class="text-sm" style="color: #b8d4ce;">
-          <strong class="text-white">1,400 sq ft per day</strong> — 2-person crew. Armstrong and USG systems. We also correct what other contractors left behind.
+          <strong class="text-white">1,400 sq ft per day</strong>  2 person crew. Armstrong and USG systems. We also correct what other contractors left behind.
         </p>
       </div>
 
@@ -112,7 +112,7 @@ get_header(); ?>
           Done Right the First Time.
         </h2>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          Acoustical ceiling installation sounds straightforward. In practice, it is one of the most frequently re-done ceiling scopes on commercial projects — because tile reveal cuts are executed incorrectly, grid systems are not properly leveled, or coordination with MEP rough-ins is mismanaged.
+          Acoustical ceiling installation sounds straightforward. In practice, it is one of the most frequently re done ceiling scopes on commercial projects because tile reveal cuts are executed incorrectly, grid systems are not properly leveled, or coordination with MEP rough ins is mismanaged.
         </p>
         <p class="text-base leading-relaxed" style="color: #585858;">
           Imvera's ceiling crews are regularly called in to correct work that other contractors left behind. We do it right the first time.
@@ -226,7 +226,7 @@ get_header(); ?>
           Common Problems Imvera Solves.
         </h2>
         <p class="text-sm leading-relaxed mb-6" style="color: #585858;">
-          Acoustical ceilings are among the most commonly reworked scopes on commercial projects. The problems are predictable. Imvera's crews deal with them regularly — often brought in after another contractor has already failed.
+          Acoustical ceilings are among the most commonly reworked scopes on commercial projects. The problems are predictable. Imvera's crews deal with them regularly often brought in after another contractor has already failed.
         </p>
         <!-- Credibility statement -->
         <div class="rounded-xl p-6 relative overflow-hidden"
@@ -237,7 +237,7 @@ get_header(); ?>
             <div class="w-8 h-0.5 mb-3 rounded-full" style="background: linear-gradient(135deg, #6FC061, #2A9D93);"></div>
             <p class="text-white font-bold text-base mb-2 leading-snug">We fix what others left behind.</p>
             <p class="text-xs leading-relaxed" style="color: #7fa89e;">
-              Imvera's ceiling crews are regularly called in to correct deficient installations — re-cutting reveals, re-leveling grids, and coordinating MEP clearances that the original crew ignored. If a ceiling scope has already gone wrong on your project, we can reset it.
+              Imvera's ceiling crews are regularly called in to correct deficient installations re-cutting reveals, re leveling grids, and coordinating MEP clearances that the original crew ignored. If a ceiling scope has already gone wrong on your project, we can reset it.
             </p>
           </div>
         </div>
@@ -311,7 +311,7 @@ get_header(); ?>
           Primary Sectors.
         </h2>
         <p class="text-sm leading-relaxed" style="color: #585858;">
-          Acoustical ceilings appear on virtually every commercial interior scope. Imvera's output rate and correction capability make the difference on fast-track projects.
+          Acoustical ceilings appear on virtually every commercial interior scope. Imvera's output rate and correction capability make the difference on fast track projects.
         </p>
       </div>
 
@@ -335,7 +335,7 @@ get_header(); ?>
           ],
           [
             'title' => 'Institutional Environments',
-            'desc'  => 'Universities, government facilities, and financial sector buildouts requiring acoustical ceiling systems with institutional-grade performance and inspection-ready results.',
+            'desc'  => 'Universities, government facilities, and financial sector buildouts requiring acoustical ceiling systems with institutional grade performance and inspection ready results.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>',
           ],
         ];

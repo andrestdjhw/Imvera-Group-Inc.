@@ -29,7 +29,7 @@ get_header(); ?>
         <span style="background: linear-gradient(135deg, #6FC061, #2A9D93); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"> Interior Project.</span>
       </h1>
       <p class="text-base leading-relaxed mb-3" style="color: #b8d4ce;">
-        Imvera Group works with general contractors, franchise rollout contractors, and commercial developers across the Southeast who need multi-trade interior execution that protects schedules, passes inspections, and eliminates operational risk.
+        Imvera Group works with general contractors, franchise rollout contractors, and commercial developers across the Southeast who need multi trade interior execution that protects schedules, passes inspections, and eliminates operational risk.
       </p>
       <p class="text-sm leading-relaxed" style="color: #7fa89e;">
         Fill out the form or reach out directly. All project inquiries receive a response within one business day.
@@ -68,7 +68,7 @@ get_header(); ?>
             </svg>
             <div>
               <p class="font-bold text-sm" style="color: #162525;">Response Within 1 Business Day</p>
-              <p class="text-xs mt-0.5 leading-relaxed" style="color: #585858;">All project inquiries receive a direct response. No auto-replies, no delays.</p>
+              <p class="text-xs mt-0.5 leading-relaxed" style="color: #585858;">All project inquiries receive a direct response. No auto replies, no delays.</p>
             </div>
           </div>
 
@@ -111,7 +111,7 @@ get_header(); ?>
                 <p class="text-xs mb-0.5" style="color: #7fa89e;">Email</p>
                 <p class="font-semibold text-sm transition-colors duration-200 text-white"
                    onmouseover="this.style.color='#2A9D93'"
-                   onmouseout="this.style.color='white'">info@imveragroupinc.com</p>
+                   onmouseout="this.style.color='white'">info@imveragroup.com</p>
               </div>
             </a>
 

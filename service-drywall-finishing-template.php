@@ -55,7 +55,7 @@ get_header(); ?>
       </h1>
 
       <p class="text-lg leading-relaxed mb-6 max-w-2xl" style="color: #b8d4ce;">
-        All phases self-performed — hanging, taping, mudding, and patching — by dedicated crews that do not rotate to other trades. Fire-rated and moisture-resistant assemblies. Smooth walls only. No textures.
+        All phases self performed hanging, taping, mudding, and patching by dedicated crews that do not rotate to other trades. Fire rated and moisture resistant assemblies. Smooth walls only. No textures.
       </p>
 
       <!-- Discipline callout -->
@@ -65,7 +65,7 @@ get_header(); ?>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
         </svg>
         <p class="text-sm" style="color: #b8d4ce;">
-          <strong class="text-white">480 sheets per week · 2-person crew.</strong> Dedicated hanging, taping, and mudding crews — never mixed with other trades.
+          <strong class="text-white">480 sheets per week · 2 person crew.</strong> Dedicated hanging, taping, and mudding crews never mixed with other trades.
         </p>
       </div>
 
@@ -109,13 +109,13 @@ get_header(); ?>
           <div class="flex-1 max-w-xs h-px" style="background: linear-gradient(to right, rgba(42,157,147,0.4), transparent);"></div>
         </div>
         <h2 class="text-3xl sm:text-4xl font-bold leading-tight mb-5" style="color: #162525;">
-          All Phases. Self-Performed. Smooth Finish Only.
+          All Phases. Self Performed. Smooth Finish Only.
         </h2>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          Imvera Group self-performs all phases of commercial drywall installation — hanging, taping, mudding, and patching — with dedicated crews that do not rotate to other trades. This discipline is what produces a consistent, inspection-ready finish on every project.
+          Imvera Group self performs all phases of commercial drywall installation hanging, taping, mudding, and patching with dedicated crews that do not rotate to other trades. This discipline is what produces a consistent, inspection-ready finish on every project.
         </p>
         <p class="text-base leading-relaxed" style="color: #585858;">
-          We install fire-rated and moisture-resistant assemblies for commercial interior environments across retail, healthcare, restaurant, office, and light industrial projects. Our finishing standard is smooth — no textures — which is the specification that commercial GC partners and institutional clients require for painted commercial interiors.
+          We install fire rated and moisture resistant assemblies for commercial interior environments across retail, healthcare, restaurant, office, and light industrial projects. Our finishing standard is smooth no textures which is the specification that commercial GC partners and institutional clients require for painted commercial interiors.
         </p>
       </div>
 
@@ -170,7 +170,7 @@ get_header(); ?>
         [
           'num'   => '01',
           'title' => 'Hanging',
-          'desc'  => 'Fire-rated and moisture-resistant drywall installed to spec — correct board type, correct orientation, correct fastener pattern. No shortcuts on the substrate.',
+          'desc'  => 'Fire rated and moisture-resistant drywall installed to spec correct board type, correct orientation, correct fastener pattern. No shortcuts on the substrate.',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>',
         ],
         [
@@ -218,9 +218,9 @@ get_header(); ?>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <?php
       $assemblies = [
-        ['title' => 'Fire-Rated Assemblies',          'desc' => 'Code-compliant fire separation and protection for commercial interiors requiring rated wall systems.'],
-        ['title' => 'Moisture-Resistant Assemblies',  'desc' => 'Kitchens, restrooms, and high-humidity commercial environments where standard drywall fails.'],
-        ['title' => 'Standard Commercial Drywall',    'desc' => 'Retail TI, office, healthcare, and restaurant interiors. Full scope from first board to paint-ready wall.'],
+        ['title' => 'Fire-Rated Assemblies',          'desc' => 'Code compliant fire separation and protection for commercial interiors requiring rated wall systems.'],
+        ['title' => 'Moisture-Resistant Assemblies',  'desc' => 'Kitchens, restrooms, and high humidity commercial environments where standard drywall fails.'],
+        ['title' => 'Standard Commercial Drywall',    'desc' => 'Retail TI, office, healthcare, and restaurant interiors. Full scope from first board to paint ready wall.'],
       ];
       foreach ($assemblies as $a) : ?>
         <div class="rounded-xl px-5 py-4 flex items-start gap-3"
@@ -256,7 +256,7 @@ get_header(); ?>
           The Differentiator Is Discipline. Not the Material.
         </h2>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          What separates Imvera drywall crews from the competition is not the material — it is the discipline. The same drywall sheets are available to every contractor on the market. What is not common is the operational behavior that produces inspection-ready walls.
+          What separates Imvera drywall crews from the competition is not the material it is the discipline. The same drywall sheets are available to every contractor on the market. What is not common is the operational behavior that produces inspection ready walls.
         </p>
         <p class="text-base leading-relaxed italic pl-4" style="color: #585858; border-left: 4px solid #2A9D93;">
           These behaviors are rarer than GCs would expect in a fragmented subcontractor market.
@@ -273,7 +273,7 @@ get_header(); ?>
           ],
           [
             'title' => 'Formal Job Starts. Executed to Procedure.',
-            'desc'  => 'Every job day begins with a formal start — scope confirmed, materials staged, sequence set. No ad-hoc improvisation on the job site.',
+            'desc'  => 'Every job day begins with a formal start scope confirmed, materials staged, sequence set. No ad hoc improvisation on the job site.',
           ],
           [
             'title' => 'Dedicated Crews. Not Rotated Between Trades.',
@@ -334,22 +334,22 @@ get_header(); ?>
         $sectors = [
           [
             'title' => 'Retail TI & Restaurants',
-            'desc'  => 'Fast-track drywall for retail tenant improvement and restaurant interiors on compressed schedules. Output rate keeps the project moving.',
+            'desc'  => 'Fast track drywall for retail tenant improvement and restaurant interiors on compressed schedules. Output rate keeps the project moving.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>',
           ],
           [
             'title' => 'Healthcare & Medical Office',
-            'desc'  => 'Fire-rated and moisture-resistant assemblies for healthcare buildouts with code-driven wall system requirements. Infection control sequencing coordinated.',
+            'desc'  => 'Fire rated and moisture-resistant assemblies for healthcare buildouts with code driven wall system requirements. Infection control sequencing coordinated.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>',
           ],
           [
             'title' => 'Corporate & Mixed-Use TI',
-            'desc'  => 'Office and mixed-use interior buildouts where smooth, paint-ready walls are the baseline expectation. Imvera delivers it consistently at scale.',
+            'desc'  => 'Office and mixed use interior buildouts where smooth, paint-ready walls are the baseline expectation. Imvera delivers it consistently at scale.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>',
           ],
           [
             'title' => 'Light Industrial & Warehouse Office',
-            'desc'  => 'Office build-outs within light industrial and warehouse facilities requiring efficient, compliant drywall installation on production timelines.',
+            'desc'  => 'Office build outs within light industrial and warehouse facilities requiring efficient, compliant drywall installation on production timelines.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>',
           ],
         ];
@@ -426,7 +426,7 @@ get_header(); ?>
           ['label' => 'Phases',        'value' => 'Hanging · Taping · Mudding · Patching'],
           ['label' => 'Weekly Output', 'value' => '480 sheets (2-person crew)'],
           ['label' => 'Daily Output',  'value' => '80 sheets per 8-hour shift'],
-          ['label' => 'Finish Type',   'value' => 'Smooth only — no textures'],
+          ['label' => 'Finish Type',   'value' => 'Smooth only no textures'],
           ['label' => 'Assemblies',    'value' => 'Fire-rated & moisture-resistant'],
           ['label' => 'Warranty',      'value' => '1 year workmanship'],
           ['label' => 'Active States', 'value' => 'GA · NC · SC · TN · TX · KY · FL'],

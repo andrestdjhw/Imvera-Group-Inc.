@@ -50,12 +50,12 @@ get_header(); ?>
       </div>
 
       <h1 class="text-4xl sm:text-5xl xl:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-6">
-        Non-Structural Interior
+        Non Structural Interior
         <span style="background: linear-gradient(135deg, #6FC061, #2A9D93); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"> Metal Framing.</span>
       </h1>
 
       <p class="text-lg leading-relaxed mb-6 max-w-2xl" style="color: #b8d4ce;">
-        Executed from structural drawings. 16, 18, and 20 gauge steel per spec. Layouts marked and verified before framing starts. English-speaking foreman on every project. Passes inspection first time.
+        Executed from structural drawings. 16, 18, and 20 gauge steel per spec. Layouts marked and verified before framing starts. English speaking foreman on every project. Passes inspection first time.
       </p>
 
       <!-- Inspection callout -->
@@ -65,7 +65,7 @@ get_header(); ?>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
         </svg>
         <p class="text-sm" style="color: #b8d4ce;">
-          <strong class="text-white">Framing and ACT ceiling inspections passed on first submission.</strong> Pre-inspection layout verification eliminates the most common reinspection cause.
+          <strong class="text-white">Framing and ACT ceiling inspections passed on first submission.</strong> Pre inspection layout verification eliminates the most common reinspection cause.
         </p>
       </div>
 
@@ -112,10 +112,10 @@ get_header(); ?>
           The Foundation Every Interior Scope Depends On.
         </h2>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          Framing is the structural foundation of every interior scope that follows. When it is done precisely — layouts marked correctly, blocking installed where required, gauge selection matched to spec — every subsequent trade executes faster and cleaner.
+          Framing is the structural foundation of every interior scope that follows. When it is done precisely layouts marked correctly, blocking installed where required, gauge selection matched to spec every subsequent trade executes faster and cleaner.
         </p>
         <p class="text-base leading-relaxed" style="color: #585858;">
-          When it is not, the delays and costs compound through the entire project. Imvera provides non-structural interior metal framing executed from structural drawings with the layout precision, material quality, and inspection readiness that GC partners require to keep projects moving without reinspection delays.
+          When it is not, the delays and costs compound through the entire project. Imvera provides non structural interior metal framing executed from structural drawings with the layout precision, material quality, and inspection readiness that GC partners require to keep projects moving without reinspection delays.
         </p>
       </div>
 
@@ -124,8 +124,8 @@ get_header(); ?>
         <?php
         $stats = [
           ['value' => '3',        'label' => 'Gauges Available',     'sub' => '16, 18, and 20 gauge steel'],
-          ['value' => '✓',        'label' => 'Passes Inspection',    'sub' => 'First submission — framing & ACT'],
-          ['value' => 'EN',       'label' => 'English-Speaking',     'sub' => 'Foreman on every project'],
+          ['value' => '✓',        'label' => 'Passes Inspection',    'sub' => 'First submission framing & ACT'],
+          ['value' => 'EN',       'label' => 'English Speaking',     'sub' => 'Foreman on every project'],
           ['value' => '1yr',      'label' => 'Warranty',             'sub' => 'All completed installations'],
         ];
         foreach ($stats as $s) : ?>
@@ -164,26 +164,26 @@ get_header(); ?>
       <?php
       $installs = [
         [
-          'title' => 'Non-Structural Interior Steel Framing',
-          'desc'  => '16, 18, and 20 gauge steel framing per project specification. Correct gauge selected to spec — not whatever is left on the truck. Executed from structural drawings.',
+          'title' => 'Non Structural Interior Steel Framing',
+          'desc'  => '16, 18, and 20 gauge steel framing per project specification. Correct gauge selected to spec not whatever is left on the truck. Executed from structural drawings.',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>',
           'highlight' => true,
         ],
         [
           'title' => 'Demising Walls & Partition Systems',
-          'desc'  => 'Interior demising walls and partition framing for tenant improvement, office, retail, and healthcare environments — laid out and executed to architectural drawings.',
+          'desc'  => 'Interior demising walls and partition framing for tenant improvement, office, retail, and healthcare environments laid out and executed to architectural drawings.',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 5H4m0 0l4 4m-4-4l4-4"/>',
           'highlight' => false,
         ],
         [
           'title' => 'Blocking Installations',
-          'desc'  => 'Blocking installed at all required locations for ceiling attachment, fixture mounting, and equipment anchor points — per inspection specification. Not skipped, not guessed.',
+          'desc'  => 'Blocking installed at all required locations for ceiling attachment, fixture mounting, and equipment anchor points per inspection specification. Not skipped, not guessed.',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>',
           'highlight' => false,
         ],
         [
-          'title' => 'Drawing-Based Layout Coordination',
-          'desc'  => 'Layouts marked and verified from structural plans before framing begins. Pre-inspection verification eliminates the most common cause of framing reinspection.',
+          'title' => 'Drawing Based Layout Coordination',
+          'desc'  => 'Layouts marked and verified from structural plans before framing begins. Pre inspection verification eliminates the most common cause of framing reinspection.',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>',
           'highlight' => false,
         ],
@@ -232,7 +232,7 @@ get_header(); ?>
         Common Failures on Other Crews. Not on Ours.
       </h2>
       <p class="text-sm max-w-sm lg:text-right" style="color: #585858;">
-        The most common framing failures in commercial construction are execution and communication failures — not material failures.
+        The most common framing failures in commercial construction are execution and communication failures not material failures.
       </p>
     </div>
 
@@ -256,9 +256,9 @@ get_header(); ?>
           $failures = [
             'Old or incorrect gauge material used on site',
             'Layouts not marked correctly before framing begins',
-            'No English-speaking foreman — GC cannot communicate directly',
+            'No English speaking foreman GC cannot communicate directly',
             'Missing PPE: no masks, glasses, or harness on site',
-            'Blocking not installed at required locations — inspection failure',
+            'Blocking not installed at required locations inspection failure',
           ];
           foreach ($failures as $f) : ?>
             <div class="flex items-start gap-3 px-6 py-4" style="border-color: #fef2f2;">
@@ -287,11 +287,11 @@ get_header(); ?>
         <div class="divide-y bg-white" style="border-color: rgba(42,157,147,0.1);">
           <?php
           $delivers = [
-            'Correct gauge material per spec — verified before framing starts',
+            'Correct gauge material per spec verified before framing starts',
             'Layouts marked and verified from structural drawings before work begins',
-            'English-speaking foreman on every commercial project',
+            'English speaking foreman on every commercial project',
             'Full PPE: masks, ear protection, safety glasses, harness where required',
-            'Blocking installed correctly at all required locations — passes inspection first time',
+            'Blocking installed correctly at all required locations passes inspection first time',
           ];
           foreach ($delivers as $d) : ?>
             <div class="flex items-start gap-3 px-6 py-4" style="border-color: rgba(42,157,147,0.08);">
@@ -316,9 +316,9 @@ get_header(); ?>
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
       </svg>
       <div>
-        <p class="font-bold text-sm mb-1" style="color: #162525;">First-Submission Inspection Record</p>
+        <p class="font-bold text-sm mb-1" style="color: #162525;">First Submission Inspection Record</p>
         <p class="text-sm leading-relaxed" style="color: #585858;">
-          Imvera framing crews regularly pass framing and ACT ceiling inspections on first submission. The most common cause of framing reinspection — blocking not installed where required — is eliminated by Imvera's pre-inspection layout verification process.
+          Imvera framing crews regularly pass framing and ACT ceiling inspections on first submission. The most common cause of framing reinspection blocking not installed where required is eliminated by Imvera's pre inspection layout verification process.
         </p>
       </div>
     </div>
@@ -358,17 +358,17 @@ get_header(); ?>
           ],
           [
             'title' => 'Healthcare & Medical Office',
-            'desc'  => 'Fire-rated framing assemblies for healthcare buildouts. Code-compliant layouts and blocking verified before inspection — no reinspection delays on healthcare timelines.',
+            'desc'  => 'Fire rated framing assemblies for healthcare buildouts. Code compliant layouts and blocking verified before inspection no reinspection delays on healthcare timelines.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>',
           ],
           [
             'title' => 'Light Industrial & Warehouse Office',
-            'desc'  => 'Office build-outs within light industrial and warehouse facilities. Fast, compliant framing on production timelines with minimal disruption to active facility operations.',
+            'desc'  => 'Office build outs within light industrial and warehouse facilities. Fast, compliant framing on production timelines with minimal disruption to active facility operations.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>',
           ],
           [
-            'title' => 'Corporate & Mixed-Use TI',
-            'desc'  => 'Multi-floor and multi-zone interior framing programs for corporate and mixed-use developments. Same foreman, same standard across every floor and every phase.',
+            'title' => 'Corporate & Mixed Use TI',
+            'desc'  => 'Multi floor and multi zone interior framing programs for corporate and mixed use developments. Same foreman, same standard across every floor and every phase.',
             'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>',
           ],
         ];
@@ -441,11 +441,11 @@ get_header(); ?>
         <p class="text-xs font-semibold tracking-widest uppercase mb-4" style="color: #2A9D93;">Quick Specs</p>
         <?php
         $specs = [
-          ['label' => 'Trade',          'value' => 'Non-Structural Interior Metal Framing'],
+          ['label' => 'Trade',          'value' => 'Non Structural Interior Metal Framing'],
           ['label' => 'Gauge',          'value' => '16, 18, and 20 gauge steel'],
           ['label' => 'Drawings',       'value' => 'Works from structural plans'],
-          ['label' => 'Foreman',        'value' => 'English-speaking on every project'],
-          ['label' => 'PPE',            'value' => 'Full — masks, glasses, harness'],
+          ['label' => 'Foreman',        'value' => 'English speaking on every project'],
+          ['label' => 'PPE',            'value' => 'Full masks, glasses, harness'],
           ['label' => 'Inspections',    'value' => 'Passes first submission'],
           ['label' => 'Warranty',       'value' => '1 year workmanship'],
           ['label' => 'Active States',  'value' => 'GA · NC · SC · TN · TX · KY · FL'],

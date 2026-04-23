@@ -24,10 +24,10 @@ get_header(); ?>
       </div>
       <h1 class="text-4xl sm:text-5xl font-bold text-white leading-[1.05] tracking-tight mb-5">
         Active Across the Southeast's
-        <span style="background: linear-gradient(135deg, #6FC061, #2A9D93); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"> Fastest-Growing Markets.</span>
+        <span style="background: linear-gradient(135deg, #6FC061, #2A9D93); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"> Fastest Growing Markets.</span>
       </h1>
       <p class="text-base leading-relaxed" style="color: #b8d4ce;">
-        Imvera Group maintains active commercial interior operations across seven states — with four primary markets where we deliver consistent volume for GC partners managing ongoing project pipelines.
+        Imvera Group maintains active commercial interior operations across seven states with four primary markets where we deliver consistent volume for GC partners managing ongoing project pipelines.
       </p>
     </div>
   </div>
@@ -84,7 +84,7 @@ get_header(); ?>
         'id'      => 'nashville',
         'city'    => 'Nashville, TN',
         'label'   => 'Healthcare & Compliance',
-        'desc'    => 'Outpatient facility expansion, hospitality renovation programs, and compliance-heavy interior buildouts define Nashville\'s commercial interior market. Imvera\'s expertise in fire-rated assemblies, FRP, and healthcare casework positions us well for the project types driving growth in this market.',
+        'desc'    => 'Outpatient facility expansion, hospitality renovation programs, and compliance-heavy interior buildouts define Nashville\'s commercial interior market. Imvera\'s expertise in fire rated assemblies, FRP, and healthcare casework positions us well for the project types driving growth in this market.',
         'map'     => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206222.77!2d-86.7816!3d36.1627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864ec3213eb903d%3A0x7d3fb9d0a1e9daa0!2sNashville%2C%20TN!5e0!3m2!1sen!2sus!4v1620000000000',
         'stats'   => ['Healthcare', 'Hospitality', 'Compliance', 'Food Service'],
       ],
@@ -92,7 +92,7 @@ get_header(); ?>
         'id'      => 'raleigh',
         'city'    => 'Raleigh / Triangle, NC',
         'label'   => 'Stable Buildout Environment',
-        'desc'    => 'Corporate relocations, medical office growth, institutional expansion, and tech sector tenant improvement create a stable, diversified interior construction pipeline in the Raleigh-Durham Triangle. Imvera operates across the full Triangle market — Raleigh, Durham, and Chapel Hill.',
+        'desc'    => 'Corporate relocations, medical office growth, institutional expansion, and tech sector tenant improvement create a stable, diversified interior construction pipeline in the Raleigh-Durham Triangle. Imvera operates across the full Triangle market Raleigh, Durham, and Chapel Hill.',
         'map'     => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206862.26!2d-78.6382!3d35.7796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac5a2f9f51e0f7%3A0x6f8d2a3dbf5d7f8!2sRaleigh%2C%20NC!5e0!3m2!1sen!2sus!4v1620000000000',
         'stats'   => ['Corporate TI', 'Medical Office', 'Institutional', 'Tech Sector'],
       ],
@@ -197,7 +197,7 @@ get_header(); ?>
         </div>
 
         <p class="text-sm italic pl-4" style="color: #7fa89e; border-left: 3px solid rgba(42,157,147,0.4);">
-          Working in a state not listed? Contact us — we go where the work is.
+          Working in a state not listed? Contact us we go where the work is.
         </p>
       </div>
 
