@@ -21,20 +21,28 @@ __webpack_require__.r(__webpack_exports__);
 /*
  * ContactForm — Standalone reusable component
  * ─────────────────────────────────────────────────────────────
- * Props:
- *   variant   "dark"  (default) — for use on dark/hero backgrounds (#162525)
- *             "light"           — for use on light backgrounds (#F1F6F2 / white)
- *   title     string  — overrides the default heading
- *   subtitle  string  — overrides the default subheading
+ * Dependencies:
+ *   npm install @emailjs/browser
  *
- * Usage in PHP templates:
- *   <div id="render-contact-form-here"
- *        data-variant="dark"
- *        data-title="Send an Inquiry"
- *        data-subtitle="Get a Response Within 1 Business Day">
- *   </div>
+ * Setup:
+ *   1. Replace the three EmailJS constants below with your real values
+ *   2. Replace RECAPTCHA_SITE_KEY with your reCAPTCHA v2 site key
+ *   3. In your EmailJS template, map these variables:
+ *      {{from_name}}, {{company}}, {{phone}}, {{reply_to}},
+ *      {{service}}, {{state}}, {{message}}
  * ─────────────────────────────────────────────────────────────
  */
+
+// ── EmailJS config ────────────────────────────────────────────
+
+const EMAILJS_SERVICE_ID = "service_9nox164"; // e.g. "service_xxxxxxx"
+const EMAILJS_TEMPLATE_ID = "template_vfnpi35"; // e.g. "template_xxxxxxx"
+const EMAILJS_PUBLIC_KEY = "eLgbIY6jJeClI38Z5"; // e.g. "xxxxxxxxxxxxxxxxxxxx"
+
+// ── reCAPTCHA v2 config ───────────────────────────────────────
+const RECAPTCHA_SITE_KEY = "6LeZGsUsAAAAAA28bhe_ldEX8X_9pgWrjK1mXXB7";
+
+// ─────────────────────────────────────────────────────────────
 
 const SERVICES = [{
   value: "",
@@ -92,7 +100,7 @@ const STATES = [{
   label: "Other"
 }];
 
-// ── Shared style helpers ──────────────────────────────────────
+// ── Style helpers ─────────────────────────────────────────────
 
 function inputStyles(variant, focused) {
   const base = {
@@ -113,7 +121,6 @@ function inputStyles(variant, focused) {
       color: "#162525"
     };
   }
-  // dark
   return {
     ...base,
     background: focused ? "rgba(241,246,242,0.09)" : "rgba(241,246,242,0.06)",
@@ -203,6 +210,28 @@ function SelectWrapper({
   });
 }
 
+// ── reCAPTCHA v2 helpers ──────────────────────────────────────
+
+let recaptchaScriptLoaded = false;
+function loadRecaptchaScript() {
+  return new Promise(resolve => {
+    if (recaptchaScriptLoaded || window.grecaptcha) {
+      recaptchaScriptLoaded = true;
+      resolve();
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = "https://www.google.com/recaptcha/api.js?render=explicit";
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {
+      recaptchaScriptLoaded = true;
+      resolve();
+    };
+    document.head.appendChild(script);
+  });
+}
+
 // ── Main component ────────────────────────────────────────────
 
 function ContactForm({
@@ -224,7 +253,11 @@ function ContactForm({
   const [focused, setFocused] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});
   const [agreed, setAgreed] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const [agreeErr, setAgreeErr] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [captchaErr, setCaptchaErr] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const [status, setStatus] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null); // null | "sending" | "success" | "error"
+  const [errMsg, setErrMsg] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  const captchaRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null); // div where widget renders
+  const widgetIdRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null); // grecaptcha widget ID
 
   const set = key => e => setFields(prev => ({
     ...prev,
@@ -238,29 +271,90 @@ function ContactForm({
     ...prev,
     [key]: false
   }));
+
+  // Load reCAPTCHA script and render widget when component mounts
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    let cancelled = false;
+    async function init() {
+      await loadRecaptchaScript();
+      if (cancelled || !captchaRef.current || widgetIdRef.current !== null) return;
+
+      // Poll until grecaptcha.render is ready
+      const tryRender = () => {
+        if (window.grecaptcha && window.grecaptcha.render) {
+          widgetIdRef.current = window.grecaptcha.render(captchaRef.current, {
+            sitekey: RECAPTCHA_SITE_KEY,
+            theme: variant === "light" ? "light" : "dark",
+            callback: () => setCaptchaErr(false),
+            "expired-callback": () => {
+              widgetIdRef.current = null;
+            }
+          });
+        } else {
+          setTimeout(tryRender, 100);
+        }
+      };
+      tryRender();
+    }
+    init();
+    return () => {
+      cancelled = true;
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   async function handleSubmit(e) {
     e.preventDefault();
+
+    // 1. Terms check
     if (!agreed) {
       setAgreeErr(true);
       return;
     }
     setAgreeErr(false);
+
+    // 2. reCAPTCHA v2 check
+    const recaptchaToken = widgetIdRef.current !== null ? window.grecaptcha.getResponse(widgetIdRef.current) : window.grecaptcha?.getResponse();
+    if (!recaptchaToken) {
+      setCaptchaErr(true);
+      return;
+    }
+    setCaptchaErr(false);
     setStatus("sending");
+    setErrMsg("");
     try {
-      const body = new FormData(e.target);
-      const res = await fetch(e.target.action, {
-        method: "POST",
-        body
-      });
-      setStatus(res.ok ? "success" : "error");
-    } catch {
+      // 3. Dynamic import EmailJS
+      const emailjs = (await __webpack_require__.e(/*! import() */ "vendors-node_modules_emailjs_browser_es_index_js").then(__webpack_require__.bind(__webpack_require__, /*! @emailjs/browser */ "./node_modules/@emailjs/browser/es/index.js"))).default;
+
+      // 4. Build template params — must match your EmailJS template variables
+      const templateParams = {
+        from_name: fields.full_name,
+        company: fields.company,
+        phone: fields.phone,
+        reply_to: fields.email,
+        service: fields.service || "Not specified",
+        state: fields.state || "Not specified",
+        message: fields.message || "—"
+      };
+
+      // 5. Send
+      const result = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
+      if (result.status === 200) {
+        setStatus("success");
+      } else {
+        throw new Error(`EmailJS returned status ${result.status}`);
+      }
+    } catch (err) {
+      console.error("ContactForm error:", err);
       setStatus("error");
+      setErrMsg(err?.text || err?.message || "");
+      // Reset reCAPTCHA so user can try again
+      if (widgetIdRef.current !== null) {
+        window.grecaptcha.reset(widgetIdRef.current);
+      }
     }
   }
   const isDark = variant !== "light";
   const lblColor = labelColor(variant);
-
-  // Wrapper background when used standalone (light variant gets a card look)
   const wrapperStyle = isDark ? {
     background: "rgba(241,246,242,0.04)",
     backdropFilter: "blur(8px)",
@@ -360,23 +454,13 @@ function ContactForm({
       },
       children: resolvedTitle
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
-      action: window.imveraAjax?.url || "/wp-admin/admin-post.php",
-      method: "POST",
       onSubmit: handleSubmit,
       style: {
         display: "flex",
         flexDirection: "column",
         gap: "0.875rem"
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-        type: "hidden",
-        name: "action",
-        value: "imvera_inquiry"
-      }), window.imveraAjax?.nonce && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-        type: "hidden",
-        name: "imvera_inquiry_nonce",
-        value: window.imveraAjax.nonce
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         style: {
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
@@ -392,7 +476,6 @@ function ContactForm({
           }),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "text",
-            name: "full_name",
             required: true,
             placeholder: "John Smith",
             value: fields.full_name,
@@ -410,7 +493,6 @@ function ContactForm({
           }),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "text",
-            name: "company",
             required: true,
             placeholder: "ABC Construction",
             value: fields.company,
@@ -436,7 +518,6 @@ function ContactForm({
           }),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "tel",
-            name: "phone",
             required: true,
             placeholder: "(678) 000-0000",
             value: fields.phone,
@@ -454,7 +535,6 @@ function ContactForm({
           }),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
             type: "email",
-            name: "email",
             required: true,
             placeholder: "john@company.com",
             value: fields.email,
@@ -480,7 +560,6 @@ function ContactForm({
           }),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SelectWrapper, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
-              name: "service",
               value: fields.service,
               onChange: set("service"),
               onFocus: onFocus("service"),
@@ -502,7 +581,6 @@ function ContactForm({
           }),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SelectWrapper, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("select", {
-              name: "state",
               value: fields.state,
               onChange: set("state"),
               onFocus: onFocus("state"),
@@ -524,7 +602,6 @@ function ContactForm({
           children: "Message"
         }),
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
-          name: "message",
           rows: 3,
           placeholder: "Briefly describe your project scope\u2026",
           value: fields.message,
@@ -536,6 +613,32 @@ function ContactForm({
             resize: "none"
           }
         })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          ref: captchaRef
+        }), captchaErr && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+          style: {
+            fontSize: "0.7rem",
+            color: "#f87171",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.25rem",
+            marginTop: "0.375rem"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+            width: "12",
+            height: "12",
+            fill: "none",
+            stroke: "currentColor",
+            viewBox: "0 0 24 24",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              strokeWidth: 2,
+              d: "M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+            })
+          }), "Please complete the reCAPTCHA verification."]
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
         style: {
           display: "flex",
@@ -557,10 +660,10 @@ function ContactForm({
             width: "1.125rem",
             height: "1.125rem",
             borderRadius: "0.25rem",
-            border: `2px solid ${agreed ? "#2A9D93" : agreeErr ? "#f87171" : isDark ? "rgba(241,246,242,0.25)" : "#c5d0cc"}`,
-            background: agreed ? "linear-gradient(135deg, #6FC061, #2A9D93)" : "transparent",
             flexShrink: 0,
             marginTop: "1px",
+            border: `2px solid ${agreed ? "#2A9D93" : agreeErr ? "#f87171" : isDark ? "rgba(241,246,242,0.25)" : "#c5d0cc"}`,
+            background: agreed ? "linear-gradient(135deg, #6FC061, #2A9D93)" : "transparent",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -627,13 +730,20 @@ function ContactForm({
             d: "M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
           })
         }), "You must agree to the Terms & Conditions and Privacy Policy to continue."]
-      }), status === "error" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      }), status === "error" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
         style: {
           fontSize: "0.75rem",
           color: "#f87171",
           textAlign: "center"
         },
-        children: "Something went wrong. Please try again or call us directly."
+        children: ["Something went wrong. Please try again or call us at 678-836-3266.", errMsg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          style: {
+            display: "block",
+            opacity: 0.6,
+            marginTop: "0.25rem"
+          },
+          children: errMsg
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
         type: "submit",
         disabled: status === "sending",
@@ -695,7 +805,7 @@ function ContactForm({
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
         style: {
           textAlign: "center",
-          fontSize: "0.75rem",
+          fontSize: "0.7rem",
           color: isDark ? "#4d7069" : "#7fa89e",
           display: "flex",
           alignItems: "center",
@@ -703,11 +813,14 @@ function ContactForm({
           gap: "0.375rem"
         },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
-          width: "14",
-          height: "14",
+          width: "12",
+          height: "12",
           fill: "none",
           stroke: "currentColor",
           viewBox: "0 0 24 24",
+          style: {
+            flexShrink: 0
+          },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
             strokeLinecap: "round",
             strokeLinejoin: "round",
@@ -718,9 +831,7 @@ function ContactForm({
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("style", {
       children: `
-        @media (max-width: 540px) {
-          .cf-grid-2 { grid-template-columns: 1fr !important; }
-        }
+        @media (max-width: 540px) { .cf-grid-2 { grid-template-columns: 1fr !important; } }
         @keyframes spin { to { transform: rotate(360deg); } }
       `
     })]
@@ -1027,6 +1138,720 @@ function Footer() {
 
 /***/ },
 
+/***/ "./src/scripts/ImveraChatbot.js"
+/*!**************************************!*\
+  !*** ./src/scripts/ImveraChatbot.js ***!
+  \**************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+// ── Config ────────────────────────────────────────────────────
+
+const PHONE_DISPLAY = "678-836-3266";
+const PHONE_LINK = "tel:6788363266";
+const EMAIL_DISPLAY = "info@imveragroup.com";
+const EMAIL_LINK = "mailto:info@imveragroup.com";
+const CONTACT_LINK = "/contact-us";
+const SERVICES_LINK = "/services";
+const MARKETS_LINK = "/markets-we-serve";
+const ABOUT_LINK = "/about-us";
+
+// ── Icons ─────────────────────────────────────────────────────
+
+function BotIcon({
+  className = ""
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("svg", {
+    className: className,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    "aria-hidden": "true",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M12 3C8.134 3 5 6.134 5 10v2.2c0 .53-.21 1.04-.586 1.414L3 15h18l-1.414-1.386A2 2 0 0 1 19 12.2V10c0-3.866-3.134-7-7-7Z",
+      stroke: "currentColor",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M9 18c.4 1.2 1.5 2 3 2s2.6-.8 3-2",
+      stroke: "currentColor",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("circle", {
+      cx: "9.25",
+      cy: "10.25",
+      r: "1",
+      fill: "currentColor"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("circle", {
+      cx: "14.75",
+      cy: "10.25",
+      r: "1",
+      fill: "currentColor"
+    })]
+  });
+}
+function CloseIcon({
+  className = ""
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("svg", {
+    className: className,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    "aria-hidden": "true",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M6 6L18 18",
+      stroke: "currentColor",
+      strokeWidth: "1.9",
+      strokeLinecap: "round"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M18 6L6 18",
+      stroke: "currentColor",
+      strokeWidth: "1.9",
+      strokeLinecap: "round"
+    })]
+  });
+}
+function SendIcon({
+  className = ""
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("svg", {
+    className: className,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    "aria-hidden": "true",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M21 3L10 14",
+      stroke: "currentColor",
+      strokeWidth: "1.8",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M21 3L14 21L10 14L3 10L21 3Z",
+      stroke: "currentColor",
+      strokeWidth: "1.8",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    })]
+  });
+}
+function PhoneIcon({
+  className = ""
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+    className: className,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    "aria-hidden": "true",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M21 16.2V19a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h2.8a2 2 0 0 1 2 1.72l.38 2.66a2 2 0 0 1-.58 1.72l-1.2 1.2a16 16 0 0 0 5.4 5.4l1.2-1.2a2 2 0 0 1 1.72-.58l2.66.38A2 2 0 0 1 21 16.2Z",
+      stroke: "currentColor",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    })
+  });
+}
+function LinkIcon({
+  className = ""
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("svg", {
+    className: className,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    "aria-hidden": "true",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M14 5H19V10",
+      stroke: "currentColor",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M10 14L19 5",
+      stroke: "currentColor",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+      d: "M19 14V18a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1H10",
+      stroke: "currentColor",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    })]
+  });
+}
+
+// ── Bot logic ─────────────────────────────────────────────────
+
+function msg(text, links = []) {
+  return {
+    id: Date.now() + Math.random(),
+    text,
+    sender: "bot",
+    timestamp: new Date(),
+    links
+  };
+}
+function getBotResponse(rawInput) {
+  const i = rawInput.toLowerCase();
+
+  // ECO Grip
+  if (i.includes("eco grip") || i.includes("flooring") || i.includes("floor") || i.includes("kitchen floor")) {
+    return msg("ECO Grip is Imvera's highest-margin service and a key differentiator. We are a certified ECO Grip installer — one of a select group authorized in the Southeast. Our crews handle demolition, adhesive application, seam sealing, drain integration, and full equipment reinstallation. 480 sq ft per day with a 3-person crew.", [{
+      label: "ECO Grip Service",
+      href: "/services/eco-grip-flooring"
+    }, {
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // Cabinets & Countertops
+  if (i.includes("cabinet") || i.includes("countertop") || i.includes("corian") || i.includes("casework")) {
+    return msg("Imvera installs Corian countertops and commercial casework to a zero-defect finishing standard. Our installation crews are dedicated to this trade — not rotated from framing or drywall. No errors, no exceptions. This is the highest-visibility finish work on any commercial interior.", [{
+      label: "Cabinets & Countertops",
+      href: "/services/cabinets-countertops"
+    }, {
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // Acoustical Ceilings
+  if (i.includes("ceiling") || i.includes("acoustical") || i.includes("armstrong") || i.includes("usg") || i.includes("t-bar")) {
+    return msg("Imvera installs Armstrong and USG acoustical ceiling systems with a 2-person crew capable of 1,400 sq ft per day. We also fix what other contractors leave behind — re-cutting tile reveals, re-leveling grids, and coordinating MEP. We pass inspection first time.", [{
+      label: "Acoustical Ceilings",
+      href: "/services/acoustical-ceilings"
+    }, {
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // FRP
+  if (i.includes("frp") || i.includes("fiberglass") || i.includes("wall panel") || i.includes("food service wall")) {
+    return msg("Imvera installs Southern Building Products FRP wall panels using Fast Grab adhesive for commercial kitchens, restrooms, healthcare, and retail environments. 480 sq ft per day with a 3-person crew. Cove base available where specified. No trim moldings.", [{
+      label: "FRP Installation",
+      href: "/services/frp-installation"
+    }, {
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // Drywall
+  if (i.includes("drywall") || i.includes("finishing") || i.includes("hanging") || i.includes("taping") || i.includes("mudding") || i.includes("smooth wall")) {
+    return msg("Imvera self-performs all phases — hanging, taping, mudding, and patching — with dedicated crews. Fire-rated and moisture-resistant assemblies. Smooth walls only, no textures. 480 sheets per week with a 2-person crew. Clean tools, formal job starts, no phones on site.", [{
+      label: "Drywall & Finishing",
+      href: "/services/drywall-finishing"
+    }, {
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // Metal Framing
+  if (i.includes("framing") || i.includes("metal framing") || i.includes("steel") || i.includes("gauge") || i.includes("partition")) {
+    return msg("Imvera provides non-structural interior metal framing in 16, 18, and 20 gauge steel, executed from structural drawings. English-speaking foreman on every project. Full PPE on every site. Layouts verified before framing starts. We pass framing and ACT inspections first submission.", [{
+      label: "Metal Framing",
+      href: "/services/metal-framing"
+    }, {
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // Multi-trade
+  if (i.includes("multi") || i.includes("multiple trade") || i.includes("all trades") || i.includes("single contract") || i.includes("package")) {
+    return msg("Multi-trade execution under one contract is one of Imvera's core advantages. Framing, drywall, ceilings, flooring, FRP, and cabinetry can all be scoped together — one contract, one point of contact, one execution standard across the entire interior package.", [{
+      label: "View All Services",
+      href: SERVICES_LINK
+    }, {
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // Warranty
+  if (i.includes("warranty") || i.includes("guarantee") || i.includes("workmanship")) {
+    return msg("All completed installations are backed by a 1-year workmanship warranty. Imvera stands behind every scope we execute.", [{
+      label: "About Us",
+      href: ABOUT_LINK
+    }, {
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // ECO Grip certification
+  if (i.includes("certified") || i.includes("certification") || i.includes("authorized")) {
+    return msg("Yes — Imvera holds certified installer status for ECO Grip commercial flooring systems. This certification is required by leading national food service operators before awarding flooring contracts. It is not common among Southeast commercial flooring contractors.", [{
+      label: "ECO Grip Service",
+      href: "/services/eco-grip-flooring"
+    }, {
+      label: "About Us",
+      href: ABOUT_LINK
+    }]);
+  }
+
+  // Communication / daily updates
+  if (i.includes("communication") || i.includes("update") || i.includes("photo") || i.includes("daily") || i.includes("report")) {
+    return msg("GC partners receive daily progress updates with photo documentation throughout every active project. Issues are reported immediately before they affect schedule. You receive information without having to ask for it.", [{
+      label: "About Us",
+      href: ABOUT_LINK
+    }]);
+  }
+
+  // Self-performed / crews
+  if (i.includes("self-perform") || i.includes("brokered") || i.includes("crew") || i.includes("labor") || i.includes("workers")) {
+    return msg("Every trade Imvera executes is self-performed by our own dedicated crews — not brokered to third-party labor. Dedicated means accountable. The same execution standard on every project, in every state.", [{
+      label: "About Us",
+      href: ABOUT_LINK
+    }, {
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // Markets / states / locations
+  if (i.includes("state") || i.includes("market") || i.includes("location") || i.includes("atlanta") || i.includes("charlotte") || i.includes("nashville") || i.includes("raleigh") || i.includes("georgia") || i.includes("florida") || i.includes("texas") || i.includes("kentucky") || i.includes("carolina") || i.includes("tennessee") || i.includes("southeast")) {
+    return msg("Imvera maintains active operations across Georgia, North Carolina, South Carolina, Tennessee, Texas, Kentucky, and Florida. Primary markets are Atlanta, Charlotte, Nashville, and the Raleigh-Durham Triangle. The same execution standard in every location.", [{
+      label: "Markets We Serve",
+      href: MARKETS_LINK
+    }, {
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // Quote / scope review
+  if (i.includes("quote") || i.includes("estimate") || i.includes("scope") || i.includes("bid") || i.includes("proposal")) {
+    return msg("You can request a scope review through the contact page. Imvera responds to all project inquiries within one business day with a direct response — no auto-replies.", [{
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // Contact
+  if (i.includes("contact") || i.includes("phone") || i.includes("email") || i.includes("call") || i.includes("reach")) {
+    return msg("You can reach Imvera Group by phone or through the contact form. All project inquiries receive a direct response within one business day.", [{
+      label: PHONE_DISPLAY,
+      href: PHONE_LINK
+    }, {
+      label: "Contact Us",
+      href: CONTACT_LINK
+    }]);
+  }
+
+  // Gallery
+  if (i.includes("gallery") || i.includes("photo") || i.includes("project") || i.includes("work") || i.includes("example")) {
+    return msg("The gallery shows completed commercial interior projects across all six trades — ECO Grip flooring, drywall, framing, ceilings, FRP, and casework — executed across the Southeast.", [{
+      label: "View Gallery",
+      href: GALLERY_LINK
+    }]);
+  }
+
+  // Default
+  return msg("I can help with ECO Grip flooring, cabinets & countertops, acoustical ceilings, FRP installation, drywall & finishing, metal framing, multi-trade scopes, service areas, certification, or requesting a scope review.", [{
+    label: "Request a Scope Review",
+    href: CONTACT_LINK
+  }, {
+    label: "Call Us",
+    href: PHONE_LINK
+  }]);
+}
+
+// ── Component ─────────────────────────────────────────────────
+
+function ImveraChatbot() {
+  const [isOpen, setIsOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [inputMessage, setInputMessage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  const [isTyping, setIsTyping] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [messages, setMessages] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
+    id: 1,
+    text: "Hi — I'm the Imvera Group assistant. I can help with our six commercial interior trades, service areas, certifications, and requesting a scope review.",
+    sender: "bot",
+    timestamp: new Date(),
+    links: [{
+      label: "Request a Scope Review",
+      href: CONTACT_LINK
+    }, {
+      label: "Call Us",
+      href: PHONE_LINK
+    }]
+  }]);
+  const endRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const quickActions = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => [{
+    text: "ECO Grip Flooring",
+    icon: "🏗️"
+  }, {
+    text: "Acoustical Ceilings",
+    icon: "🔲"
+  }, {
+    text: "Drywall & Finishing",
+    icon: "🧱"
+  }, {
+    text: "Metal Framing",
+    icon: "⚙️"
+  }, {
+    text: "FRP Installation",
+    icon: "🛡️"
+  }, {
+    text: "Cabinets & Countertops",
+    icon: "🪵"
+  }], []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    endRef.current?.scrollIntoView({
+      behavior: "smooth"
+    });
+  }, [messages, isTyping]);
+  function handleSend(e) {
+    e?.preventDefault?.();
+    if (!inputMessage.trim()) return;
+    const text = inputMessage.trim();
+    setMessages(prev => [...prev, {
+      id: Date.now(),
+      text,
+      sender: "user",
+      timestamp: new Date()
+    }]);
+    setInputMessage("");
+    setIsTyping(true);
+    setTimeout(() => {
+      setMessages(prev => [...prev, getBotResponse(text)]);
+      setIsTyping(false);
+    }, 650);
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "fixed bottom-4 right-4 z-[9999] sm:bottom-5 sm:right-5",
+    children: [isOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "mb-3 flex h-[31rem] w-[calc(100vw-1.25rem)] max-w-[22rem] flex-col overflow-hidden rounded-[24px] sm:h-[33rem]",
+      style: {
+        boxShadow: "0 22px 50px rgba(22,37,37,0.18)",
+        border: "1px solid rgba(22,37,37,0.12)",
+        background: "#F1F6F2"
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "relative overflow-hidden px-4 py-3 text-white",
+        style: {
+          background: "linear-gradient(135deg, #162525 0%, #1e3333 50%, #2A9D93 130%)",
+          borderBottom: "1px solid rgba(241,246,242,0.1)"
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "absolute inset-0 opacity-[0.06]",
+          style: {
+            backgroundImage: "linear-gradient(135deg,rgba(255,255,255,0.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.4) 50%,rgba(255,255,255,0.4) 75%,transparent 75%,transparent)",
+            backgroundSize: "18px 18px"
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "relative flex items-start justify-between gap-3",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "flex items-center gap-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "flex h-10 w-10 items-center justify-center rounded-full",
+              style: {
+                background: "rgba(42,157,147,0.2)",
+                border: "1px solid rgba(42,157,147,0.4)"
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(BotIcon, {
+                className: "h-5 w-5"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                className: "text-[11px] font-black uppercase tracking-[0.18em]",
+                style: {
+                  color: "#2A9D93"
+                },
+                children: "Execution. Certainty. No Drama."
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+                className: "mt-1 text-[0.92rem] font-bold tracking-[-0.01em]",
+                children: "Imvera Group Assistant"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "mt-0.5 flex items-center gap-1.5",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "h-1.5 w-1.5 rounded-full",
+                  style: {
+                    background: "#6FC061"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                  className: "text-[11px] font-semibold uppercase tracking-[0.14em]",
+                  style: {
+                    color: "rgba(241,246,242,0.7)"
+                  },
+                  children: "Online now"
+                })]
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            type: "button",
+            onClick: () => setIsOpen(false),
+            className: "inline-flex h-8 w-8 items-center justify-center rounded-full transition",
+            style: {
+              background: "rgba(241,246,242,0.1)",
+              border: "1px solid rgba(241,246,242,0.15)"
+            },
+            onMouseEnter: e => {
+              e.currentTarget.style.background = "#F1F6F2";
+              e.currentTarget.style.color = "#162525";
+            },
+            onMouseLeave: e => {
+              e.currentTarget.style.background = "rgba(241,246,242,0.1)";
+              e.currentTarget.style.color = "white";
+            },
+            "aria-label": "Close chat",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(CloseIcon, {
+              className: "h-4 w-4"
+            })
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "flex-1 overflow-y-auto px-3 py-3",
+        style: {
+          background: "#F1F6F2"
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "space-y-3",
+          children: [messages.map(message => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: `flex ${message.sender === "user" ? "justify-end" : "justify-start"}`,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              className: `max-w-[88%] rounded-[18px] px-3.5 py-3 text-[0.875rem] leading-6`,
+              style: message.sender === "user" ? {
+                background: "#162525",
+                color: "#F1F6F2",
+                borderRadius: "18px 18px 4px 18px",
+                boxShadow: "0 2px 8px rgba(22,37,37,0.18)"
+              } : {
+                background: "#fff",
+                color: "#162525",
+                borderRadius: "18px 18px 18px 4px",
+                border: "1px solid rgba(22,37,37,0.08)",
+                boxShadow: "0 2px 6px rgba(22,37,37,0.06)"
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                className: "m-0",
+                children: message.text
+              }), message.links?.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "mt-3 flex flex-wrap gap-2",
+                children: message.links.map(link => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+                  href: link.href,
+                  className: "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[11px] font-bold transition",
+                  style: {
+                    background: "#F1F6F2",
+                    border: "1px solid rgba(22,37,37,0.1)",
+                    color: "#2A9D93"
+                  },
+                  onMouseEnter: e => {
+                    e.currentTarget.style.borderColor = "#2A9D93";
+                    e.currentTarget.style.color = "#162525";
+                  },
+                  onMouseLeave: e => {
+                    e.currentTarget.style.borderColor = "rgba(22,37,37,0.1)";
+                    e.currentTarget.style.color = "#2A9D93";
+                  },
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(LinkIcon, {
+                    className: "h-3.5 w-3.5"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                    children: link.label
+                  })]
+                }, `${message.id}-${link.href}`))
+              })]
+            })
+          }, message.id)), isTyping && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            className: "flex justify-start",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "rounded-[18px] px-4 py-3",
+              style: {
+                background: "#fff",
+                border: "1px solid rgba(22,37,37,0.08)",
+                borderRadius: "18px 18px 18px 4px",
+                boxShadow: "0 2px 6px rgba(22,37,37,0.06)"
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "flex gap-1.5",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "h-2.5 w-2.5 animate-pulse rounded-full",
+                  style: {
+                    background: "#162525"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "h-2.5 w-2.5 animate-pulse rounded-full",
+                  style: {
+                    background: "#2A9D93",
+                    animationDelay: "0.2s"
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                  className: "h-2.5 w-2.5 animate-pulse rounded-full",
+                  style: {
+                    background: "#6FC061",
+                    animationDelay: "0.4s"
+                  }
+                })]
+              })
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            ref: endRef
+          })]
+        })
+      }), messages.length === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "border-t px-3 py-3",
+        style: {
+          borderColor: "rgba(22,37,37,0.08)",
+          background: "#fff"
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "mb-2 text-[0.68rem] font-black uppercase tracking-[0.12em]",
+          style: {
+            color: "#2A9D93"
+          },
+          children: "Our six trades"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "flex flex-wrap gap-2",
+          children: quickActions.map(action => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("button", {
+            type: "button",
+            onClick: () => setInputMessage(action.text),
+            className: "rounded-full px-2.5 py-1.5 text-[11px] font-bold transition",
+            style: {
+              background: "#F1F6F2",
+              border: "1px solid rgba(22,37,37,0.1)",
+              color: "#162525"
+            },
+            onMouseEnter: e => {
+              e.currentTarget.style.borderColor = "#2A9D93";
+              e.currentTarget.style.background = "rgba(42,157,147,0.08)";
+              e.currentTarget.style.color = "#2A9D93";
+            },
+            onMouseLeave: e => {
+              e.currentTarget.style.borderColor = "rgba(22,37,37,0.1)";
+              e.currentTarget.style.background = "#F1F6F2";
+              e.currentTarget.style.color = "#162525";
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              className: "mr-1",
+              children: action.icon
+            }), action.text]
+          }, action.text))
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "border-t p-3",
+        style: {
+          borderColor: "rgba(22,37,37,0.08)",
+          background: "#fff"
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
+          onSubmit: handleSend,
+          className: "flex items-center gap-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "text",
+            value: inputMessage,
+            onChange: e => setInputMessage(e.target.value),
+            placeholder: "Ask about our trades or services\u2026",
+            className: "min-w-0 flex-1 rounded-full px-4 py-2.5 text-sm outline-none transition",
+            style: {
+              background: "#F1F6F2",
+              border: "1px solid rgba(22,37,37,0.1)",
+              color: "#162525"
+            },
+            onFocus: e => {
+              e.currentTarget.style.borderColor = "#2A9D93";
+              e.currentTarget.style.background = "#fff";
+            },
+            onBlur: e => {
+              e.currentTarget.style.borderColor = "rgba(22,37,37,0.1)";
+              e.currentTarget.style.background = "#F1F6F2";
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            type: "submit",
+            disabled: !inputMessage.trim(),
+            className: "inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full text-white transition",
+            style: {
+              background: "linear-gradient(135deg, #6FC061, #2A9D93)",
+              boxShadow: "0 8px 20px rgba(42,157,147,0.3)"
+            },
+            onMouseEnter: e => {
+              e.currentTarget.style.opacity = "0.88";
+            },
+            onMouseLeave: e => {
+              e.currentTarget.style.opacity = "1";
+            },
+            "aria-label": "Send message",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SendIcon, {
+              className: "h-4 w-4"
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "mt-3 flex flex-wrap items-center gap-3 text-[11px] font-semibold",
+          style: {
+            color: "rgba(22,37,37,0.5)"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+            href: PHONE_LINK,
+            className: "inline-flex items-center gap-1.5 transition",
+            onMouseEnter: e => e.currentTarget.style.color = "#2A9D93",
+            onMouseLeave: e => e.currentTarget.style.color = "rgba(22,37,37,0.5)",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(PhoneIcon, {
+              className: "h-3.5 w-3.5"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              children: PHONE_DISPLAY
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            href: EMAIL_LINK,
+            className: "truncate transition",
+            onMouseEnter: e => e.currentTarget.style.color = "#2A9D93",
+            onMouseLeave: e => e.currentTarget.style.color = "rgba(22,37,37,0.5)",
+            children: EMAIL_DISPLAY
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("button", {
+      type: "button",
+      onClick: () => setIsOpen(prev => !prev),
+      className: "group relative flex h-14 w-14 items-center justify-center rounded-full text-white transition-all duration-300",
+      style: {
+        background: isOpen ? "#162525" : "linear-gradient(135deg, #162525 0%, #2A9D93 80%, #6FC061 140%)",
+        boxShadow: "0 18px 40px rgba(22,37,37,0.28)"
+      },
+      onMouseEnter: e => {
+        e.currentTarget.style.transform = "scale(1.05)";
+      },
+      onMouseLeave: e => {
+        e.currentTarget.style.transform = "scale(1)";
+      },
+      "aria-label": isOpen ? "Close chat" : "Open chat",
+      children: [!isOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+        className: "absolute -right-0.5 -top-0.5 flex h-3.5 w-3.5",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "absolute inline-flex h-full w-full animate-ping rounded-full opacity-75",
+          style: {
+            background: "#6FC061"
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "relative inline-flex h-3.5 w-3.5 rounded-full",
+          style: {
+            background: "#6FC061"
+          }
+        })]
+      }), isOpen ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(CloseIcon, {
+        className: "h-5 w-5"
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(BotIcon, {
+        className: "h-6 w-6"
+      })]
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImveraChatbot);
+
+/***/ },
+
 /***/ "./src/scripts/Navbar.js"
 /*!*******************************!*\
   !*** ./src/scripts/Navbar.js ***!
@@ -1125,10 +1950,6 @@ const NAV_LINKS = [{
   href: "/services",
   hasMega: true
 }, {
-  label: "Gallery",
-  href: "/gallery",
-  hasMega: false
-}, {
   label: "Markets We Serve",
   href: "/markets-we-serve",
   hasMega: false
@@ -1138,7 +1959,7 @@ const NAV_LINKS = [{
   hasMega: false
 }];
 const PHONE = "678-836-3266";
-const EMAIL = "info@imveragroupinc.com";
+const EMAIL = "info@imveragroup.com";
 
 // ── Mega Menu ─────────────────────────────────────────────────
 
@@ -1381,7 +2202,12 @@ function Navbar() {
       },
       className: "text-white text-sm",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10",
+        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10",
+        style: {
+          display: "grid",
+          gridTemplateColumns: "1fr auto 1fr",
+          alignItems: "center"
+        },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "flex items-center gap-5",
           style: {
@@ -1434,8 +2260,45 @@ function Navbar() {
               children: EMAIL
             })]
           })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+          href: "https://maps.google.com/?q=2975+Breckinridge+Blvd+Suite+11+Duluth+GA+30096",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          className: "hidden md:flex items-center gap-1.5 transition-colors duration-200",
+          style: {
+            color: "#7fa89e",
+            textDecoration: "none"
+          },
+          onMouseEnter: e => e.currentTarget.style.color = "#F1F6F2",
+          onMouseLeave: e => e.currentTarget.style.color = "#7fa89e",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("svg", {
+            className: "w-3.5 h-3.5 flex-shrink-0",
+            style: {
+              color: "#2A9D93"
+            },
+            fill: "none",
+            stroke: "currentColor",
+            viewBox: "0 0 24 24",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              strokeWidth: 2,
+              d: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              strokeWidth: 2,
+              d: "M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            style: {
+              fontSize: "0.75rem",
+              fontWeight: 500
+            },
+            children: "Duluth, Georgia"
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          className: "flex items-center gap-3",
+          className: "flex items-center gap-3 justify-end",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
             href: "https://www.linkedin.com/company/imvera-group",
             target: "_blank",
@@ -1615,7 +2478,7 @@ function Navbar() {
             },
             onMouseEnter: e => e.currentTarget.style.backgroundColor = "#2A9D93",
             onMouseLeave: e => e.currentTarget.style.backgroundColor = "#162525",
-            children: "Get in Touch"
+            children: "Request a Scope Review"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
             className: "lg:hidden p-2 rounded transition-colors",
             style: {
@@ -1954,6 +2817,9 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -1979,9 +2845,85 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/ensure chunk */
+/******/ 	(() => {
+/******/ 		__webpack_require__.f = {};
+/******/ 		// This file contains only the entry chunk.
+/******/ 		// The chunk loading function for additional chunks
+/******/ 		__webpack_require__.e = (chunkId) => {
+/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
+/******/ 				__webpack_require__.f[key](chunkId, promises);
+/******/ 				return promises;
+/******/ 			}, []));
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get javascript chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.u = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return "" + chunkId + ".js?ver=" + "9d152a63020dacc3303a" + "";
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get mini-css chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.miniCssF = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return undefined;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/load script */
+/******/ 	(() => {
+/******/ 		var inProgress = {};
+/******/ 		var dataWebpackPrefix = "brads-boilerplate-theme:";
+/******/ 		// loadScript function to load a script via script tag
+/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
+/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
+/******/ 			var script, needAttach;
+/******/ 			if(key !== undefined) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				for(var i = 0; i < scripts.length; i++) {
+/******/ 					var s = scripts[i];
+/******/ 					if(s.getAttribute("src") == url || s.getAttribute("data-webpack") == dataWebpackPrefix + key) { script = s; break; }
+/******/ 				}
+/******/ 			}
+/******/ 			if(!script) {
+/******/ 				needAttach = true;
+/******/ 				script = document.createElement('script');
+/******/ 		
+/******/ 				script.charset = 'utf-8';
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.setAttribute("data-webpack", dataWebpackPrefix + key);
+/******/ 		
+/******/ 				script.src = url;
+/******/ 			}
+/******/ 			inProgress[url] = [done];
+/******/ 			var onScriptComplete = (prev, event) => {
+/******/ 				// avoid mem leaks in IE.
+/******/ 				script.onerror = script.onload = null;
+/******/ 				clearTimeout(timeout);
+/******/ 				var doneFns = inProgress[url];
+/******/ 				delete inProgress[url];
+/******/ 				script.parentNode && script.parentNode.removeChild(script);
+/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
+/******/ 				if(prev) return prev(event);
+/******/ 			}
+/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
+/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
+/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
+/******/ 			needAttach && document.head.appendChild(script);
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
@@ -1993,6 +2935,119 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (globalThis.importScripts) scriptUrl = globalThis.location + "";
+/******/ 		var document = globalThis.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/^blob:/, "").replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"index": 0
+/******/ 		};
+/******/ 		
+/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
+/******/ 				// JSONP chunk loading for javascript
+/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
+/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
+/******/ 		
+/******/ 					// a Promise means "currently loading".
+/******/ 					if(installedChunkData) {
+/******/ 						promises.push(installedChunkData[2]);
+/******/ 					} else {
+/******/ 						if(true) { // all chunks have JS
+/******/ 							// setup Promise in chunk cache
+/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
+/******/ 							promises.push(installedChunkData[2] = promise);
+/******/ 		
+/******/ 							// start chunk loading
+/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
+/******/ 							// create error before stack unwound to get useful stacktrace later
+/******/ 							var error = new Error();
+/******/ 							var loadingEnded = (event) => {
+/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
+/******/ 									installedChunkData = installedChunks[chunkId];
+/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
+/******/ 									if(installedChunkData) {
+/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 										var realSrc = event && event.target && event.target.src;
+/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 										error.name = 'ChunkLoadError';
+/******/ 										error.type = errorType;
+/******/ 										error.request = realSrc;
+/******/ 										installedChunkData[1](error);
+/******/ 									}
+/******/ 								}
+/******/ 							};
+/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
+/******/ 						}
+/******/ 					}
+/******/ 				}
+/******/ 		};
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 		
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkbrads_boilerplate_theme"] = globalThis["webpackChunkbrads_boilerplate_theme"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
 /******/ 	
 /************************************************************************/
@@ -2009,8 +3064,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/Navbar */ "./src/scripts/Navbar.js");
 /* harmony import */ var _scripts_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/Footer */ "./src/scripts/Footer.js");
 /* harmony import */ var _scripts_ContactForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/ContactForm */ "./src/scripts/ContactForm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _scripts_ImveraChatbot__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/ImveraChatbot */ "./src/scripts/ImveraChatbot.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -2021,30 +3078,32 @@ __webpack_require__.r(__webpack_exports__);
 
 if (document.querySelector("#render-navbar-here")) {
   const root = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.querySelector("#render-navbar-here"));
-  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_scripts_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {}));
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_scripts_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {}));
 }
 
 // ── Footer ────────────────────────────────────────────────────
 if (document.querySelector("#render-footer-here")) {
   const root = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.querySelector("#render-footer-here"));
-  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_scripts_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {}));
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_scripts_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {}));
 }
 
 // ── ContactForm — mount every instance found on the page ──────
-//
-// Reads data attributes from the mount div to configure each instance:
-//   data-variant  = "dark" | "light"   (default: "dark")
-//   data-title    = custom heading
-//   data-subtitle = custom subheading / eyebrow label
-//
 document.querySelectorAll("[id^='render-contact-form']").forEach(el => {
   const root = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(el);
-  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_scripts_ContactForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_scripts_ContactForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
     variant: el.dataset.variant || "dark",
     title: el.dataset.title || undefined,
     subtitle: el.dataset.subtitle || undefined
   }));
 });
+
+// ── Chatbot — mounted once into a persistent div in footer.php ─
+// Add this to footer.php before wp_footer():
+//   <div id="render-chatbot-here"></div>
+if (document.querySelector("#render-chatbot-here")) {
+  const root = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.querySelector("#render-chatbot-here"));
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_scripts_ImveraChatbot__WEBPACK_IMPORTED_MODULE_5__["default"], {}));
+}
 })();
 
 /******/ })()

@@ -373,14 +373,14 @@ get_header(); ?>
 
     <?php
     $gallery_photos = [
-      ['url' => '', 'label' => 'ECO Grip Flooring',   'sector' => 'Food Service'],
-      ['url' => '', 'label' => 'ECO Grip Flooring',   'sector' => 'Commercial Kitchen'],
-      ['url' => '', 'label' => 'Drywall',             'sector' => 'Commercial TI'],
-      ['url' => '', 'label' => 'Acoustical Ceilings', 'sector' => 'Armstrong System'],
-      ['url' => '', 'label' => 'FRP Installation',    'sector' => 'Commercial Kitchen'],
-      ['url' => '', 'label' => 'Metal Framing',       'sector' => 'Healthcare Buildout'],
-      ['url' => '', 'label' => 'Cabinets',            'sector' => 'Countertop Install'],
-      ['url' => '', 'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
+      ['url' => '/wp-content/uploads/2026/04/EcoGripFlooringFoodService-scaled.jpg',        'label' => 'ECO Grip Flooring',   'sector' => 'Food Service'],
+      ['url' => '/wp-content/uploads/2026/04/EcoGripFlooringCommercialKitchen-scaled.jpg',  'label' => 'ECO Grip Flooring',   'sector' => 'Commercial Kitchen'],
+      ['url' => '/wp-content/uploads/2026/04/DrywalCommercialTI-scaled.jpg',                'label' => 'Drywall',             'sector' => 'Commercial TI'],
+      ['url' => '/wp-content/uploads/2026/04/AcousticalCeilingsArmstrongSystem-scaled.jpg', 'label' => 'Acoustical Ceilings', 'sector' => 'Armstrong System'],
+      ['url' => '/wp-content/uploads/2026/04/FRPInstallationCommercialKitchen-scaled.jpg',  'label' => 'FRP Installation',    'sector' => 'Commercial Kitchen'],
+      ['url' => '/wp-content/uploads/2026/04/Metal-Framing-scaled.jpg',                     'label' => 'Metal Framing',       'sector' => 'Healthcare Buildout'],
+      ['url' => '/wp-content/uploads/2026/04/CountertopsInstallation-scaled.jpg',           'label' => 'Cabinets',            'sector' => 'Countertop Install'],
+      ['url' => '/wp-content/uploads/2026/04/ImveraGroupCrew-scaled.jpg',                   'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
     ];
     ?>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -525,9 +525,20 @@ get_header(); ?>
      SECTION 09 — BOTTOM CTA
      ============================================================ -->
 <section class="py-20 lg:py-28 relative overflow-hidden" style="background-color: #162525;">
-  <!-- Radial gradient orbs: Verdigris right, Moss Green left -->
-  <div class="absolute inset-0 pointer-events-none"
-       style="background: radial-gradient(ellipse at 70% 50%, rgba(42,157,147,0.14) 0%, transparent 60%), radial-gradient(ellipse at 15% 75%, rgba(111,192,97,0.09) 0%, transparent 50%);"></div>
+
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img src="/wp-content/uploads/2026/04/ImveraHero3-scaled.jpg"
+         alt=""
+         aria-hidden="true"
+         class="w-full h-full object-cover">
+    <!-- Dark overlay matching the hero directional gradient -->
+    <div class="absolute inset-0"
+         style="background: linear-gradient(to right, rgba(22,37,37,0.97) 0%, rgba(22,37,37,0.88) 50%, rgba(22,37,37,0.82) 100%);"></div>
+    <!-- Moss Green → Verdigris accent strip along left edge -->
+    <div class="absolute inset-y-0 left-0 w-1.5"
+         style="background: linear-gradient(to bottom, #6FC061, #2A9D93);"></div>
+  </div>
 
   <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <p class="text-xs font-semibold tracking-widest uppercase mb-4" style="color: #2A9D93;">Ready to Start?</p>

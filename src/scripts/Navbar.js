@@ -69,13 +69,12 @@ const NAV_LINKS = [
   { label: "Home",            href: "/",                hasMega: false },
   { label: "About Us",        href: "/about-us",        hasMega: false },
   { label: "Services",        href: "/services",        hasMega: true  },
-  { label: "Gallery",         href: "/gallery",         hasMega: false },
   { label: "Markets We Serve",href: "/markets-we-serve",hasMega: false },
   { label: "Contact Us",      href: "/contact-us",      hasMega: false },
 ]
 
 const PHONE = "678-836-3266"
-const EMAIL = "info@imveragroupinc.com"
+const EMAIL = "info@imveragroup.com"
 
 // ── Mega Menu ─────────────────────────────────────────────────
 
@@ -221,7 +220,10 @@ function Navbar() {
 
       {/* ── Top Bar ── */}
       <div style={{ backgroundColor: "#162525" }} className="text-white text-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10"
+             style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center" }}>
+
+          {/* Left: Phone + Email */}
           <div className="flex items-center gap-5" style={{ color: "#a8bfbb" }}>
             <a href={`tel:${PHONE.replace(/\D/g, "")}`}
                className="flex items-center gap-1.5 transition-colors duration-200"
@@ -244,8 +246,23 @@ function Navbar() {
               <span className="hidden sm:inline">{EMAIL}</span>
             </a>
           </div>
-          {/* Social Icons */}
-          <div className="flex items-center gap-3">
+
+          {/* Center: Geo tag — truly centered via grid */}
+          <a href="https://maps.google.com/?q=2975+Breckinridge+Blvd+Suite+11+Duluth+GA+30096"
+             target="_blank" rel="noopener noreferrer"
+             className="hidden md:flex items-center gap-1.5 transition-colors duration-200"
+             style={{ color: "#7fa89e", textDecoration: "none" }}
+             onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
+             onMouseLeave={e => e.currentTarget.style.color = "#7fa89e"}>
+            <svg className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#2A9D93" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span style={{ fontSize: "0.75rem", fontWeight: 500 }}>Duluth, Georgia</span>
+          </a>
+
+          {/* Right: Social Icons */}
+          <div className="flex items-center gap-3 justify-end">
 
             {/* LinkedIn */}
             <a href="https://www.linkedin.com/company/imvera-group"
@@ -361,7 +378,7 @@ function Navbar() {
                style={{ backgroundColor: "#162525" }}
                onMouseEnter={e => e.currentTarget.style.backgroundColor = "#2A9D93"}
                onMouseLeave={e => e.currentTarget.style.backgroundColor = "#162525"}>
-              Get in Touch
+              Request a Scope Review
             </a>
 
             {/* Mobile Hamburger */}

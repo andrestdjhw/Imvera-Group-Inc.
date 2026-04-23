@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client"
 import Navbar from "./scripts/Navbar"
 import Footer from "./scripts/Footer"
 import ContactForm from "./scripts/ContactForm"
+import ImveraChatbot from "./scripts/ImveraChatbot"
 
 // ── Navbar ────────────────────────────────────────────────────
 if (document.querySelector("#render-navbar-here")) {
@@ -17,12 +18,6 @@ if (document.querySelector("#render-footer-here")) {
 }
 
 // ── ContactForm — mount every instance found on the page ──────
-//
-// Reads data attributes from the mount div to configure each instance:
-//   data-variant  = "dark" | "light"   (default: "dark")
-//   data-title    = custom heading
-//   data-subtitle = custom subheading / eyebrow label
-//
 document.querySelectorAll("[id^='render-contact-form']").forEach((el) => {
   const root = ReactDOM.createRoot(el)
   root.render(
@@ -33,3 +28,11 @@ document.querySelectorAll("[id^='render-contact-form']").forEach((el) => {
     />
   )
 })
+
+// ── Chatbot — mounted once into a persistent div in footer.php ─
+// Add this to footer.php before wp_footer():
+//   <div id="render-chatbot-here"></div>
+if (document.querySelector("#render-chatbot-here")) {
+  const root = ReactDOM.createRoot(document.querySelector("#render-chatbot-here"))
+  root.render(<ImveraChatbot />)
+}

@@ -49,7 +49,7 @@ get_header(); ?>
           'title' => 'ECO Grip Flooring',
           'tag'   => 'Highest margin · Growth priority',
           'desc'  => 'Certified installation for commercial kitchens, food service, and compliance-driven environments across the Southeast.',
-          'url'   => '',
+          'url'   => '/wp-content/uploads/2026/04/Eco-Grip-Flooring-scaled.jpg',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>',
         ],
         [
@@ -58,7 +58,7 @@ get_header(); ?>
           'title' => 'Cabinets & Countertops',
           'tag'   => 'High margin · Precision-driven',
           'desc'  => 'Corian and commercial casework installation to a zero-tolerance finishing standard for food service, healthcare, and office interiors.',
-          'url'   => '',
+          'url'   => '/wp-content/uploads/2026/04/CabinetsCounterTops-scaled.jpg',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>',
         ],
         [
@@ -67,7 +67,7 @@ get_header(); ?>
           'title' => 'Acoustical Ceilings',
           'tag'   => 'High output · Compliance-driven',
           'desc'  => 'Armstrong and USG systems. Up to 1,400 sq ft per day with a 2-person crew. Restaurants, medical offices, and retail TI.',
-          'url'   => '',
+          'url'   => '/wp-content/uploads/2026/04/AcousticalCeilings-scaled.jpg',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>',
         ],
         [
@@ -76,7 +76,7 @@ get_header(); ?>
           'title' => 'FRP Installation',
           'tag'   => 'Specialty · Compliance-driven',
           'desc'  => 'Southern Building Products FRP for commercial kitchens, restrooms, healthcare, and retail environments requiring hygiene-grade wall systems.',
-          'url'   => '',
+          'url'   => '/wp-content/uploads/2026/04/FRP-Installation-scaled.jpg',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>',
         ],
         [
@@ -85,7 +85,7 @@ get_header(); ?>
           'title' => 'Drywall & Finishing',
           'tag'   => 'Core volume trade',
           'desc'  => 'All phases self-performed — hanging, taping, mudding, patching. Fire-rated and moisture-resistant assemblies. Smooth finish only. 480 sheets per week.',
-          'url'   => '',
+          'url'   => '/wp-content/uploads/2026/04/DrywallFinishing-scaled.jpg',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>',
         ],
         [
@@ -94,7 +94,7 @@ get_header(); ?>
           'title' => 'Metal Framing',
           'tag'   => 'Core volume trade · Foundation scope',
           'desc'  => '16, 18, and 20 gauge non-structural interior framing executed from structural drawings. English-speaking foreman. Passes inspection first submission.',
-          'url'   => '',
+          'url'   => '/wp-content/uploads/2026/04/Metal-Framing-scaled.jpg',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>',
         ],
       ];
