@@ -1004,6 +1004,29 @@ function Footer() {
                   d: "M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 })]
               }), HEADQUARTERS]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+              href: "mailto:info@imveragroupinc.com",
+              className: "flex items-center gap-2 transition-colors duration-200",
+              style: {
+                color: "inherit"
+              },
+              onMouseEnter: e => e.currentTarget.style.color = "#F1F6F2",
+              onMouseLeave: e => e.currentTarget.style.color = "#7fa89e",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+                className: "w-3.5 h-3.5 flex-shrink-0",
+                style: {
+                  color: "#2A9D93"
+                },
+                fill: "none",
+                stroke: "currentColor",
+                viewBox: "0 0 24 24",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  strokeWidth: 2,
+                  d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                })
+              }), "info@imveragroupinc.com"]
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -1950,6 +1973,10 @@ const NAV_LINKS = [{
   href: "/services",
   hasMega: true
 }, {
+  label: "Gallery",
+  href: "/gallery",
+  hasMega: false
+}, {
   label: "Markets We Serve",
   href: "/markets-we-serve",
   hasMega: false
@@ -1959,7 +1986,7 @@ const NAV_LINKS = [{
   hasMega: false
 }];
 const PHONE = "678-836-3266";
-const EMAIL = "info@imveragroup.com";
+const EMAIL = "info@imveragroupinc.com";
 
 // ── Mega Menu ─────────────────────────────────────────────────
 
@@ -2202,7 +2229,7 @@ function Navbar() {
       },
       className: "text-white text-sm",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10",
+        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12",
         style: {
           display: "grid",
           gridTemplateColumns: "1fr auto 1fr",
@@ -2478,7 +2505,7 @@ function Navbar() {
             },
             onMouseEnter: e => e.currentTarget.style.backgroundColor = "#2A9D93",
             onMouseLeave: e => e.currentTarget.style.backgroundColor = "#162525",
-            children: "Request a Scope Review"
+            children: "Get in Touch"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
             className: "lg:hidden p-2 rounded transition-colors",
             style: {

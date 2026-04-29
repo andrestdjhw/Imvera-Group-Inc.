@@ -69,12 +69,13 @@ const NAV_LINKS = [
   { label: "Home",            href: "/",                hasMega: false },
   { label: "About Us",        href: "/about-us",        hasMega: false },
   { label: "Services",        href: "/services",        hasMega: true  },
+  { label: "Gallery",         href: "/gallery",         hasMega: false },
   { label: "Markets We Serve",href: "/markets-we-serve",hasMega: false },
   { label: "Contact Us",      href: "/contact-us",      hasMega: false },
 ]
 
 const PHONE = "678-836-3266"
-const EMAIL = "info@imveragroup.com"
+const EMAIL = "info@imveragroupinc.com"
 
 // ── Mega Menu ─────────────────────────────────────────────────
 
@@ -220,7 +221,7 @@ function Navbar() {
 
       {/* ── Top Bar ── */}
       <div style={{ backgroundColor: "#162525" }} className="text-white text-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10"
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12"
              style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center" }}>
 
           {/* Left: Phone + Email */}
@@ -378,7 +379,7 @@ function Navbar() {
                style={{ backgroundColor: "#162525" }}
                onMouseEnter={e => e.currentTarget.style.backgroundColor = "#2A9D93"}
                onMouseLeave={e => e.currentTarget.style.backgroundColor = "#162525"}>
-              Request a Scope Review
+              Get in Touch
             </a>
 
             {/* Mobile Hamburger */}
