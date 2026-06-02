@@ -63,6 +63,16 @@ const SERVICES = [
         d="M4 6h16M4 10h16M4 14h16M4 18h16" />
     ),
   },
+  {
+    num:   "07",
+    title: "Post-Construction Cleaning",
+    tag:   "Closeout service · Inspection-ready",
+    href:  "/services/post-construction-cleaning",
+    icon: (
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+    ),
+  },
 ]
 
 const NAV_LINKS = [
@@ -80,25 +90,29 @@ const EMAIL = "info@imveragroupinc.com"
 // ── Mega Menu ─────────────────────────────────────────────────
 
 function MegaMenu({ visible }) {
+  // First 6 go in the 3-col grid, 7th spans full width
+  const gridServices = SERVICES.slice(0, 6)
+  const lastService  = SERVICES[6]
+
   return (
     <div
       style={{
-        position:   "absolute",
-        top:        "100%",
-        left:       "50%",
-        width:      "min(860px, 96vw)",
+        position:      "absolute",
+        top:           "100%",
+        left:          "50%",
+        width:         "min(860px, 96vw)",
         backgroundColor: "#fff",
-        border:     "1px solid #dde8e5",
-        borderRadius: "1rem",
-        boxShadow:  "0 16px 48px rgba(22,37,37,0.14)",
-        opacity:    visible ? 1 : 0,
+        border:        "1px solid #dde8e5",
+        borderRadius:  "1rem",
+        boxShadow:     "0 16px 48px rgba(22,37,37,0.14)",
+        opacity:       visible ? 1 : 0,
         pointerEvents: visible ? "auto" : "none",
-        transform:  visible
+        transform:     visible
           ? "translateX(-50%) translateY(0)"
           : "translateX(-50%) translateY(-6px)",
-        transition: "opacity 0.18s ease, transform 0.18s ease",
-        zIndex:     100,
-        overflow:   "hidden",
+        transition:    "opacity 0.18s ease, transform 0.18s ease",
+        zIndex:        100,
+        overflow:      "hidden",
       }}
     >
       {/* Top row */}
@@ -110,7 +124,7 @@ function MegaMenu({ visible }) {
         borderBottom:   "1px solid #f0f4f2",
       }}>
         <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#2A9D93" }}>
-          Our Six Trade Disciplines
+          Our Seven Trade Disciplines
         </p>
         <a href="/services"
            style={{ fontSize: "0.75rem", fontWeight: 600, color: "#585858", display: "flex", alignItems: "center", gap: "0.25rem", textDecoration: "none" }}
@@ -123,28 +137,25 @@ function MegaMenu({ visible }) {
         </a>
       </div>
 
-      {/* Service grid */}
+      {/* Service grid — 6 items, 3 cols */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
-        {SERVICES.map((s, i) => {
+        {gridServices.map((s, i) => {
           const isRightCol  = (i + 1) % 3 === 0
           const isBottomRow = i >= 3
           return (
-            <a
-              key={s.href}
-              href={s.href}
+            <a key={s.href} href={s.href}
               style={{
-                display:       "flex",
-                alignItems:    "flex-start",
-                gap:           "0.75rem",
-                padding:       "1rem 1.25rem",
-                textDecoration:"none",
-                transition:    "background 0.15s",
-                borderRight:   isRightCol  ? "none" : "1px solid #f0f4f2",
-                borderBottom:  isBottomRow ? "none" : "1px solid #f0f4f2",
+                display:        "flex",
+                alignItems:     "flex-start",
+                gap:            "0.75rem",
+                padding:        "1rem 1.25rem",
+                textDecoration: "none",
+                transition:     "background 0.15s",
+                borderRight:    isRightCol  ? "none" : "1px solid #f0f4f2",
+                borderBottom:   isBottomRow ? "none" : "1px solid #f0f4f2",
               }}
               onMouseEnter={e => e.currentTarget.style.background = "#f7fbf9"}
-              onMouseLeave={e => e.currentTarget.style.background = "transparent"}
-            >
+              onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
               <div style={{
                 width: "2.25rem", height: "2.25rem", borderRadius: "0.5rem",
                 background: "linear-gradient(135deg, rgba(111,192,97,0.12), rgba(42,157,147,0.12))",
@@ -166,6 +177,45 @@ function MegaMenu({ visible }) {
         })}
       </div>
 
+      {/* 7th service — full-width horizontal strip */}
+      <a href={lastService.href}
+         style={{
+           display:        "flex",
+           alignItems:     "center",
+           gap:            "1rem",
+           padding:        "0.875rem 1.25rem",
+           textDecoration: "none",
+           transition:     "background 0.15s",
+           borderTop:      "1px solid #f0f4f2",
+           background:     "linear-gradient(135deg, rgba(111,192,97,0.04), rgba(42,157,147,0.04))",
+         }}
+         onMouseEnter={e => e.currentTarget.style.background = "linear-gradient(135deg, rgba(111,192,97,0.09), rgba(42,157,147,0.09))"}
+         onMouseLeave={e => e.currentTarget.style.background = "linear-gradient(135deg, rgba(111,192,97,0.04), rgba(42,157,147,0.04))"}>
+        <div style={{
+          width: "2.25rem", height: "2.25rem", borderRadius: "0.5rem", flexShrink: 0,
+          background: "linear-gradient(135deg, rgba(111,192,97,0.15), rgba(42,157,147,0.15))",
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}>
+          <svg width="16" height="16" fill="none" stroke="#2A9D93" viewBox="0 0 24 24">{lastService.icon}</svg>
+        </div>
+        <div style={{ flex: 1 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", marginBottom: "0.15rem" }}>
+            <span style={{ fontSize: "0.65rem", fontWeight: 700, color: "rgba(42,157,147,0.6)", letterSpacing: "0.05em" }}>{lastService.num}</span>
+            <div style={{ width: "1.5rem", height: "1px", background: "linear-gradient(to right, #6FC061, #2A9D93)", opacity: 0.4 }} />
+          </div>
+          <p style={{ fontSize: "0.8125rem", fontWeight: 600, color: "#162525", lineHeight: 1.3, margin: 0 }}>{lastService.title}</p>
+          <p style={{ fontSize: "0.7rem", color: "#7fa89e", lineHeight: 1.4, margin: 0 }}>{lastService.tag}</p>
+        </div>
+        {/* "New" badge */}
+        <span style={{
+          fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
+          padding: "0.2rem 0.6rem", borderRadius: "9999px", flexShrink: 0,
+          background: "linear-gradient(135deg, #6FC061, #2A9D93)", color: "#F1F6F2",
+        }}>
+          New
+        </span>
+      </a>
+
       {/* Bottom CTA strip */}
       <div style={{
         borderTop: "1px solid #f0f4f2", padding: "0.875rem 1.5rem",
@@ -173,7 +223,7 @@ function MegaMenu({ visible }) {
         background: "linear-gradient(135deg, rgba(111,192,97,0.05), rgba(42,157,147,0.05))",
       }}>
         <p style={{ fontSize: "0.8rem", color: "#585858", margin: 0 }}>
-          All six trades self-performed by dedicated crews. One contract. One point of accountability.
+          All seven trades self-performed by dedicated crews. One contract. One point of accountability.
         </p>
         <a href="/contact-us"
            style={{
@@ -248,7 +298,7 @@ function Navbar() {
             </a>
           </div>
 
-          {/* Center: Geo tag — truly centered via grid */}
+          {/* Center: Geo tag */}
           <a href="https://maps.google.com/?q=2975+Breckinridge+Blvd+Suite+11+Duluth+GA+30096"
              target="_blank" rel="noopener noreferrer"
              className="hidden md:flex items-center gap-1.5 transition-colors duration-200"
@@ -267,8 +317,7 @@ function Navbar() {
 
             {/* LinkedIn */}
             <a href="https://www.linkedin.com/company/imvera-group"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="LinkedIn"
+               target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                style={{ color: "#a8bfbb", transition: "color 0.2s" }}
                onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
                onMouseLeave={e => e.currentTarget.style.color = "#a8bfbb"}>
@@ -279,8 +328,7 @@ function Navbar() {
 
             {/* Facebook */}
             <a href="https://www.facebook.com/imveragroup"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Facebook"
+               target="_blank" rel="noopener noreferrer" aria-label="Facebook"
                style={{ color: "#a8bfbb", transition: "color 0.2s" }}
                onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
                onMouseLeave={e => e.currentTarget.style.color = "#a8bfbb"}>
@@ -291,13 +339,37 @@ function Navbar() {
 
             {/* Instagram */}
             <a href="https://www.instagram.com/imveragroup"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="Instagram"
+               target="_blank" rel="noopener noreferrer" aria-label="Instagram"
                style={{ color: "#a8bfbb", transition: "color 0.2s" }}
                onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
                onMouseLeave={e => e.currentTarget.style.color = "#a8bfbb"}>
               <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+
+            {/* Divider */}
+            <span style={{ width: "1px", height: "14px", background: "rgba(241,246,242,0.12)", flexShrink: 0 }} />
+
+            {/* Google My Business */}
+            <a href="https://www.google.com/search?kgmid=/g/11wp99r0g4&hl=en-US&q=IMCV+Construction+Services+LLC&shem=rimspwouoe&shndl=30&source=sh/x/loc/osrp/m5/1&kgs=c796cb2699b58fb2&utm_source=rimspwouoe,sh/x/loc/osrp/m5/1"
+               target="_blank" rel="noopener noreferrer" aria-label="Google My Business"
+               style={{ color: "#a8bfbb", transition: "color 0.2s" }}
+               onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
+               onMouseLeave={e => e.currentTarget.style.color = "#a8bfbb"}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+              </svg>
+            </a>
+
+            {/* BBB */}
+            <a href="https://www.bbb.org/us/ga/norcross/profile/framing-contractors/imcv-construction-services-0443-28146361"
+               target="_blank" rel="noopener noreferrer" aria-label="Better Business Bureau"
+               style={{ color: "#a8bfbb", transition: "color 0.2s" }}
+               onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
+               onMouseLeave={e => e.currentTarget.style.color = "#a8bfbb"}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.5 17.5H8V7h3.5c1.933 0 3 .933 3 2.5 0 .867-.4 1.567-1.067 2 .867.367 1.4 1.133 1.4 2.167 0 1.766-1.2 2.833-3.333 2.833zm.167-7.5H9.5v2h2.167c.8 0 1.333-.4 1.333-1s-.533-1-1.333-1zm.166 3.5H9.5v2.167h2.333c.9 0 1.5-.433 1.5-1.083s-.6-1.084-1.5-1.084z"/>
               </svg>
             </a>
 
@@ -406,7 +478,7 @@ function Navbar() {
 
         {/* ── Mobile Menu ── */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? "max-h-[700px]" : "max-h-0"}`}
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? "max-h-[800px]" : "max-h-0"}`}
           style={{ borderTop: menuOpen ? "1px solid #dde8e5" : "none" }}>
           <div className="px-4 pb-4 pt-2 flex flex-col gap-1" style={{ backgroundColor: "#F1F6F2" }}>
 
@@ -462,7 +534,7 @@ function Navbar() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  <div style={{ maxHeight: mobileServices ? "600px" : "0", overflow: "hidden", transition: "max-height 0.3s ease" }}>
+                  <div style={{ maxHeight: mobileServices ? "700px" : "0", overflow: "hidden", transition: "max-height 0.3s ease" }}>
                     <div style={{
                       margin: "0.25rem 0 0.25rem 0.75rem", paddingLeft: "0.75rem",
                       borderLeft: "2px solid #dde8e5", display: "flex", flexDirection: "column", gap: "0.125rem",

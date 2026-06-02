@@ -82,7 +82,7 @@ get_header(); ?>
         </h1>
 
         <p class="text-base leading-relaxed mb-4 max-w-xl" style="color: #b8d4ce;">
-          Imvera Group delivers disciplined commercial interior execution across framing, drywall, flooring, ceilings, FRP, and cabinetry with the labor stability, daily communication, and multi-state consistency that general contractors depend on.
+          Imvera Group delivers disciplined commercial interior execution across framing, drywall, flooring, ceilings, FRP, and cabinetry — with the labor stability, daily communication, and multi-state consistency that general contractors depend on.
         </p>
         <p class="text-base leading-relaxed mb-8 max-w-xl" style="color: #7fa89e;">
           No surprises. No rework. No drama. Just execution that protects your schedule, passes inspections, and closes scopes cleanly.
@@ -131,10 +131,11 @@ get_header(); ?>
 
   <?php
   $stats = [
-    ['num' => '7',   'label' => 'States',   'desc' => 'Active Operations Across the Southeast'],
-    ['num' => '6',   'label' => 'Trades',   'desc' => 'Complete Interior Scope Under One Contract'],
-    ['num' => '12+', 'label' => 'Years',    'desc' => 'Hands-On Commercial Construction Experience'],
-    ['num' => '1',   'label' => 'Standard', 'desc' => 'Consistent Execution in Every Market We Operate'],
+    ['num' => '7',    'label' => 'States',   'desc' => 'Active Operations Across the Southeast'],
+    ['num' => '6',    'label' => 'Trades',   'desc' => 'Complete Interior Scope Under One Contract'],
+    ['num' => '12+',  'label' => 'Years',    'desc' => 'Hands-On Commercial Construction Experience'],
+    ['num' => '1',    'label' => 'Standard', 'desc' => 'Consistent Execution in Every Market We Operate'],
+    ['num' => 'OSHA', 'label' => 'Certified','desc' => 'OSHA 10 & 30 Certified Crews on Every Project'],
   ];
   ?>
 
@@ -191,7 +192,7 @@ get_header(); ?>
           Commercial construction runs on thin margins. GCs operating inside 6% cannot absorb inspection failures, rework events, or schedule delays caused by unreliable subcontractors.
         </p>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          Imvera Group was built to eliminate that risk. Across six commercial interior trade disciplines all self-performed by our own dedicated crews we deliver the execution discipline, labor stability, and communication standards that GC partners depend on across the Southeast.
+          Imvera Group was built to eliminate that risk. Across six commercial interior trade disciplines — all self-performed by our own dedicated crews — we deliver the execution discipline, labor stability, and communication standards that GC partners depend on across the Southeast.
         </p>
         <p class="text-base leading-relaxed mb-8 italic pl-4" style="color: #585858; border-left: 4px solid #2A9D93;">
           We don't aim to be the loudest presence on a project. We aim to be the most reliable one.
@@ -214,60 +215,104 @@ get_header(); ?>
 
 
 <!-- ============================================================
-     SECTION 04 — SERVICES GRID
+     SECTION 04 — SERVICES CAROUSEL
      ============================================================ -->
 <section class="py-20 lg:py-28" style="background-color: #fff;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="max-w-2xl mb-12">
-      <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D93;">What We Do</p>
-      <h2 class="text-3xl sm:text-4xl font-bold leading-tight mb-4" style="color: #162525;">
-        Six Trades. One Subcontractor. Zero Coordination Overhead.
-      </h2>
-      <p class="text-base leading-relaxed" style="color: #585858;">
-        Every interior scope self-performed by dedicated crews under a single execution standard. Multi-trade capability under one contract means fewer vendors, less coordination, and one accountable partner for the entire interior package.
-      </p>
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D93;">What We Do</p>
+        <h2 class="text-3xl sm:text-4xl font-bold leading-tight mb-4" style="color: #162525;">
+          Seven Trades. One Subcontractor. Zero Coordination Overhead.
+        </h2>
+        <p class="text-base leading-relaxed" style="color: #585858;">
+          Every interior scope self-performed by dedicated crews under a single execution standard. Multi-trade capability under one contract means fewer vendors, less coordination, and one accountable partner for the entire interior package.
+        </p>
+      </div>
+      <!-- Carousel controls -->
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button id="ig-svc-prev"
+                class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
+                style="border: 1px solid #dde8e5; color: #585858; background: white;"
+                onmouseover="this.style.borderColor='#2A9D93'; this.style.color='#2A9D93'"
+                onmouseout="this.style.borderColor='#dde8e5'; this.style.color='#585858'"
+                aria-label="Previous service">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+          </svg>
+        </button>
+        <button id="ig-svc-next"
+                class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
+                style="border: 1px solid #dde8e5; color: #585858; background: white;"
+                onmouseover="this.style.borderColor='#2A9D93'; this.style.color='#2A9D93'"
+                onmouseout="this.style.borderColor='#dde8e5'; this.style.color='#585858'"
+                aria-label="Next service">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <?php
-      $services = [
-        ['slug' => 'eco-grip-flooring',    'title' => 'ECO Grip Flooring',         'desc' => 'Certified installation for commercial kitchens, food service, and compliance-driven environments.',   'url' => '/wp-content/uploads/2026/04/Eco-Grip-Flooring-scaled.jpg'],
-        ['slug' => 'cabinets-countertops', 'title' => 'Cabinets &amp; Countertops', 'desc' => 'Corian and commercial casework installation to a zero-tolerance finishing standard.',                'url' => '/wp-content/uploads/2026/04/CabinetsCounterTops-scaled.jpg'],
-        ['slug' => 'acoustical-ceilings',  'title' => 'Acoustical Ceilings',        'desc' => 'Armstrong and USG systems. Up to 1,400 sq ft per day. Restaurants, medical, retail.',              'url' => '/wp-content/uploads/2026/04/AcousticalCeilings-scaled.jpg'],
-        ['slug' => 'frp-installation',     'title' => 'FRP Installation',           'desc' => 'Southern Building Products FRP for kitchens, restrooms, healthcare, and retail.',                    'url' => '/wp-content/uploads/2026/04/FRP-Installation-scaled.jpg'],
-        ['slug' => 'drywall-finishing',    'title' => 'Drywall &amp; Finishing',     'desc' => 'Fire-rated and moisture-resistant assemblies. Dedicated crews. Smooth finish only.',                 'url' => '/wp-content/uploads/2026/04/DrywallFinishing-scaled.jpg'],
-        ['slug' => 'metal-framing',        'title' => 'Metal Framing',              'desc' => '16, 18, 20 gauge non-structural interior framing. Executed from drawings. Inspection-ready.',        'url' => '/wp-content/uploads/2026/04/Metal-Framing-scaled.jpg'],
-      ];
-      foreach ($services as $service) : ?>
-        <a href="/services/<?php echo esc_attr($service['slug']); ?>"
-           class="group bg-white rounded-xl overflow-hidden flex flex-col transition-all duration-300"
-           style="border: 1px solid #e8efed;"
-           onmouseover="this.style.borderColor='rgba(42,157,147,0.4)'; this.style.boxShadow='0 8px 24px rgba(42,157,147,0.1)'"
-           onmouseout="this.style.borderColor='#e8efed'; this.style.boxShadow='none'">
-          <div class="aspect-[16/9] overflow-hidden bg-gray-100">
-            <img src="<?php echo esc_url($service['url']); ?>"
-                 alt="<?php echo esc_attr(strip_tags($service['title'])); ?>"
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          </div>
-          <div class="p-6 flex flex-col flex-1">
-            <div class="w-8 h-0.5 mb-3 rounded-full transition-all duration-300 group-hover:w-14"
-                 style="background: linear-gradient(135deg, #6FC061, #2A9D93);"></div>
-            <h3 class="font-bold text-base leading-tight mb-2" style="color: #162525;"><?php echo $service['title']; ?></h3>
-            <p class="text-sm leading-relaxed flex-1" style="color: #585858;"><?php echo $service['desc']; ?></p>
-            <div class="mt-4 flex items-center gap-1.5 text-xs font-semibold transition-all duration-200 group-hover:gap-2.5"
-                 style="color: #2A9D93;">
-              View Service
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+    <!-- Carousel viewport -->
+    <div class="overflow-hidden" id="ig-svc-viewport">
+      <div class="flex gap-6 transition-transform duration-500 ease-in-out" id="ig-svc-track"
+           style="will-change: transform;">
+
+        <?php
+        $services = [
+          ['slug' => 'eco-grip-flooring',         'title' => 'ECO Grip Flooring',         'desc' => 'Certified installation for commercial kitchens, food service, and compliance-driven environments.',   'url' => '/wp-content/uploads/2026/06/EcoGripAfter2.jpg'],
+          ['slug' => 'cabinets-countertops',       'title' => 'Cabinets &amp; Countertops', 'desc' => 'Corian and commercial casework installation to a zero-tolerance finishing standard.',                'url' => '/wp-content/uploads/2026/04/CabinetsCounterTops-scaled.jpg'],
+          ['slug' => 'acoustical-ceilings',        'title' => 'Acoustical Ceilings',        'desc' => 'Armstrong and USG systems. Up to 1,400 sq ft per day. Restaurants, medical, retail.',              'url' => '/wp-content/uploads/2026/04/AcousticalCeilings-scaled.jpg'],
+          ['slug' => 'frp-installation',           'title' => 'FRP Installation',           'desc' => 'Southern Building Products FRP for kitchens, restrooms, healthcare, and retail.',                    'url' => '/wp-content/uploads/2026/06/FRPInstallation2After.jpeg'],
+          ['slug' => 'drywall-finishing',          'title' => 'Drywall &amp; Finishing',     'desc' => 'Fire-rated and moisture-resistant assemblies. Dedicated crews. Smooth finish only.',                 'url' => '/wp-content/uploads/2026/06/DrywallServiceBefore.jpeg'],
+          ['slug' => 'metal-framing',              'title' => 'Metal Framing',              'desc' => '16, 18, 20 gauge non-structural interior framing. Executed from drawings. Inspection-ready.',        'url' => '/wp-content/uploads/2026/04/Metal-Framing-scaled.jpg'],
+          ['slug' => 'post-construction-cleaning', 'title' => 'Post-Construction Cleaning', 'desc' => 'Final clean, punch list execution, surface detailing, and inspection-ready handoff after construction closeout.', 'url' => '/wp-content/uploads/2026/06/PostConstructionBefore-scaled.jpg'],
+        ];
+        foreach ($services as $service) : ?>
+          <a href="/services/<?php echo esc_attr($service['slug']); ?>"
+             class="ig-svc-card group bg-white rounded-xl overflow-hidden flex flex-col flex-shrink-0 transition-all duration-300"
+             style="border: 1px solid #e8efed; width: calc((100% - 3rem) / 3);"
+             onmouseover="this.style.borderColor='rgba(42,157,147,0.4)'; this.style.boxShadow='0 8px 24px rgba(42,157,147,0.1)'"
+             onmouseout="this.style.borderColor='#e8efed'; this.style.boxShadow='none'">
+            <div class="aspect-[16/9] overflow-hidden bg-gray-100">
+              <?php if (!empty($service['url'])) : ?>
+              <img src="<?php echo esc_url($service['url']); ?>"
+                   alt="<?php echo esc_attr(strip_tags($service['title'])); ?>"
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <?php else : ?>
+              <div class="w-full h-full flex items-center justify-center"
+                   style="background: linear-gradient(135deg, rgba(22,37,37,0.06), rgba(42,157,147,0.1));">
+                <svg class="w-10 h-10" style="color: #2A9D93; opacity: 0.4;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                </svg>
+              </div>
+              <?php endif; ?>
             </div>
-          </div>
-        </a>
-      <?php endforeach; ?>
+            <div class="p-6 flex flex-col flex-1">
+              <div class="w-8 h-0.5 mb-3 rounded-full transition-all duration-300 group-hover:w-14"
+                   style="background: linear-gradient(135deg, #6FC061, #2A9D93);"></div>
+              <h3 class="font-bold text-base leading-tight mb-2" style="color: #162525;"><?php echo $service['title']; ?></h3>
+              <p class="text-sm leading-relaxed flex-1" style="color: #585858;"><?php echo $service['desc']; ?></p>
+              <div class="mt-4 flex items-center gap-1.5 text-xs font-semibold transition-all duration-200 group-hover:gap-2.5"
+                   style="color: #2A9D93;">
+                View Service
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+        <?php endforeach; ?>
+
+      </div>
     </div>
 
-    <div class="mt-10 text-center">
+    <!-- Dots -->
+    <div class="flex items-center justify-center gap-2 mt-8" id="ig-svc-dots"></div>
+
+    <div class="mt-8 text-center">
       <a href="/services"
          class="inline-flex items-center gap-2 font-semibold px-8 py-4 rounded transition-all duration-200 text-sm text-white"
          style="background-color: #162525;"
@@ -281,6 +326,90 @@ get_header(); ?>
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  const track    = document.getElementById('ig-svc-track');
+  const viewport = document.getElementById('ig-svc-viewport');
+  const btnPrev  = document.getElementById('ig-svc-prev');
+  const btnNext  = document.getElementById('ig-svc-next');
+  const dotsEl   = document.getElementById('ig-svc-dots');
+
+  const cards    = track.querySelectorAll('.ig-svc-card');
+  const total    = cards.length;
+  let current    = 0;
+
+  // How many cards visible at once depends on viewport width
+  function visibleCount() {
+    return window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  }
+
+  function maxIndex() {
+    return total - visibleCount();
+  }
+
+  // Update card widths on resize
+  function updateWidths() {
+    const vis = visibleCount();
+    const gap = 24; // gap-6 = 1.5rem = 24px
+    cards.forEach(c => {
+      c.style.width = `calc((100% - ${gap * (vis - 1)}px) / ${vis})`;
+    });
+  }
+
+  // Build dots
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    const count = maxIndex() + 1;
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('button');
+      d.style.cssText = `width:${i === current ? '1.5rem' : '0.5rem'}; height:0.5rem; border-radius:9999px; border:none; cursor:pointer; transition:all 0.3s; background:${i === current ? '#2A9D93' : '#dde8e5'};`;
+      d.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function updateDots() {
+    const dots = dotsEl.querySelectorAll('button');
+    dots.forEach((d, i) => {
+      d.style.width      = i === current ? '1.5rem' : '0.5rem';
+      d.style.background = i === current ? '#2A9D93' : '#dde8e5';
+    });
+  }
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, maxIndex()));
+    const cardW = cards[0].getBoundingClientRect().width + 24;
+    track.style.transform = `translateX(-${current * cardW}px)`;
+    updateDots();
+    btnPrev.style.opacity = current === 0 ? '0.35' : '1';
+    btnNext.style.opacity = current >= maxIndex() ? '0.35' : '1';
+  }
+
+  btnPrev.addEventListener('click', () => goTo(current - 1));
+  btnNext.addEventListener('click', () => goTo(current + 1));
+
+  // Touch swipe
+  let tx = 0;
+  viewport.addEventListener('touchstart', e => tx = e.touches[0].clientX, { passive: true });
+  viewport.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 40) dx < 0 ? goTo(current + 1) : goTo(current - 1);
+  });
+
+  // Init
+  updateWidths();
+  buildDots();
+  goTo(0);
+
+  window.addEventListener('resize', () => {
+    updateWidths();
+    buildDots();
+    goTo(Math.min(current, maxIndex()));
+  });
+})();
+</script>
 
 
 <!-- ============================================================
@@ -313,7 +442,7 @@ get_header(); ?>
           ['title' => 'Self-Performed. No Brokered Labor.',   'desc' => 'Every trade executed by our own dedicated crews. No third-party labor. The same accountability standard on every project.'],
           ['title' => 'Daily Communication & Photo Updates',  'desc' => 'GC partners receive daily progress reports with photo documentation. The information arrives before you ask.'],
           ['title' => 'Multi-State. One Standard.',           'desc' => 'Active across 7 states. The same execution quality in Atlanta as in Charlotte as in Nashville. Geography does not change our performance.'],
-          ['title' => 'Immediate Response. No Delays.',       'desc' => 'We respond immediately to GC requests local or out of state. When the work is there, we show up.'],
+          ['title' => 'Immediate Response. No Delays.',       'desc' => 'We respond immediately to GC requests — local or out of state. When the work is there, we show up.'],
           ['title' => '1-Year Workmanship Warranty',          'desc' => 'All completed installations are backed by a 1-year workmanship warranty. We stand behind every scope we execute.'],
         ];
         foreach ($reasons as $reason) : ?>
@@ -374,13 +503,15 @@ get_header(); ?>
     <?php
     $gallery_photos = [
       ['url' => '/wp-content/uploads/2026/04/EcoGripFlooringFoodService-scaled.jpg',        'label' => 'ECO Grip Flooring',   'sector' => 'Food Service'],
-      ['url' => '/wp-content/uploads/2026/04/EcoGripFlooringCommercialKitchen-scaled.jpg',  'label' => 'ECO Grip Flooring',   'sector' => 'Commercial Kitchen'],
-      ['url' => '/wp-content/uploads/2026/04/DrywalCommercialTI-scaled.jpg',                'label' => 'Drywall',             'sector' => 'Commercial TI'],
+      ['url' => '/wp-content/uploads/2026/06/EcoGripAfter2.jpg',                            'label' => 'ECO Grip Flooring',   'sector' => 'Commercial Kitchen'],
+      ['url' => '/wp-content/uploads/2026/06/DrywallServiceBefore.jpeg',                    'label' => 'Drywall',             'sector' => 'Commercial TI'],
       ['url' => '/wp-content/uploads/2026/04/AcousticalCeilingsArmstrongSystem-scaled.jpg', 'label' => 'Acoustical Ceilings', 'sector' => 'Armstrong System'],
-      ['url' => '/wp-content/uploads/2026/04/FRPInstallationCommercialKitchen-scaled.jpg',  'label' => 'FRP Installation',    'sector' => 'Commercial Kitchen'],
+      ['url' => '/wp-content/uploads/2026/06/FRPInstallation2After.jpeg',                   'label' => 'FRP Installation',    'sector' => 'Commercial Kitchen'],
       ['url' => '/wp-content/uploads/2026/04/Metal-Framing-scaled.jpg',                     'label' => 'Metal Framing',       'sector' => 'Healthcare Buildout'],
       ['url' => '/wp-content/uploads/2026/04/CountertopsInstallation-scaled.jpg',           'label' => 'Cabinets',            'sector' => 'Countertop Install'],
       ['url' => '/wp-content/uploads/2026/04/ImveraGroupCrew-scaled.jpg',                   'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
+      ['url' => '/wp-content/uploads/2026/06/CabinetCountertopAfter-scaled.jpg',            'label' => 'Cabinets',            'sector' => 'Countertop Install'],
+      ['url' => '/wp-content/uploads/2026/04/ImveraInstallationCrew-scaled.jpg',            'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
     ];
     ?>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -392,7 +523,6 @@ get_header(); ?>
           <img src="<?php echo esc_url($photo['url']); ?>"
                alt="<?php echo esc_attr($photo['label'] . ' — ' . $photo['sector']); ?>"
                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <!-- Hover overlay with Moss Green → Verdigris gradient tint -->
           <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-1 p-4 text-center"
                style="background: linear-gradient(135deg, rgba(22,37,37,0.82), rgba(42,157,147,0.65));">
             <p class="text-white font-semibold text-sm leading-tight"><?php echo esc_html($photo['label']); ?></p>
@@ -532,10 +662,8 @@ get_header(); ?>
          alt=""
          aria-hidden="true"
          class="w-full h-full object-cover">
-    <!-- Dark overlay matching the hero directional gradient -->
     <div class="absolute inset-0"
          style="background: linear-gradient(to right, rgba(22,37,37,0.97) 0%, rgba(22,37,37,0.88) 50%, rgba(22,37,37,0.82) 100%);"></div>
-    <!-- Moss Green → Verdigris accent strip along left edge -->
     <div class="absolute inset-y-0 left-0 w-1.5"
          style="background: linear-gradient(to bottom, #6FC061, #2A9D93);"></div>
   </div>
