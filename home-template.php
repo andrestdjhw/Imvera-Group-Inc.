@@ -263,11 +263,11 @@ get_header(); ?>
         <?php
         $services = [
           ['slug' => 'eco-grip-flooring',         'title' => 'ECO Grip Flooring',         'desc' => 'Certified installation for commercial kitchens, food service, and compliance-driven environments.',   'url' => '/wp-content/uploads/2026/06/EcoGripAfter2.jpg'],
-          ['slug' => 'cabinets-countertops',       'title' => 'Cabinets &amp; Countertops', 'desc' => 'Corian and commercial casework installation to a zero-tolerance finishing standard.',                'url' => '/wp-content/uploads/2026/04/CabinetsCounterTops-scaled.jpg'],
-          ['slug' => 'acoustical-ceilings',        'title' => 'Acoustical Ceilings',        'desc' => 'Armstrong and USG systems. Up to 1,400 sq ft per day. Restaurants, medical, retail.',              'url' => '/wp-content/uploads/2026/04/AcousticalCeilings-scaled.jpg'],
+          ['slug' => 'cabinets-countertops',       'title' => 'Cabinets &amp; Countertops', 'desc' => 'Corian and commercial casework installation to a zero-tolerance finishing standard.',                'url' => '/wp-content/uploads/2026/06/CabinetCountertopAfter-scaled.jpg'],
+          ['slug' => 'acoustical-ceilings',        'title' => 'Acoustical Ceilings',        'desc' => 'Armstrong and USG systems. Up to 1,400 sq ft per day. Restaurants, medical, retail.',              'url' => '/wp-content/uploads/2026/06/AcousticalCeilingIMV-1.png'],
           ['slug' => 'frp-installation',           'title' => 'FRP Installation',           'desc' => 'Southern Building Products FRP for kitchens, restrooms, healthcare, and retail.',                    'url' => '/wp-content/uploads/2026/06/FRPInstallation2After.jpeg'],
           ['slug' => 'drywall-finishing',          'title' => 'Drywall &amp; Finishing',     'desc' => 'Fire-rated and moisture-resistant assemblies. Dedicated crews. Smooth finish only.',                 'url' => '/wp-content/uploads/2026/06/DrywallServiceBefore.jpeg'],
-          ['slug' => 'metal-framing',              'title' => 'Metal Framing',              'desc' => '16, 18, 20 gauge non-structural interior framing. Executed from drawings. Inspection-ready.',        'url' => '/wp-content/uploads/2026/04/Metal-Framing-scaled.jpg'],
+          ['slug' => 'metal-framing',              'title' => 'Metal Framing',              'desc' => '16, 18, 20 gauge non-structural interior framing. Executed from drawings. Inspection-ready.',        'url' => '/wp-content/uploads/2026/06/MetalFramingBefore.jpeg'],
           ['slug' => 'post-construction-cleaning', 'title' => 'Post-Construction Cleaning', 'desc' => 'Final clean, punch list execution, surface detailing, and inspection-ready handoff after construction closeout.', 'url' => '/wp-content/uploads/2026/06/PostConstructionBefore-scaled.jpg'],
         ];
         foreach ($services as $service) : ?>
@@ -502,13 +502,13 @@ get_header(); ?>
 
     <?php
     $gallery_photos = [
-      ['url' => '/wp-content/uploads/2026/04/EcoGripFlooringFoodService-scaled.jpg',        'label' => 'ECO Grip Flooring',   'sector' => 'Food Service'],
+      ['url' => '/wp-content/uploads/2026/06/Eco-Grip-Photo-2.jpg',        'label' => 'ECO Grip Flooring',   'sector' => 'Food Service'],
       ['url' => '/wp-content/uploads/2026/06/EcoGripAfter2.jpg',                            'label' => 'ECO Grip Flooring',   'sector' => 'Commercial Kitchen'],
       ['url' => '/wp-content/uploads/2026/06/DrywallServiceBefore.jpeg',                    'label' => 'Drywall',             'sector' => 'Commercial TI'],
-      ['url' => '/wp-content/uploads/2026/04/AcousticalCeilingsArmstrongSystem-scaled.jpg', 'label' => 'Acoustical Ceilings', 'sector' => 'Armstrong System'],
+      ['url' => '/wp-content/uploads/2026/06/AcousticalCeilingIMV-1.png', 'label' => 'Acoustical Ceilings', 'sector' => 'Armstrong System'],
       ['url' => '/wp-content/uploads/2026/06/FRPInstallation2After.jpeg',                   'label' => 'FRP Installation',    'sector' => 'Commercial Kitchen'],
-      ['url' => '/wp-content/uploads/2026/04/Metal-Framing-scaled.jpg',                     'label' => 'Metal Framing',       'sector' => 'Healthcare Buildout'],
-      ['url' => '/wp-content/uploads/2026/04/CountertopsInstallation-scaled.jpg',           'label' => 'Cabinets',            'sector' => 'Countertop Install'],
+      ['url' => '/wp-content/uploads/2026/06/MetalFramingBefore.jpeg',                     'label' => 'Metal Framing',       'sector' => 'Healthcare Buildout'],
+      ['url' => '/wp-content/uploads/2026/06/Cabinet-Photo-11.jpg',           'label' => 'Cabinets',            'sector' => 'Countertop Install'],
       ['url' => '/wp-content/uploads/2026/04/ImveraGroupCrew-scaled.jpg',                   'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
       ['url' => '/wp-content/uploads/2026/06/CabinetCountertopAfter-scaled.jpg',            'label' => 'Cabinets',            'sector' => 'Countertop Install'],
       ['url' => '/wp-content/uploads/2026/04/ImveraInstallationCrew-scaled.jpg',            'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],

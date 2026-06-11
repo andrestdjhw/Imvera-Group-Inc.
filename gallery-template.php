@@ -11,7 +11,7 @@ get_header(); ?>
  * ─────────────────────────────────────────────────────────────────────────── */
 
 // Hero background image
-$ig_hero_img = ''; // e.g. /wp-content/uploads/2026/05/gallery-hero.jpg
+$ig_hero_img = '/wp-content/uploads/2026/04/ImveraHero2-scaled.jpg'; // e.g. /wp-content/uploads/2026/05/gallery-hero.jpg
 
 // ── PROJECT IMAGES (MAIN / "AFTER") — one URL per project ID ─────────────────
 $ig_project_imgs = [
@@ -21,7 +21,7 @@ $ig_project_imgs = [
   4  => '/wp-content/uploads/2026/06/AcousticalCeiling2After-.jpeg', // Acoustical Ceilings — Retail TI
   5  => '/wp-content/uploads/2026/06/DrywallServiceAfter.png', // Drywall & Finishing — Commercial TI
   6  => '/wp-content/uploads/2026/06/DrywallService2After.jpg', // Drywall & Finishing — Fire-Rated Assembly
-  7  => '/wp-content/uploads/2026/06/MetalFramingAfter.png', // Metal Framing — Healthcare Buildout
+  7  => '/wp-content/uploads/2026/06/MetalFramingAfter2.png', // Metal Framing — Healthcare Buildout
   8  => '/wp-content/uploads/2026/06/MetalFraming2After.jpg', // Metal Framing — Office Partition
   9  => '/wp-content/uploads/2026/06/FRPInstallationAfter.jpeg', // FRP Installation — Commercial Kitchen
   10 => '/wp-content/uploads/2026/06/FRPInstallation2After.jpeg', // FRP Installation — Restroom
@@ -39,7 +39,7 @@ $ig_before_imgs = [
   6  => '/wp-content/uploads/2026/06/DrywallService2Before.png',
   7  => '/wp-content/uploads/2026/06/MetalFramingBefore.jpeg',
   8  => '/wp-content/uploads/2026/06/MetalFraming2Before.jpg',
-  9  => '/wp-content/uploads/2026/06/FRPInstallationBefore.png',
+  9  => '/wp-content/uploads/2026/06/FRPInstallationBeforeRemoved.png',
   10 => '/wp-content/uploads/2026/06/FRPInstallation2Before.png',
   11 => '/wp-content/uploads/2026/06/CabinetCountertopBefore-scaled.jpg',
   12 => '/wp-content/uploads/2026/06/PostConstructionBefore-scaled.jpg',
@@ -47,18 +47,18 @@ $ig_before_imgs = [
 
 // ── POPUP "DETAIL" IMAGES ─────────────────────────────────────────────────────
 $ig_detail_imgs = [
-  1  => '',
-  2  => '',
-  3  => '',
-  4  => '',
-  5  => '',
-  6  => '',
-  7  => '',
-  8  => '',
-  9  => '',
-  10 => '',
-  11 => '',
-  12 => '',
+  1  => '/wp-content/uploads/2026/06/EcoGripAfter.jpg',
+  2  => '/wp-content/uploads/2026/06/EcoGripAfter2.jpg',
+  3  => '/wp-content/uploads/2026/06/AcousticalCeilingAfter.png',
+  4  => '/wp-content/uploads/2026/06/AcousticalCeiling2After-.jpeg',
+  5  => '/wp-content/uploads/2026/06/DrywallServiceAfter.png',
+  6  => '/wp-content/uploads/2026/06/DrywallService2After.jpg',
+  7  => '/wp-content/uploads/2026/06/MetalFramingAfter2.png',
+  8  => '/wp-content/uploads/2026/06/MetalFraming2After.jpg',
+  9  => '/wp-content/uploads/2026/06/FRPInstallationAfter.jpeg',
+  10 => '/wp-content/uploads/2026/06/FRPInstallation2After.jpeg',
+  11 => '/wp-content/uploads/2026/06/CabinetCountertopAfter-scaled.jpg',
+  12 => '/wp-content/uploads/2026/06/PostConstructionBefore-scaled.jpg',
 ];
 ?>
 
@@ -461,8 +461,6 @@ $categories = [
                 style="font-size: 0.6875rem; background: #162525; color: #F1F6F2;" data-tab="after">After</button>
         <button class="ig-lb-tab text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full transition-colors"
                 style="font-size: 0.6875rem; background: rgba(22,37,37,0.4); color: white;" data-tab="before">Before</button>
-        <button class="ig-lb-tab text-xs font-bold tracking-wide uppercase px-3 py-1.5 rounded-full transition-colors"
-                style="font-size: 0.6875rem; background: rgba(22,37,37,0.4); color: white;" data-tab="detail">Detail</button>
       </div>
 
       <!-- Image display — absolute fill so it always covers the full left panel -->
