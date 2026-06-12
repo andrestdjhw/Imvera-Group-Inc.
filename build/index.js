@@ -1005,7 +1005,7 @@ function Footer() {
                 })]
               }), HEADQUARTERS]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-              href: "mailto:info@imveragroupinc.com",
+              href: "mailto:info@imveragroup.com",
               className: "flex items-center gap-2 transition-colors duration-200",
               style: {
                 color: "inherit"
@@ -1026,7 +1026,7 @@ function Footer() {
                   strokeWidth: 2,
                   d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 })
-              }), "info@imveragroupinc.com"]
+              }), "info@imveragroup.com"]
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -1997,7 +1997,7 @@ const NAV_LINKS = [{
   hasMega: false
 }];
 const PHONE = "678-836-3266";
-const EMAIL = "info@imveragroupinc.com";
+const EMAIL = "info@imveragroup.com";
 
 // ── Mega Menu ─────────────────────────────────────────────────
 
@@ -2658,7 +2658,7 @@ function Navbar() {
             },
             onMouseEnter: e => e.currentTarget.style.backgroundColor = "#2A9D93",
             onMouseLeave: e => e.currentTarget.style.backgroundColor = "#162525",
-            children: "Get in Touch"
+            children: "Request a Scope Review"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
             className: "lg:hidden p-2 rounded transition-colors",
             style: {

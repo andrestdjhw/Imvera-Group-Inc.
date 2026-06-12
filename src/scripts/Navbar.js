@@ -85,7 +85,7 @@ const NAV_LINKS = [
 ]
 
 const PHONE = "678-836-3266"
-const EMAIL = "info@imveragroupinc.com"
+const EMAIL = "info@imveragroup.com"
 
 // ── Mega Menu ─────────────────────────────────────────────────
 
@@ -451,7 +451,7 @@ function Navbar() {
                style={{ backgroundColor: "#162525" }}
                onMouseEnter={e => e.currentTarget.style.backgroundColor = "#2A9D93"}
                onMouseLeave={e => e.currentTarget.style.backgroundColor = "#162525"}>
-              Get in Touch
+              Request a Scope Review
             </a>
 
             {/* Mobile Hamburger */}
