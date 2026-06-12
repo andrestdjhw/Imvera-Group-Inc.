@@ -10,12 +10,22 @@ get_header(); ?>
      HERO
      ============================================================ -->
 <section class="relative overflow-hidden" style="background-color: #162525;">
-  <!-- Left accent strip -->
-  <div class="absolute inset-y-0 left-0 w-1.5"
-       style="background: linear-gradient(to bottom, #6FC061, #2A9D93);"></div>
-  <!-- Subtle radial orb -->
-  <div class="absolute inset-0 pointer-events-none"
-       style="background: radial-gradient(ellipse at 80% 40%, rgba(42,157,147,0.1) 0%, transparent 55%);"></div>
+
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <div class="w-full h-full"
+         style="background-image: url('/wp-content/uploads/2026/04/ImveraHero2-scaled.jpg'); background-size: cover; background-position: center;">
+    </div>
+    <!-- Directional overlay -->
+    <div class="absolute inset-0"
+         style="background: linear-gradient(to right, rgba(22,37,37,0.97) 0%, rgba(22,37,37,0.85) 55%, rgba(22,37,37,0.55) 100%);"></div>
+    <!-- Left accent strip -->
+    <div class="absolute inset-y-0 left-0 w-1.5"
+         style="background: linear-gradient(to bottom, #6FC061, #2A9D93);"></div>
+    <!-- Subtle radial orb -->
+    <div class="absolute inset-0 pointer-events-none"
+         style="background: radial-gradient(ellipse at 80% 40%, rgba(42,157,147,0.1) 0%, transparent 55%);"></div>
+  </div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
     <div class="max-w-2xl">
@@ -100,7 +110,7 @@ get_header(); ?>
             </a>
 
             <!-- Email -->
-            <a href="mailto:info@imveragroupinc.com" class="relative flex items-start gap-3 group">
+            <a href="mailto:info@imveragroup.com" class="relative flex items-start gap-3 group">
               <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
                    style="background: rgba(42,157,147,0.12);">
                 <svg class="w-4 h-4" style="color: #2A9D93;" fill="none" stroke="currentColor" viewBox="0 0 24 24">

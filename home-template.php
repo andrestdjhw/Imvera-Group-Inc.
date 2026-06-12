@@ -42,6 +42,28 @@ get_header(); ?>
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
+
+    /* ============================================================
+       SCROLL REVEAL
+       ============================================================ */
+    .ig-reveal {
+      opacity: 0;
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .ig-reveal.fade-up    { transform: translateY(36px); }
+    .ig-reveal.from-left  { transform: translateX(-40px); }
+    .ig-reveal.from-right { transform: translateX(40px); }
+    .ig-reveal.fade-scale { transform: scale(0.96); }
+
+    .ig-reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ig-reveal { transition: opacity 0.3s ease; transform: none !important; }
+    }
   </style>
 
   <!-- Background slideshow -->
@@ -127,7 +149,7 @@ get_header(); ?>
 <!-- ============================================================
      SECTION 02 — TRUST BAR
      ============================================================ -->
-<section style="background-color: #0f1a1a; border-top: 1px solid rgba(42,157,147,0.15); border-bottom: 1px solid rgba(42,157,147,0.15); overflow: hidden;">
+<section id="ig-trust-bar" style="background-color: #0f1a1a; border-top: 1px solid rgba(42,157,147,0.15); border-bottom: 1px solid rgba(42,157,147,0.15); overflow: hidden;">
 
   <?php
   $stats = [
@@ -143,7 +165,6 @@ get_header(); ?>
   <div class="py-8">
     <div class="ig-ticker-track">
       <?php
-      // Duplicate stats twice for seamless loop
       $ticker_items = array_merge($stats, $stats);
       foreach ($ticker_items as $stat) : ?>
         <div class="flex items-center gap-4 px-10" style="border-right: 1px solid rgba(42,157,147,0.15);">
@@ -166,11 +187,11 @@ get_header(); ?>
 <!-- ============================================================
      SECTION 03 — ABOUT TEASER
      ============================================================ -->
-<section style="background-color: #F1F6F2;" class="py-20 lg:py-28">
+<section id="ig-about-section" style="background-color: #F1F6F2;" class="py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
-      <div class="relative">
+      <div id="ig-about-left" class="relative">
         <div class="aspect-[4/3] rounded-xl overflow-hidden bg-gray-200">
           <img src="/wp-content/uploads/2026/04/WhoWeRImvera-scaled.png"
                alt="Imvera Group crew on active commercial jobsite"
@@ -183,7 +204,7 @@ get_header(); ?>
         </div>
       </div>
 
-      <div>
+      <div id="ig-about-right">
         <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D93;">Who We Are</p>
         <h2 class="text-3xl sm:text-4xl font-bold leading-tight mb-6" style="color: #162525;">
           Built for GCs Who Cannot Afford Subcontractor Risk.
@@ -220,7 +241,7 @@ get_header(); ?>
 <section class="py-20 lg:py-28" style="background-color: #fff;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+    <div id="ig-svc-header" class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
       <div class="max-w-2xl">
         <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D93;">What We Do</p>
         <h2 class="text-3xl sm:text-4xl font-bold leading-tight mb-4" style="color: #162525;">
@@ -267,7 +288,7 @@ get_header(); ?>
           ['slug' => 'acoustical-ceilings',        'title' => 'Acoustical Ceilings',        'desc' => 'Armstrong and USG systems. Up to 1,400 sq ft per day. Restaurants, medical, retail.',              'url' => '/wp-content/uploads/2026/06/AcousticalCeilingIMV-1.png'],
           ['slug' => 'frp-installation',           'title' => 'FRP Installation',           'desc' => 'Southern Building Products FRP for kitchens, restrooms, healthcare, and retail.',                    'url' => '/wp-content/uploads/2026/06/FRPInstallation2After.jpeg'],
           ['slug' => 'drywall-finishing',          'title' => 'Drywall &amp; Finishing',     'desc' => 'Fire-rated and moisture-resistant assemblies. Dedicated crews. Smooth finish only.',                 'url' => '/wp-content/uploads/2026/06/DrywallServiceBefore.jpeg'],
-          ['slug' => 'metal-framing',              'title' => 'Metal Framing',              'desc' => '16, 18, 20 gauge non-structural interior framing. Executed from drawings. Inspection-ready.',        'url' => '/wp-content/uploads/2026/06/MetalFramingBefore.jpeg'],
+          ['slug' => 'metal-framing',              'title' => 'Metal Framing',              'desc' => '16, 18, 20 gauge non-structural interior framing. Executed from drawings. Inspection-ready.',        'url' => '/wp-content/uploads/2026/06/MetalFramingHome.jpeg'],
           ['slug' => 'post-construction-cleaning', 'title' => 'Post-Construction Cleaning', 'desc' => 'Final clean, punch list execution, surface detailing, and inspection-ready handoff after construction closeout.', 'url' => '/wp-content/uploads/2026/06/PostConstructionBefore-scaled.jpg'],
         ];
         foreach ($services as $service) : ?>
@@ -312,7 +333,7 @@ get_header(); ?>
     <!-- Dots -->
     <div class="flex items-center justify-center gap-2 mt-8" id="ig-svc-dots"></div>
 
-    <div class="mt-8 text-center">
+    <div id="ig-svc-cta" class="mt-8 text-center">
       <a href="/services"
          class="inline-flex items-center gap-2 font-semibold px-8 py-4 rounded transition-all duration-200 text-sm text-white"
          style="background-color: #162525;"
@@ -338,8 +359,8 @@ get_header(); ?>
   const cards    = track.querySelectorAll('.ig-svc-card');
   const total    = cards.length;
   let current    = 0;
+  let autoplayTimer = null;
 
-  // How many cards visible at once depends on viewport width
   function visibleCount() {
     return window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
   }
@@ -348,16 +369,14 @@ get_header(); ?>
     return total - visibleCount();
   }
 
-  // Update card widths on resize
   function updateWidths() {
     const vis = visibleCount();
-    const gap = 24; // gap-6 = 1.5rem = 24px
+    const gap = 24;
     cards.forEach(c => {
       c.style.width = `calc((100% - ${gap * (vis - 1)}px) / ${vis})`;
     });
   }
 
-  // Build dots
   function buildDots() {
     dotsEl.innerHTML = '';
     const count = maxIndex() + 1;
@@ -365,7 +384,7 @@ get_header(); ?>
       const d = document.createElement('button');
       d.style.cssText = `width:${i === current ? '1.5rem' : '0.5rem'}; height:0.5rem; border-radius:9999px; border:none; cursor:pointer; transition:all 0.3s; background:${i === current ? '#2A9D93' : '#dde8e5'};`;
       d.setAttribute('aria-label', `Go to slide ${i + 1}`);
-      d.addEventListener('click', () => goTo(i));
+      d.addEventListener('click', () => { goTo(i); resetAutoplay(); });
       dotsEl.appendChild(d);
     }
   }
@@ -387,21 +406,45 @@ get_header(); ?>
     btnNext.style.opacity = current >= maxIndex() ? '0.35' : '1';
   }
 
-  btnPrev.addEventListener('click', () => goTo(current - 1));
-  btnNext.addEventListener('click', () => goTo(current + 1));
+  /* ── Autoplay ─────────────────────────────────────────────── */
+  function startAutoplay() {
+    autoplayTimer = setInterval(function () {
+      const next = current >= maxIndex() ? 0 : current + 1;
+      goTo(next);
+    }, 3500);
+  }
 
-  // Touch swipe
+  function stopAutoplay() {
+    clearInterval(autoplayTimer);
+  }
+
+  function resetAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  /* ── Controles manuales ───────────────────────────────────── */
+  btnPrev.addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
+  btnNext.addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+
+  /* ── Pause on hover ───────────────────────────────────────── */
+  viewport.addEventListener('mouseenter', stopAutoplay);
+  viewport.addEventListener('mouseleave', startAutoplay);
+
+  /* ── Touch swipe ──────────────────────────────────────────── */
   let tx = 0;
-  viewport.addEventListener('touchstart', e => tx = e.touches[0].clientX, { passive: true });
-  viewport.addEventListener('touchend',   e => {
+  viewport.addEventListener('touchstart', e => { tx = e.touches[0].clientX; stopAutoplay(); }, { passive: true });
+  viewport.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - tx;
     if (Math.abs(dx) > 40) dx < 0 ? goTo(current + 1) : goTo(current - 1);
+    startAutoplay();
   });
 
-  // Init
+  /* ── Init ─────────────────────────────────────────────────── */
   updateWidths();
   buildDots();
   goTo(0);
+  startAutoplay();
 
   window.addEventListener('resize', () => {
     updateWidths();
@@ -415,10 +458,10 @@ get_header(); ?>
 <!-- ============================================================
      SECTION 05 — WHY IMVERA
      ============================================================ -->
-<section class="py-20 lg:py-28" style="background-color: #162525;">
+<section id="ig-why-section" class="py-20 lg:py-28" style="background-color: #162525;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="max-w-2xl mb-12">
+    <div id="ig-why-heading" class="max-w-2xl mb-12">
       <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D93;">Why Imvera</p>
       <h2 class="text-3xl sm:text-4xl font-bold leading-tight text-white">
         Why General Contractors Choose Imvera Group.
@@ -427,7 +470,7 @@ get_header(); ?>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-start">
 
-      <div class="lg:sticky lg:top-24">
+      <div id="ig-why-image" class="lg:sticky lg:top-24">
         <div class="aspect-[3/4] rounded-xl overflow-hidden bg-gray-700">
           <img src="/wp-content/uploads/2026/04/ImveraGroupInc-scaled.png"
                alt="Imvera Group uniformed crew on active commercial jobsite"
@@ -435,7 +478,7 @@ get_header(); ?>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div id="ig-why-cards" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <?php
         $reasons = [
           ['title' => 'Certified ECO Grip Installer',        'desc' => 'One of a select group of authorized ECO Grip installers in the Southeast. Certification required by leading national food service operators.'],
@@ -446,7 +489,7 @@ get_header(); ?>
           ['title' => '1-Year Workmanship Warranty',          'desc' => 'All completed installations are backed by a 1-year workmanship warranty. We stand behind every scope we execute.'],
         ];
         foreach ($reasons as $reason) : ?>
-          <div class="rounded-xl p-5 transition-all duration-200"
+          <div class="ig-why-card rounded-xl p-5 transition-all duration-200"
                style="background: rgba(241,246,242,0.04); border: 1px solid rgba(241,246,242,0.08);"
                onmouseover="this.style.borderColor='rgba(42,157,147,0.35)'; this.style.background='rgba(241,246,242,0.06)'"
                onmouseout="this.style.borderColor='rgba(241,246,242,0.08)'; this.style.background='rgba(241,246,242,0.04)'">
@@ -458,7 +501,7 @@ get_header(); ?>
       </div>
     </div>
 
-    <div class="mt-12">
+    <div id="ig-why-cta" class="mt-12">
       <a href="/about-us"
          class="inline-flex items-center gap-2 font-semibold px-7 py-3.5 rounded transition-all duration-200 text-sm"
          style="border: 1px solid rgba(241,246,242,0.2); color: #F1F6F2;"
@@ -480,7 +523,7 @@ get_header(); ?>
 <section class="py-20 lg:py-28" style="background-color: #F1F6F2;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+    <div id="ig-gallery-header" class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
       <div>
         <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D93;">Our Work</p>
         <h2 class="text-3xl sm:text-4xl font-bold leading-tight" style="color: #162525;">Work That Speaks for Itself.</h2>
@@ -502,19 +545,19 @@ get_header(); ?>
 
     <?php
     $gallery_photos = [
-      ['url' => '/wp-content/uploads/2026/06/Eco-Grip-Photo-2.jpg',        'label' => 'ECO Grip Flooring',   'sector' => 'Food Service'],
-      ['url' => '/wp-content/uploads/2026/06/EcoGripAfter2.jpg',                            'label' => 'ECO Grip Flooring',   'sector' => 'Commercial Kitchen'],
-      ['url' => '/wp-content/uploads/2026/06/DrywallServiceBefore.jpeg',                    'label' => 'Drywall',             'sector' => 'Commercial TI'],
-      ['url' => '/wp-content/uploads/2026/06/AcousticalCeilingIMV-1.png', 'label' => 'Acoustical Ceilings', 'sector' => 'Armstrong System'],
-      ['url' => '/wp-content/uploads/2026/06/FRPInstallation2After.jpeg',                   'label' => 'FRP Installation',    'sector' => 'Commercial Kitchen'],
-      ['url' => '/wp-content/uploads/2026/06/MetalFramingBefore.jpeg',                     'label' => 'Metal Framing',       'sector' => 'Healthcare Buildout'],
-      ['url' => '/wp-content/uploads/2026/06/Cabinet-Photo-11.jpg',           'label' => 'Cabinets',            'sector' => 'Countertop Install'],
-      ['url' => '/wp-content/uploads/2026/04/ImveraGroupCrew-scaled.jpg',                   'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
-      ['url' => '/wp-content/uploads/2026/06/CabinetCountertopAfter-scaled.jpg',            'label' => 'Cabinets',            'sector' => 'Countertop Install'],
-      ['url' => '/wp-content/uploads/2026/04/ImveraInstallationCrew-scaled.jpg',            'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
+      ['url' => '/wp-content/uploads/2026/06/Eco-Grip-Photo-2.jpg',                         'label' => 'ECO Grip Flooring',   'sector' => 'Food Service'],
+      ['url' => '/wp-content/uploads/2026/06/EcoGripAfter2.jpg',                             'label' => 'ECO Grip Flooring',   'sector' => 'Commercial Kitchen'],
+      ['url' => '/wp-content/uploads/2026/06/DrywallServiceBefore.jpeg',                     'label' => 'Drywall',             'sector' => 'Commercial TI'],
+      ['url' => '/wp-content/uploads/2026/06/AcousticalCeilingIMV-1.png',                    'label' => 'Acoustical Ceilings', 'sector' => 'Armstrong System'],
+      ['url' => '/wp-content/uploads/2026/06/FRPInstallation2After.jpeg',                    'label' => 'FRP Installation',    'sector' => 'Commercial Kitchen'],
+      ['url' => '/wp-content/uploads/2026/06/MetalFramingBefore.jpeg',                      'label' => 'Metal Framing',       'sector' => 'Healthcare Buildout'],
+      ['url' => '/wp-content/uploads/2026/06/Cabinet-Photo-11.jpg',                          'label' => 'Cabinets',            'sector' => 'Countertop Install'],
+      ['url' => '/wp-content/uploads/2026/04/ImveraGroupCrew-scaled.jpg',                    'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
+      ['url' => '/wp-content/uploads/2026/06/CabinetCountertopAfter-scaled.jpg',             'label' => 'Cabinets',            'sector' => 'Countertop Install'],
+      ['url' => '/wp-content/uploads/2026/04/ImveraInstallationCrew-scaled.jpg',             'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
     ];
     ?>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div id="ig-gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3">
       <?php foreach ($gallery_photos as $i => $photo) :
         $span = ($i === 0 || $i === 5) ? 'col-span-2' : 'col-span-1';
       ?>
@@ -539,10 +582,10 @@ get_header(); ?>
 <!-- ============================================================
      SECTION 07 — MARKETS STRIP
      ============================================================ -->
-<section class="py-20 lg:py-28" style="background-color: #fff;">
+<section id="ig-markets-section" class="py-20 lg:py-28" style="background-color: #fff;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="max-w-2xl mb-12">
+    <div id="ig-markets-heading" class="max-w-2xl mb-12">
       <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D93;">Where We Work</p>
       <h2 class="text-3xl sm:text-4xl font-bold leading-tight" style="color: #162525;">
         Active Across the Southeast's Fastest-Growing Commercial Markets.
@@ -552,14 +595,14 @@ get_header(); ?>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
       <?php
       $markets = [
-        ['city' => 'Atlanta, GA',            'label' => 'Pipeline Stabilizer',      'desc' => 'High project velocity, large GC ecosystem, continuous TI and franchise rollout cycles.',       'href' => '/markets-we-serve#atlanta'],
-        ['city' => 'Charlotte, NC',          'label' => 'Repeat Revenue Engine',    'desc' => 'Financial sector TI, multifamily interiors, franchise program expansion.',                     'href' => '/markets-we-serve#charlotte'],
-        ['city' => 'Nashville, TN',          'label' => 'Healthcare & Compliance',  'desc' => 'Outpatient expansion, hospitality renovation, compliance-heavy interior buildouts.',           'href' => '/markets-we-serve#nashville'],
-        ['city' => 'Raleigh / Triangle, NC', 'label' => 'Stable Buildout Env.',     'desc' => 'Corporate relocations, medical office growth, institutional expansion, and tech sector TI.',  'href' => '/markets-we-serve#raleigh'],
+        ['city' => 'Atlanta, GA',            'label' => '', 'desc' => '', 'href' => '/markets-we-serve'],
+        ['city' => 'Charlotte, NC',          'label' => '', 'desc' => '', 'href' => '/markets-we-serve'],
+        ['city' => 'Nashville, TN',          'label' => '', 'desc' => '', 'href' => '/markets-we-serve'],
+        ['city' => 'Raleigh / Triangle, NC', 'label' => '', 'desc' => '', 'href' => '/markets-we-serve'],
       ];
       foreach ($markets as $market) : ?>
         <a href="<?php echo esc_attr($market['href']); ?>"
-           class="group rounded-xl p-6 transition-all duration-200"
+           class="ig-market-card group rounded-xl p-6 transition-all duration-200"
            style="background: #F1F6F2; border: 1px solid #dde8e5;"
            onmouseover="this.style.borderColor='rgba(42,157,147,0.4)'; this.style.boxShadow='0 4px 16px rgba(42,157,147,0.1)'"
            onmouseout="this.style.borderColor='#dde8e5'; this.style.boxShadow='none'">
@@ -572,7 +615,7 @@ get_header(); ?>
       <?php endforeach; ?>
     </div>
 
-    <div class="flex flex-col sm:flex-row items-center gap-3 rounded-xl px-6 py-4"
+    <div id="ig-markets-footer" class="flex flex-col sm:flex-row items-center gap-3 rounded-xl px-6 py-4"
          style="background: rgba(22,37,37,0.04); border: 1px solid rgba(22,37,37,0.08);">
       <p class="text-xs font-semibold" style="color: #162525;">Also active in:</p>
       <div class="flex flex-wrap gap-2">
@@ -600,11 +643,11 @@ get_header(); ?>
 <!-- ============================================================
      SECTION 08 — FAQ
      ============================================================ -->
-<section class="py-20 lg:py-28" style="background-color: #F1F6F2;">
+<section id="ig-faq-section" class="py-20 lg:py-28" style="background-color: #F1F6F2;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-16">
 
-      <div>
+      <div id="ig-faq-left">
         <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D93;">FAQ</p>
         <h2 class="text-3xl sm:text-4xl font-bold leading-tight mb-4" style="color: #162525;">
           Common Questions from GC Partners.
@@ -619,15 +662,15 @@ get_header(); ?>
         </a>
       </div>
 
-      <div class="lg:col-span-2" style="border-top: 1px solid #dde8e5;">
+      <div id="ig-faq-right" class="lg:col-span-2" style="border-top: 1px solid #dde8e5;">
         <?php
         $faqs = [
-          ['q' => 'Do you self-perform all trades or use subcontractors?',     'a' => 'All six of our trade disciplines are self-performed by our own dedicated crews. We do not broker work to third-party labor. This is what allows us to maintain a consistent execution standard across every project and every state.'],
-          ['q' => 'Can you handle multiple trades on the same project?',        'a' => 'Yes. Multi-trade execution under a single contract is one of Imvera\'s core advantages. Framing, drywall, ceilings, flooring, FRP, and cabinetry can all be scoped together — one contract, one point of contact, one execution standard across the entire interior package.'],
-          ['q' => 'Are you a certified ECO Grip installer?',                    'a' => 'Yes. Imvera Group holds certified installer status for ECO Grip commercial flooring systems — one of the credentials that leading national food service operators require before awarding interior flooring contracts.'],
-          ['q' => 'What states do you operate in?',                            'a' => 'We maintain active operations across Georgia, North Carolina, South Carolina, Tennessee, Texas, Kentucky, and Florida. Our primary commercial construction focus markets are Atlanta, Charlotte, Nashville, and the Raleigh-Durham Triangle.'],
-          ['q' => 'How do you communicate with GC partners during a project?',  'a' => 'Daily progress updates with photo documentation are sent to GC project contacts throughout every active project. Issues are reported immediately before they affect schedule. Our standard is that you receive information without having to ask for it.'],
-          ['q' => 'Do you offer a workmanship warranty?',                       'a' => 'Yes. All completed installations are backed by a 1-year workmanship warranty.'],
+          ['q' => 'Do you self-perform all trades or use subcontractors?',    'a' => 'All six of our trade disciplines are self-performed by our own dedicated crews. We do not broker work to third-party labor. This is what allows us to maintain a consistent execution standard across every project and every state.'],
+          ['q' => 'Can you handle multiple trades on the same project?',       'a' => 'Yes. Multi-trade execution under a single contract is one of Imvera\'s core advantages. Framing, drywall, ceilings, flooring, FRP, and cabinetry can all be scoped together — one contract, one point of contact, one execution standard across the entire interior package.'],
+          ['q' => 'Are you a certified ECO Grip installer?',                   'a' => 'Yes. Imvera Group holds certified installer status for ECO Grip commercial flooring systems — one of the credentials that leading national food service operators require before awarding interior flooring contracts.'],
+          ['q' => 'What states do you operate in?',                           'a' => 'We maintain active operations across Georgia, North Carolina, South Carolina, Tennessee, Texas, Kentucky, and Florida. Our primary commercial construction focus markets are Atlanta, Charlotte, Nashville, and the Raleigh-Durham Triangle.'],
+          ['q' => 'How do you communicate with GC partners during a project?', 'a' => 'Daily progress updates with photo documentation are sent to GC project contacts throughout every active project. Issues are reported immediately before they affect schedule. Our standard is that you receive information without having to ask for it.'],
+          ['q' => 'Do you offer a workmanship warranty?',                      'a' => 'Yes. All completed installations are backed by a 1-year workmanship warranty.'],
         ];
         foreach ($faqs as $i => $faq) : ?>
           <details class="group py-5 cursor-pointer" style="border-bottom: 1px solid #dde8e5;" <?php echo $i === 0 ? 'open' : ''; ?>>
@@ -656,7 +699,6 @@ get_header(); ?>
      ============================================================ -->
 <section class="py-20 lg:py-28 relative overflow-hidden" style="background-color: #162525;">
 
-  <!-- Background image -->
   <div class="absolute inset-0 z-0">
     <img src="/wp-content/uploads/2026/04/ImveraHero3-scaled.jpg"
          alt=""
@@ -668,7 +710,7 @@ get_header(); ?>
          style="background: linear-gradient(to bottom, #6FC061, #2A9D93);"></div>
   </div>
 
-  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <div id="ig-cta-block" class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <p class="text-xs font-semibold tracking-widest uppercase mb-4" style="color: #2A9D93;">Ready to Start?</p>
     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
       Your Next Interior Project Needs a Subcontractor Built for Certainty.
@@ -704,5 +746,76 @@ get_header(); ?>
     </div>
   </div>
 </section>
+
+
+<!-- ============================================================
+     SCROLL REVEAL — IntersectionObserver
+     ============================================================ -->
+<script>
+(function () {
+
+  /* ── Core observer ─────────────────────────────────────────── */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+
+  function prep(el, type, delay) {
+    if (!el) return;
+    el.classList.add('ig-reveal', type);
+    if (delay) el.style.transitionDelay = delay + 'ms';
+    io.observe(el);
+  }
+
+  /* ── S02 — Trust Bar ───────────────────────────────────────── */
+  prep(document.querySelector('#ig-trust-bar .ig-ticker-track'), 'fade-up', 0);
+
+  /* ── S03 — About Teaser ────────────────────────────────────── */
+  prep(document.getElementById('ig-about-left'),  'from-left',  0);
+  prep(document.getElementById('ig-about-right'), 'from-right', 80);
+
+  /* ── S04 — Services Carousel ───────────────────────────────── */
+  prep(document.getElementById('ig-svc-header'),   'fade-up', 0);
+  prep(document.getElementById('ig-svc-viewport'), 'fade-up', 140);
+  prep(document.getElementById('ig-svc-dots'),     'fade-up', 220);
+  prep(document.getElementById('ig-svc-cta'),      'fade-up', 280);
+
+  /* ── S05 — Why Imvera ──────────────────────────────────────── */
+  prep(document.getElementById('ig-why-heading'), 'fade-up',   0);
+  prep(document.getElementById('ig-why-image'),   'from-left', 60);
+
+  var whyCards = document.querySelectorAll('.ig-why-card');
+  whyCards.forEach(function (card, i) {
+    prep(card, 'fade-up', 100 + i * 80);
+  });
+
+  prep(document.getElementById('ig-why-cta'), 'fade-up', 600);
+
+  /* ── S06 — Gallery ─────────────────────────────────────────── */
+  prep(document.getElementById('ig-gallery-header'), 'fade-up',    0);
+  prep(document.getElementById('ig-gallery-grid'),   'fade-scale', 120);
+
+  /* ── S07 — Markets ─────────────────────────────────────────── */
+  prep(document.getElementById('ig-markets-heading'), 'fade-up', 0);
+
+  var marketCards = document.querySelectorAll('.ig-market-card');
+  marketCards.forEach(function (card, i) {
+    prep(card, 'fade-up', 80 + i * 70);
+  });
+
+  prep(document.getElementById('ig-markets-footer'), 'fade-up', 380);
+
+  /* ── S08 — FAQ ─────────────────────────────────────────────── */
+  prep(document.getElementById('ig-faq-left'),  'from-left',  0);
+  prep(document.getElementById('ig-faq-right'), 'from-right', 100);
+
+  /* ── S09 — Bottom CTA ──────────────────────────────────────── */
+  prep(document.getElementById('ig-cta-block'), 'fade-up', 0);
+
+})();
+</script>
 
 <?php get_footer();

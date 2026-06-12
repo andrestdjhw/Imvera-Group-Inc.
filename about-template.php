@@ -14,7 +14,7 @@ get_header(); ?>
   <!-- Background image -->
   <div class="absolute inset-0 z-0">
     <div class="w-full h-full"
-         style="background-image: url('<?php echo get_theme_file_uri('/images/about-hero.jpg'); ?>'); background-size: cover; background-position: center;">
+         style="background-image: url('/wp-content/uploads/2026/04/ImveraHero2-scaled.jpg'); background-size: cover; background-position: center;">
     </div>
     <div class="absolute inset-0"
          style="background: linear-gradient(to top, rgba(22,37,37,0.97) 0%, rgba(22,37,37,0.65) 50%, rgba(22,37,37,0.25) 100%);"></div>

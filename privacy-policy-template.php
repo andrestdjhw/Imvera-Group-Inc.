@@ -10,10 +10,22 @@ get_header(); ?>
      HERO
      ============================================================ -->
 <section class="relative overflow-hidden" style="background-color: #162525;">
-  <div class="absolute inset-y-0 left-0 w-1.5"
-       style="background: linear-gradient(to bottom, #6FC061, #2A9D93);"></div>
-  <div class="absolute inset-0 pointer-events-none"
-       style="background: radial-gradient(ellipse at 80% 50%, rgba(42,157,147,0.08) 0%, transparent 60%);"></div>
+
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <div class="w-full h-full"
+         style="background-image: url('/wp-content/uploads/2026/04/ImveraHero2-scaled.jpg'); background-size: cover; background-position: center;">
+    </div>
+    <!-- Directional overlay -->
+    <div class="absolute inset-0"
+         style="background: linear-gradient(to right, rgba(22,37,37,0.97) 0%, rgba(22,37,37,0.88) 55%, rgba(22,37,37,0.6) 100%);"></div>
+    <!-- Left accent strip -->
+    <div class="absolute inset-y-0 left-0 w-1.5"
+         style="background: linear-gradient(to bottom, #6FC061, #2A9D93);"></div>
+    <!-- Subtle radial orb -->
+    <div class="absolute inset-0 pointer-events-none"
+         style="background: radial-gradient(ellipse at 80% 50%, rgba(42,157,147,0.08) 0%, transparent 60%);"></div>
+  </div>
 
   <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
     <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5"
