@@ -309,7 +309,7 @@ function Navbar() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <span style={{ fontSize: "0.75rem", fontWeight: 500 }}>Duluth, Georgia</span>
+            <span style={{ fontSize: "0.75rem", fontWeight: 500 }}>2975 Breckinridge Blvd Suite 11, Duluth, GA 30096</span>
           </a>
 
           {/* Right: Social Icons */}

@@ -879,7 +879,7 @@ const NAV_LINKS = [{
   href: "/contact-us"
 }];
 const PHONE = "678-836-3266";
-const HEADQUARTERS = "Duluth, Georgia";
+const HEADQUARTERS = "2975 Breckinridge Blvd Suite 11, Duluth, GA 30096";
 function Footer() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("footer", {
     style: {
@@ -2428,7 +2428,7 @@ function Navbar() {
               fontSize: "0.75rem",
               fontWeight: 500
             },
-            children: "Duluth, Georgia"
+            children: "2975 Breckinridge Blvd Suite 11, Duluth, GA 30096"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "flex items-center gap-3 justify-end",
