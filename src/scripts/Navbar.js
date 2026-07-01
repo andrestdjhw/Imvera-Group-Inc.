@@ -6,7 +6,6 @@ const SERVICES = [
   {
     num:   "01",
     title: "ECO Grip Commercial Flooring",
-    tag:   "Highest margin · Growth priority",
     href:  "/services/eco-grip-flooring",
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -16,7 +15,6 @@ const SERVICES = [
   {
     num:   "02",
     title: "Cabinet & Countertop Installation",
-    tag:   "High margin · Precision-driven",
     href:  "/services/cabinets-countertops",
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -26,7 +24,6 @@ const SERVICES = [
   {
     num:   "03",
     title: "Acoustical Ceilings",
-    tag:   "High output · Compliance-driven",
     href:  "/services/acoustical-ceilings",
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -36,7 +33,6 @@ const SERVICES = [
   {
     num:   "04",
     title: "FRP Installation",
-    tag:   "Specialty · Compliance-driven",
     href:  "/services/frp-installation",
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -46,7 +42,6 @@ const SERVICES = [
   {
     num:   "05",
     title: "Drywall & Finishing",
-    tag:   "Core volume trade",
     href:  "/services/drywall-finishing",
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -56,7 +51,6 @@ const SERVICES = [
   {
     num:   "06",
     title: "Metal Framing",
-    tag:   "Core volume trade · Foundation scope",
     href:  "/services/metal-framing",
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -66,7 +60,6 @@ const SERVICES = [
   {
     num:   "07",
     title: "Post-Construction Cleaning",
-    tag:   "Closeout service · Inspection-ready",
     href:  "/services/post-construction-cleaning",
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -169,8 +162,7 @@ function MegaMenu({ visible }) {
                   <span style={{ fontSize: "0.65rem", fontWeight: 700, color: "rgba(42,157,147,0.6)", letterSpacing: "0.05em" }}>{s.num}</span>
                   <div style={{ width: "1.5rem", height: "1px", background: "linear-gradient(to right, #6FC061, #2A9D93)", opacity: 0.4 }} />
                 </div>
-                <p style={{ fontSize: "0.8125rem", fontWeight: 600, color: "#162525", lineHeight: 1.3, marginBottom: "0.2rem" }}>{s.title}</p>
-                <p style={{ fontSize: "0.7rem", color: "#7fa89e", lineHeight: 1.4 }}>{s.tag}</p>
+                <p style={{ fontSize: "0.8125rem", fontWeight: 600, color: "#162525", lineHeight: 1.3 }}>{s.title}</p>
               </div>
             </a>
           )
@@ -204,7 +196,6 @@ function MegaMenu({ visible }) {
             <div style={{ width: "1.5rem", height: "1px", background: "linear-gradient(to right, #6FC061, #2A9D93)", opacity: 0.4 }} />
           </div>
           <p style={{ fontSize: "0.8125rem", fontWeight: 600, color: "#162525", lineHeight: 1.3, margin: 0 }}>{lastService.title}</p>
-          <p style={{ fontSize: "0.7rem", color: "#7fa89e", lineHeight: 1.4, margin: 0 }}>{lastService.tag}</p>
         </div>
         {/* "New" badge */}
         <span style={{
@@ -552,7 +543,6 @@ function Navbar() {
                           <span style={{ fontSize: "0.65rem", fontWeight: 700, color: "#2A9D93", marginTop: "2px", minWidth: "1.5rem" }}>{s.num}</span>
                           <div>
                             <p style={{ fontSize: "0.8125rem", fontWeight: 600, color: "#162525", margin: 0, lineHeight: 1.3 }}>{s.title}</p>
-                            <p style={{ fontSize: "0.7rem", color: "#7fa89e", margin: "0.1rem 0 0", lineHeight: 1.3 }}>{s.tag}</p>
                           </div>
                         </a>
                       ))}

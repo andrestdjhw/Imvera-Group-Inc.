@@ -1896,7 +1896,6 @@ __webpack_require__.r(__webpack_exports__);
 const SERVICES = [{
   num: "01",
   title: "ECO Grip Commercial Flooring",
-  tag: "Highest margin · Growth priority",
   href: "/services/eco-grip-flooring",
   icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
     strokeLinecap: "round",
@@ -1907,7 +1906,6 @@ const SERVICES = [{
 }, {
   num: "02",
   title: "Cabinet & Countertop Installation",
-  tag: "High margin · Precision-driven",
   href: "/services/cabinets-countertops",
   icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
     strokeLinecap: "round",
@@ -1918,7 +1916,6 @@ const SERVICES = [{
 }, {
   num: "03",
   title: "Acoustical Ceilings",
-  tag: "High output · Compliance-driven",
   href: "/services/acoustical-ceilings",
   icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
     strokeLinecap: "round",
@@ -1929,7 +1926,6 @@ const SERVICES = [{
 }, {
   num: "04",
   title: "FRP Installation",
-  tag: "Specialty · Compliance-driven",
   href: "/services/frp-installation",
   icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
     strokeLinecap: "round",
@@ -1940,7 +1936,6 @@ const SERVICES = [{
 }, {
   num: "05",
   title: "Drywall & Finishing",
-  tag: "Core volume trade",
   href: "/services/drywall-finishing",
   icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
     strokeLinecap: "round",
@@ -1951,7 +1946,6 @@ const SERVICES = [{
 }, {
   num: "06",
   title: "Metal Framing",
-  tag: "Core volume trade · Foundation scope",
   href: "/services/metal-framing",
   icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
     strokeLinecap: "round",
@@ -1962,7 +1956,6 @@ const SERVICES = [{
 }, {
   num: "07",
   title: "Post-Construction Cleaning",
-  tag: "Closeout service · Inspection-ready",
   href: "/services/post-construction-cleaning",
   icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
     strokeLinecap: "round",
@@ -2139,17 +2132,9 @@ function MegaMenu({
                 fontSize: "0.8125rem",
                 fontWeight: 600,
                 color: "#162525",
-                lineHeight: 1.3,
-                marginBottom: "0.2rem"
+                lineHeight: 1.3
               },
               children: s.title
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-              style: {
-                fontSize: "0.7rem",
-                color: "#7fa89e",
-                lineHeight: 1.4
-              },
-              children: s.tag
             })]
           })]
         }, s.href);
@@ -2223,14 +2208,6 @@ function MegaMenu({
             margin: 0
           },
           children: lastService.title
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-          style: {
-            fontSize: "0.7rem",
-            color: "#7fa89e",
-            lineHeight: 1.4,
-            margin: 0
-          },
-          children: lastService.tag
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
         style: {
@@ -2841,8 +2818,8 @@ function Navbar() {
                         minWidth: "1.5rem"
                       },
                       children: s.num
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
                         style: {
                           fontSize: "0.8125rem",
                           fontWeight: 600,
@@ -2851,15 +2828,7 @@ function Navbar() {
                           lineHeight: 1.3
                         },
                         children: s.title
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                        style: {
-                          fontSize: "0.7rem",
-                          color: "#7fa89e",
-                          margin: "0.1rem 0 0",
-                          lineHeight: 1.3
-                        },
-                        children: s.tag
-                      })]
+                      })
                     })]
                   }, s.href)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
                     href: "/services",
