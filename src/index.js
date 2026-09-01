@@ -4,6 +4,7 @@ import Navbar from "./scripts/Navbar"
 import Footer from "./scripts/Footer"
 import ContactForm from "./scripts/ContactForm"
 import ImveraChatbot from "./scripts/ImveraChatbot"
+import CookieConsent from "./scripts/CookieConsent"
 
 // ── Navbar ────────────────────────────────────────────────────
 if (document.querySelector("#render-navbar-here")) {
@@ -35,4 +36,12 @@ document.querySelectorAll("[id^='render-contact-form']").forEach((el) => {
 if (document.querySelector("#render-chatbot-here")) {
   const root = ReactDOM.createRoot(document.querySelector("#render-chatbot-here"))
   root.render(<ImveraChatbot />)
+}
+
+// ── Cookie Consent — mounted once into a persistent div in footer.php ─
+// Add this to footer.php before wp_footer():
+//   <div id="render-cookie-consent-here"></div>
+if (document.querySelector("#render-cookie-consent-here")) {
+  const root = ReactDOM.createRoot(document.querySelector("#render-cookie-consent-here"))
+  root.render(<CookieConsent />)
 }
