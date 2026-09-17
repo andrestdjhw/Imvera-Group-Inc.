@@ -552,17 +552,20 @@ get_header(); ?>
       ['url' => '/wp-content/uploads/2026/06/FRPInstallation2After.jpeg',                    'label' => 'FRP Installation',    'sector' => 'Commercial Kitchen'],
       ['url' => '/wp-content/uploads/2026/06/MetalFramingBefore.jpeg',                      'label' => 'Metal Framing',       'sector' => 'Healthcare Buildout'],
       ['url' => '/wp-content/uploads/2026/06/Cabinet-Photo-11.jpg',                          'label' => 'Cabinets',            'sector' => 'Countertop Install'],
-      ['url' => '/wp-content/uploads/2026/04/ImveraGroupCrew-scaled.jpg',                    'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
+      ['url' => '/wp-content/uploads/2026/09/CountertopPhoto4.jpg',                          'label' => 'Cabinets',            'sector' => 'Countertop Install'],
       ['url' => '/wp-content/uploads/2026/06/CabinetCountertopAfter-scaled.jpg',             'label' => 'Cabinets',            'sector' => 'Countertop Install'],
-      ['url' => '/wp-content/uploads/2026/04/ImveraInstallationCrew-scaled.jpg',             'label' => 'Imvera Crew',         'sector' => 'Full PPE / Uniforms'],
+      ['url' => '/wp-content/uploads/2026/09/PostConstructionPhotoAfter-scaled.jpg',         'label' => 'Post-Construction Cleaning', 'sector' => 'Commercial Kitchen'],
+      ['url' => '/wp-content/uploads/2026/09/Imagen1.png',                                  'label' => 'Cabinets',            'sector' => 'Countertop Install'],
+      ['url' => '/wp-content/uploads/2026/09/Imagen2.png',                                   'label' => 'Drywall',             'sector' => 'Warehouse Buildout'],
     ];
     ?>
     <div id="ig-gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3">
       <?php foreach ($gallery_photos as $i => $photo) :
-        $span = ($i === 0 || $i === 5) ? 'col-span-2' : 'col-span-1';
+        $is_wide = in_array($i, [0, 5, 10, 11], true);
+        $span = $is_wide ? 'col-span-2' : 'col-span-1';
       ?>
         <div class="<?php echo $span; ?> group relative overflow-hidden rounded-lg bg-gray-200"
-             style="aspect-ratio: <?php echo ($i === 0 || $i === 5) ? '2/1' : '1/1'; ?>">
+             style="aspect-ratio: <?php echo $is_wide ? '2/1' : '1/1'; ?>">
           <img src="<?php echo esc_url($photo['url']); ?>"
                alt="<?php echo esc_attr($photo['label'] . ' — ' . $photo['sector']); ?>"
                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
