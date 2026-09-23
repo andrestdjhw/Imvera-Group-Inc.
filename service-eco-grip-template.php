@@ -126,7 +126,7 @@ get_header(); ?>
 
         <?php
         $stats = [
-          ['value' => '480', 'unit' => 'sq ft/day', 'label' => 'Daily Output',        'sub' => '3-person crew'],
+          ['value' => 'Up to 480', 'unit' => 'sq ft/day', 'label' => 'Typical Daily Output', 'sub' => '3-person crew'],
           ['value' => '1yr',  'unit' => '',           'label' => 'Workmanship Warranty','sub' => 'All installations'],
           ['value' => '✓',    'unit' => '',           'label' => 'Drain Integration',  'sub' => 'Cuts, flanges & sealing'],
           ['value' => '✓',    'unit' => '',           'label' => 'Full Demolition',    'sub' => 'Ceramic, tile, grinding'],
@@ -429,7 +429,7 @@ get_header(); ?>
         $specs = [
           ['label' => 'Trade',           'value' => 'ECO Grip Commercial Flooring'],
           ['label' => 'Installer Status','value' => 'Certified'],
-          ['label' => 'Daily Output',    'value' => '480 sq ft (3-person crew)'],
+          ['label' => 'Typical Daily Output', 'value' => 'Up to 480 sq ft (3-person crew)'],
           ['label' => 'Drain Integration','value' => 'Included'],
           ['label' => 'Demolition',      'value' => 'Ceramic, tile, grinding & leveling'],
           ['label' => 'Warranty',        'value' => '1 year workmanship'],

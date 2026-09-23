@@ -55,7 +55,7 @@ get_header(); ?>
       </h1>
 
       <p class="text-lg leading-relaxed mb-6 max-w-2xl" style="color: #b8d4ce;">
-        Commercial casework and Corian countertop installation for food service, healthcare, retail, and office interiors. Executed to a finishing standard where errors are not acceptable and do not occur.
+        Commercial casework and Corian countertop installation for food service, healthcare, retail, and office interiors. Executed to a detail-driven finishing standard where errors are not acceptable.
       </p>
 
       <!-- Zero-defect callout -->
@@ -133,9 +133,9 @@ get_header(); ?>
           <div class="relative">
             <div class="w-8 h-0.5 mb-4 rounded-full" style="background: linear-gradient(135deg, #6FC061, #2A9D93);"></div>
             <p class="text-xs font-semibold tracking-widest uppercase mb-2" style="color: #2A9D93;">Execution Standard</p>
-            <h3 class="text-white font-bold text-xl mb-3 leading-snug">No Errors. No Exceptions.</h3>
+            <h3 class="text-white font-bold text-xl mb-3 leading-snug">Detail-Driven Standard.</h3>
             <p class="text-sm leading-relaxed" style="color: #7fa89e;">
-              Cabinet and countertop installation is the highest-visibility finish work on any commercial interior. It is what owners, franchisees, and health inspectors see first. Imvera's installation crews operate to a zero-defect finishing standard because in this trade, the finishing is the product.
+              Cabinet and countertop installation is the highest-visibility finish work on any commercial interior. It is what owners, franchisees, and health inspectors see first. Imvera's installation crews operate to a detail-driven finishing standard because in this trade, the finishing is the product.
             </p>
           </div>
         </div>

@@ -35,7 +35,7 @@ get_header(); ?>
         <span class="text-xs font-semibold tracking-widest uppercase" style="color: #2A9D93;">Where We Work</span>
       </div>
       <h1 class="text-4xl sm:text-5xl font-bold text-white leading-[1.05] tracking-tight mb-5">
-        Active Across the Southeast's
+        Active Across Seven States'
         <span style="background: linear-gradient(135deg, #6FC061, #2A9D93); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"> Fastest Growing Markets.</span>
       </h1>
       <p class="text-base leading-relaxed" style="color: #b8d4ce;">
@@ -231,7 +231,7 @@ get_header(); ?>
       <div id="render-contact-form-markets"
            data-variant="dark"
            data-title="Discuss a Project"
-           data-subtitle="Active in 7 States Across the Southeast">
+           data-subtitle="Active Across Seven States">
       </div>
 
     </div>

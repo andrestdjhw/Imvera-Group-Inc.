@@ -75,7 +75,7 @@ function getBotResponse(rawInput) {
   // ECO Grip
   if (i.includes("eco grip") || i.includes("flooring") || i.includes("floor") || i.includes("kitchen floor")) {
     return msg(
-      "ECO Grip is Imvera's highest-margin service and a key differentiator. We are a certified ECO Grip installer — one of a select group authorized in the Southeast. Our crews handle demolition, adhesive application, seam sealing, drain integration, and full equipment reinstallation. 480 sq ft per day with a 3-person crew.",
+      "ECO Grip is one of Imvera's key differentiators. We are a certified ECO Grip installer — one of a select group authorized in the Southeast. Our crews handle demolition, adhesive application, seam sealing, drain integration, and full equipment reinstallation. Typical production capacity is up to 480 sq ft per day with a 3-person crew, depending on project conditions.",
       [{ label: "ECO Grip Service", href: "/services/eco-grip-flooring" }, { label: "Request a Scope Review", href: CONTACT_LINK }]
     )
   }
@@ -83,7 +83,7 @@ function getBotResponse(rawInput) {
   // Cabinets & Countertops
   if (i.includes("cabinet") || i.includes("countertop") || i.includes("corian") || i.includes("casework")) {
     return msg(
-      "Imvera installs Corian countertops and commercial casework to a zero-defect finishing standard. Our installation crews are dedicated to this trade — not rotated from framing or drywall. No errors, no exceptions. This is the highest-visibility finish work on any commercial interior.",
+      "Imvera installs Corian countertops and commercial casework to a detail-driven finishing standard. Our installation crews are dedicated to this trade — not rotated from framing or drywall. This is the highest-visibility finish work on any commercial interior.",
       [{ label: "Cabinets & Countertops", href: "/services/cabinets-countertops" }, { label: "Request a Scope Review", href: CONTACT_LINK }]
     )
   }
@@ -91,7 +91,7 @@ function getBotResponse(rawInput) {
   // Acoustical Ceilings
   if (i.includes("ceiling") || i.includes("acoustical") || i.includes("armstrong") || i.includes("usg") || i.includes("t-bar")) {
     return msg(
-      "Imvera installs Armstrong and USG acoustical ceiling systems with a 2-person crew capable of 1,400 sq ft per day. We also fix what other contractors leave behind — re-cutting tile reveals, re-leveling grids, and coordinating MEP. We pass inspection first time.",
+      "Imvera installs Armstrong and USG acoustical ceiling systems, with typical production capacity of up to 1,400 sq ft per day with a 2-person crew, depending on project conditions. We also fix what other contractors leave behind — re-cutting tile reveals, re-leveling grids, and coordinating MEP. Built for first-pass inspection readiness.",
       [{ label: "Acoustical Ceilings", href: "/services/acoustical-ceilings" }, { label: "Request a Scope Review", href: CONTACT_LINK }]
     )
   }
@@ -99,7 +99,7 @@ function getBotResponse(rawInput) {
   // FRP
   if (i.includes("frp") || i.includes("fiberglass") || i.includes("wall panel") || i.includes("food service wall")) {
     return msg(
-      "Imvera installs Southern Building Products FRP wall panels using Fast Grab adhesive for commercial kitchens, restrooms, healthcare, and retail environments. 480 sq ft per day with a 3-person crew. Cove base available where specified. No trim moldings.",
+      "Imvera installs Southern Building Products FRP wall panels using Fast Grab adhesive for commercial kitchens, restrooms, healthcare, and retail environments. Typical production capacity is up to 480 sq ft per day with a 3-person crew, depending on project conditions. Cove base available where specified. No trim moldings.",
       [{ label: "FRP Installation", href: "/services/frp-installation" }, { label: "Request a Scope Review", href: CONTACT_LINK }]
     )
   }
@@ -107,7 +107,7 @@ function getBotResponse(rawInput) {
   // Drywall
   if (i.includes("drywall") || i.includes("finishing") || i.includes("hanging") || i.includes("taping") || i.includes("mudding") || i.includes("smooth wall")) {
     return msg(
-      "Imvera self-performs all phases — hanging, taping, mudding, and patching — with dedicated crews. Fire-rated and moisture-resistant assemblies. Smooth walls only, no textures. 480 sheets per week with a 2-person crew. Clean tools, formal job starts, no phones on site.",
+      "Imvera self-performs all phases — hanging, taping, mudding, and patching — with dedicated crews. Fire-rated and moisture-resistant assemblies. Smooth walls only, no textures. Typical production capacity is up to 480 sheets per week with a 2-person crew, depending on project conditions. Clean tools, formal job starts, no phones on site.",
       [{ label: "Drywall & Finishing", href: "/services/drywall-finishing" }, { label: "Request a Scope Review", href: CONTACT_LINK }]
     )
   }
@@ -115,7 +115,7 @@ function getBotResponse(rawInput) {
   // Metal Framing
   if (i.includes("framing") || i.includes("metal framing") || i.includes("steel") || i.includes("gauge") || i.includes("partition")) {
     return msg(
-      "Imvera provides non-structural interior metal framing in 16, 18, and 20 gauge steel, executed from structural drawings. English-speaking foreman on every project. Full PPE on every site. Layouts verified before framing starts. We pass framing and ACT inspections first submission.",
+      "Imvera provides non-structural interior metal framing in 16, 18, and 20 gauge steel, executed from structural drawings. English-speaking foreman on every project. Full PPE on every site. Layouts verified before framing starts. Built for first-pass framing and ACT inspection readiness.",
       [{ label: "Metal Framing", href: "/services/metal-framing" }, { label: "Request a Scope Review", href: CONTACT_LINK }]
     )
   }
@@ -187,7 +187,7 @@ function getBotResponse(rawInput) {
   // Gallery
   if (i.includes("gallery") || i.includes("photo") || i.includes("project") || i.includes("work") || i.includes("example")) {
     return msg(
-      "The gallery shows completed commercial interior projects across all six trades — ECO Grip flooring, drywall, framing, ceilings, FRP, and casework — executed across the Southeast.",
+      "The gallery shows completed commercial interior projects across all six core trades — ECO Grip flooring, drywall, framing, ceilings, FRP, and casework — plus post-construction closeout, executed across seven active states.",
       [{ label: "View Gallery", href: GALLERY_LINK }]
     )
   }

@@ -55,7 +55,7 @@ get_header(); ?>
       </h1>
 
       <p class="text-lg leading-relaxed mb-6 max-w-2xl" style="color: #b8d4ce;">
-        Armstrong and USG acoustical ceiling systems for commercial and institutional environments across the Southeast. 1,400 square feet per day with a two person crew. Schedule performance that compressed commercial timelines require.
+        Armstrong and USG acoustical ceiling systems for commercial and institutional environments across seven active states. Typical production capacity of up to 1,400 square feet per day with a two person crew. Schedule performance that compressed commercial timelines require.
       </p>
 
       <!-- Output callout -->
@@ -65,7 +65,7 @@ get_header(); ?>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
         </svg>
         <p class="text-sm" style="color: #b8d4ce;">
-          <strong class="text-white">1,400 sq ft per day</strong>  2 person crew. Armstrong and USG systems. We also correct what other contractors left behind.
+          <strong class="text-white">Up to 1,400 sq ft per day</strong>  2 person crew, depending on project conditions. Armstrong and USG systems. We also correct what other contractors left behind.
         </p>
       </div>
 
@@ -115,7 +115,7 @@ get_header(); ?>
           Acoustical ceiling installation sounds straightforward. In practice, it is one of the most frequently re done ceiling scopes on commercial projects because tile reveal cuts are executed incorrectly, grid systems are not properly leveled, or coordination with MEP rough ins is mismanaged.
         </p>
         <p class="text-base leading-relaxed" style="color: #585858;">
-          Imvera's ceiling crews are regularly called in to correct work that other contractors left behind. We do it right the first time.
+          Imvera's ceiling crews are regularly called in to correct work that other contractors left behind, and are trained to get it right the first time.
         </p>
       </div>
 
@@ -123,7 +123,7 @@ get_header(); ?>
       <div class="grid grid-cols-2 gap-4">
         <?php
         $stats = [
-          ['value' => '1,400', 'unit' => 'sq ft/day', 'label' => 'Daily Output',     'sub' => '2-person crew'],
+          ['value' => 'Up to 1,400', 'unit' => 'sq ft/day', 'label' => 'Typical Daily Output', 'sub' => '2-person crew'],
           ['value' => '2',     'unit' => '',           'label' => 'Systems',          'sub' => 'Armstrong & USG'],
           ['value' => '✓',     'unit' => '',           'label' => 'MEP Coordination', 'sub' => 'Lighting, HVAC, full coordination'],
           ['value' => '1yr',   'unit' => '',           'label' => 'Warranty',         'sub' => 'All completed installations'],
@@ -410,7 +410,7 @@ get_header(); ?>
         $specs = [
           ['label' => 'Trade',         'value' => 'Acoustical Ceiling Installation'],
           ['label' => 'Systems',       'value' => 'Armstrong & USG'],
-          ['label' => 'Daily Output',  'value' => '1,400 sq ft (2-person crew)'],
+          ['label' => 'Typical Daily Output', 'value' => 'Up to 1,400 sq ft (2-person crew)'],
           ['label' => 'Coordination',  'value' => 'MEP, lighting & HVAC'],
           ['label' => 'Correction',    'value' => 'Re-leveling & reveal re-cuts'],
           ['label' => 'Warranty',      'value' => '1 year workmanship'],

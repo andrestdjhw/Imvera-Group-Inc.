@@ -211,8 +211,8 @@ $projects = [
     'cat_label' => 'Cabinets & Countertops',
     'title'     => 'Break Room Casework — Raleigh',
     'city'      => 'Raleigh, NC',
-    'desc'      => 'Commercial casework and Corian countertop installation for a corporate break room buildout. Zero-defect finishing standard. Dedicated installation crew, not shared with other trades.',
-    'scope'     => 'Commercial casework · Corian countertop · Zero-defect standard · Dedicated crew',
+    'desc'      => 'Commercial casework and Corian countertop installation for a corporate break room buildout. Detail-driven finishing standard. Dedicated installation crew, not shared with other trades.',
+    'scope'     => 'Commercial casework · Corian countertop · Detail-driven finishing standard · Dedicated crew',
     'has_ba'    => false,
     'size'      => 'wide',
     'ph_before' => 'Before — framed and drywalled shell',
@@ -243,7 +243,6 @@ $categories = [
   'framing'          => 'Metal Framing',
   'frp'              => 'FRP Installation',
   'cabinets'         => 'Cabinets & Countertops',
-  'multi'            => 'Multi-Trade',
   'post-construction'=> 'Post Construction',
 ];
 ?>
@@ -276,7 +275,7 @@ $categories = [
       <span style="background: linear-gradient(135deg, #6FC061, #2A9D93); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">for Itself.</span>
     </h1>
     <p class="text-base leading-relaxed max-w-lg" style="color: #b8d4ce;">
-      Commercial interior execution across all six trade disciplines — self-performed by dedicated Imvera crews throughout the Southeast.
+      Commercial interior execution across all six core trade disciplines — self-performed by dedicated Imvera crews across seven active states.
     </p>
   </div>
 </section>

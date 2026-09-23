@@ -65,7 +65,7 @@ get_header(); ?>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
         </svg>
         <p class="text-sm" style="color: #b8d4ce;">
-          <strong class="text-white">Southern Building Products FRP · Fast Grab adhesive.</strong> 480 sq ft per day with a 3-person crew. Cove base available where specified.
+          <strong class="text-white">Southern Building Products FRP · Fast Grab adhesive.</strong> Typical production capacity of up to 480 sq ft per day with a 3-person crew. Cove base available where specified.
         </p>
       </div>
 
@@ -115,7 +115,7 @@ get_header(); ?>
           FRP is a critical finish system in food service, healthcare, and industrial interior applications and it must be installed correctly to meet health department, USDA, and facility compliance standards. A failed FRP installation is not a cosmetic issue. It is an inspection failure.
         </p>
         <p class="text-base leading-relaxed" style="color: #585858;">
-          Imvera installs Southern Building Products FRP wall panel systems using Fast Grab adhesive for permanent, compliant bond with a three person crew capable of 480 square feet per day on the production rate that food service and healthcare schedules require.
+          Imvera installs Southern Building Products FRP wall panel systems using Fast Grab adhesive for permanent, compliant bond, with a three person crew and typical production capacity of up to 480 square feet per day — the production rate that food service and healthcare schedules require, depending on project conditions.
         </p>
       </div>
 
@@ -123,7 +123,7 @@ get_header(); ?>
       <div class="grid grid-cols-2 gap-4">
         <?php
         $stats = [
-          ['value' => '480',  'unit' => 'sq ft/day', 'label' => 'Daily Output',     'sub' => '3-person crew'],
+          ['value' => 'Up to 480', 'unit' => 'sq ft/day', 'label' => 'Typical Daily Output', 'sub' => '3-person crew'],
           ['value' => 'SBP',  'unit' => '',           'label' => 'Product',          'sub' => 'Southern Building Products'],
           ['value' => 'FG',   'unit' => '',           'label' => 'Adhesive System',  'sub' => 'Fast Grab — permanent bond'],
           ['value' => '1yr',  'unit' => '',           'label' => 'Warranty',         'sub' => 'All completed installations'],
@@ -348,7 +348,7 @@ get_header(); ?>
           ['label' => 'Trade',          'value' => 'FRP Wall Panel Installation'],
           ['label' => 'Product',        'value' => 'Southern Building Products FRP'],
           ['label' => 'Adhesive',       'value' => 'Fast Grab system'],
-          ['label' => 'Daily Output',   'value' => '480 sq ft (3-person crew)'],
+          ['label' => 'Typical Daily Output', 'value' => 'Up to 480 sq ft (3-person crew)'],
           ['label' => 'Cove Base',      'value' => 'Available where specified'],
           ['label' => 'Warranty',       'value' => '1 year workmanship'],
           ['label' => 'Active States',  'value' => 'GA · NC · SC · TN · TX · KY · FL'],

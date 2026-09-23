@@ -49,7 +49,7 @@ $img_cta        = '/wp-content/uploads/2026/04/ImveraHero1-scaled.jpg'; // Botto
         All Services
       </a>
       <span style="color: rgba(241,246,242,0.2);">/</span>
-      <span class="text-xs font-semibold" style="color: #2A9D93;">Post-Construction Cleaning</span>
+      <span class="text-xs font-semibold" style="color: #2A9D93;">Post-Construction Closeout & Cleaning</span>
     </div>
 
     <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5 self-start"
@@ -59,12 +59,15 @@ $img_cta        = '/wp-content/uploads/2026/04/ImveraHero1-scaled.jpg'; // Botto
     </div>
 
     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-5 max-w-3xl">
-      Post-Construction
-      <span style="background: linear-gradient(135deg, #6FC061, #2A9D93); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"> Cleaning.</span>
+      Post-Construction Closeout
+      <span style="background: linear-gradient(135deg, #6FC061, #2A9D93); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"> &amp; Cleaning.</span>
     </h1>
 
-    <p class="text-base leading-relaxed max-w-xl mb-8" style="color: #b8d4ce;">
-      Final clean, punch list execution, surface detailing, and inspection-ready handoff — the last step before your GC closes out the project and hands keys to the owner.
+    <p class="text-base leading-relaxed max-w-xl mb-3" style="color: #b8d4ce;">
+      Final clean, punch-list support, surface detailing, and an inspection-ready project handoff.
+    </p>
+    <p class="text-sm leading-relaxed max-w-xl mb-8" style="color: #7fa89e;">
+      The final execution layer before owner walkthrough and project handoff.
     </p>
 
     <div class="flex flex-col sm:flex-row gap-3">
@@ -102,10 +105,10 @@ $img_cta        = '/wp-content/uploads/2026/04/ImveraHero1-scaled.jpg'; // Botto
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
       <?php
       $stats = [
-        ['num' => '1-Day',  'label' => 'Turnaround',      'desc' => 'Fast mobilization on closeout schedule'],
-        ['num' => '100%',   'label' => 'Self-Performed',   'desc' => 'Our own crews — no third-party labor'],
-        ['num' => 'Zero',   'label' => 'Rework',           'desc' => 'Inspection-ready on first submission'],
-        ['num' => '1-Year', 'label' => 'Warranty',         'desc' => 'Workmanship warranty on all scopes'],
+        ['num' => '1-Day',  'label' => 'Fast Mobilization', 'desc' => 'Fast mobilization on closeout schedule'],
+        ['num' => '100%',   'label' => 'Self-Performed',    'desc' => 'Our own crews — no third-party labor'],
+        ['num' => '2-in-1', 'label' => 'Punch + Final Clean','desc' => 'Punch list execution and final clean in one scope'],
+        ['num' => 'Ready',  'label' => 'Inspection-Ready',   'desc' => 'Handoff prepared for owner walkthrough'],
       ];
       foreach ($stats as $i => $stat) :
         $is_last = $i === count($stats) - 1;

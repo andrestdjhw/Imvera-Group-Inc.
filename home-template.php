@@ -107,7 +107,7 @@ get_header(); ?>
           Imvera Group delivers disciplined commercial interior execution across framing, drywall, flooring, ceilings, FRP, and cabinetry — with the labor stability, daily communication, and multi-state consistency that general contractors depend on.
         </p>
         <p class="text-base leading-relaxed mb-8 max-w-xl" style="color: #7fa89e;">
-          No surprises. No rework. No drama. Just execution that protects your schedule, passes inspections, and closes scopes cleanly.
+          Fewer surprises. Less rework. More control. Disciplined execution designed to protect your schedule, support inspection readiness, and close scopes cleanly.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3">
@@ -153,11 +153,12 @@ get_header(); ?>
 
   <?php
   $stats = [
-    ['num' => '7',    'label' => 'States',   'desc' => 'Active Operations Across the Southeast'],
-    ['num' => '6',    'label' => 'Trades',   'desc' => 'Complete Interior Scope Under One Contract'],
-    ['num' => '12+',  'label' => 'Years',    'desc' => 'Hands-On Commercial Construction Experience'],
-    ['num' => '1',    'label' => 'Standard', 'desc' => 'Consistent Execution in Every Market We Operate'],
-    ['num' => 'OSHA', 'label' => 'Certified','desc' => 'OSHA 10 & 30 Certified Crews on Every Project'],
+    ['num' => '7',    'label' => 'States',          'desc' => 'Active Across GA · NC · SC · TN · TX · KY · FL'],
+    ['num' => '6',    'label' => 'Core Trades',     'desc' => 'Complete Interior Scope Under One Contract'],
+    ['num' => '+1',   'label' => 'Closeout Service','desc' => 'Post-Construction Closeout & Cleaning'],
+    ['num' => '12+',  'label' => 'Years',           'desc' => 'Hands-On Commercial Construction Experience'],
+    ['num' => '1',    'label' => 'Standard',        'desc' => 'Consistent Execution in Every Market We Operate'],
+    ['num' => 'OSHA', 'label' => 'Trained',         'desc' => 'OSHA 10/30-Trained Field Personnel'],
   ];
   ?>
 
@@ -210,10 +211,10 @@ get_header(); ?>
           Built for GCs Who Cannot Afford Subcontractor Risk.
         </h2>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          Commercial construction runs on thin margins. GCs operating inside 6% cannot absorb inspection failures, rework events, or schedule delays caused by unreliable subcontractors.
+          Commercial construction runs on thin margins, leaving little room for subcontractor underperformance. An inspection failure, rework event, or schedule delay can quickly become a significant financial event for the project.
         </p>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          Imvera Group was built to eliminate that risk. Across six commercial interior trade disciplines — all self-performed by our own dedicated crews — we deliver the execution discipline, labor stability, and communication standards that GC partners depend on across the Southeast.
+          Imvera Group was built to eliminate that risk. Across six core interior trade disciplines — all self-performed by our own dedicated crews — we deliver the execution discipline, labor stability, and communication standards that GC partners depend on across seven active states.
         </p>
         <p class="text-base leading-relaxed mb-8 italic pl-4" style="color: #585858; border-left: 4px solid #2A9D93;">
           We don't aim to be the loudest presence on a project. We aim to be the most reliable one.
@@ -245,7 +246,7 @@ get_header(); ?>
       <div class="max-w-2xl">
         <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D93;">What We Do</p>
         <h2 class="text-3xl sm:text-4xl font-bold leading-tight mb-4" style="color: #162525;">
-          Seven Trades. One Subcontractor. Zero Coordination Overhead.
+          Six Core Trades. One Closeout Service. Less Coordination.
         </h2>
         <p class="text-base leading-relaxed" style="color: #585858;">
           Every interior scope self-performed by dedicated crews under a single execution standard. Multi-trade capability under one contract means fewer vendors, less coordination, and one accountable partner for the entire interior package.
@@ -456,6 +457,51 @@ get_header(); ?>
 
 
 <!-- ============================================================
+     SECTION 04B — HOW IMVERA WORKS (PROCESS STRIP)
+     ============================================================ -->
+<section class="py-20 lg:py-28" style="background-color: #F1F6F2;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-2xl mb-12">
+      <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D93;">How We Operate</p>
+      <h2 class="text-3xl sm:text-4xl font-bold leading-tight mb-4" style="color: #162525;">
+        One Partner. One Operating Standard.
+      </h2>
+      <p class="text-base leading-relaxed" style="color: #585858;">
+        Imvera's value is not simply the number of scopes we can perform. It is the ability to manage those scopes under one disciplined operating standard — from initial review through project closeout.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      <?php
+      $process_steps = [
+        ['num' => '01', 'title' => 'Scope Review'],
+        ['num' => '02', 'title' => 'Mobilization'],
+        ['num' => '03', 'title' => 'Field Execution'],
+        ['num' => '04', 'title' => 'Daily Documentation'],
+        ['num' => '05', 'title' => 'Inspection Readiness'],
+        ['num' => '06', 'title' => 'Closeout & Handoff'],
+      ];
+      foreach ($process_steps as $step) : ?>
+        <div class="rounded-xl p-5 transition-all duration-200 bg-white"
+             style="border: 1px solid #dde8e5;"
+             onmouseover="this.style.borderColor='rgba(42,157,147,0.4)'; this.style.boxShadow='0 8px 24px rgba(42,157,147,0.1)'"
+             onmouseout="this.style.borderColor='#dde8e5'; this.style.boxShadow='none'">
+          <span class="inline-block text-xs font-bold tracking-widest mb-3"
+                style="background: linear-gradient(135deg, #6FC061, #2A9D93); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            <?php echo $step['num']; ?>
+          </span>
+          <div class="w-6 h-0.5 mb-3 rounded-full" style="background: linear-gradient(135deg, #6FC061, #2A9D93);"></div>
+          <h3 class="font-semibold text-sm leading-snug" style="color: #162525;"><?php echo esc_html($step['title']); ?></h3>
+        </div>
+      <?php endforeach; ?>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
      SECTION 05 — WHY IMVERA
      ============================================================ -->
 <section id="ig-why-section" class="py-20 lg:py-28" style="background-color: #162525;">
@@ -485,7 +531,7 @@ get_header(); ?>
           ['title' => 'Self-Performed. No Brokered Labor.',   'desc' => 'Every trade executed by our own dedicated crews. No third-party labor. The same accountability standard on every project.'],
           ['title' => 'Daily Communication & Photo Updates',  'desc' => 'GC partners receive daily progress reports with photo documentation. The information arrives before you ask.'],
           ['title' => 'Multi-State. One Standard.',           'desc' => 'Active across 7 states. The same execution quality in Atlanta as in Charlotte as in Nashville. Geography does not change our performance.'],
-          ['title' => 'Immediate Response. No Delays.',       'desc' => 'We respond immediately to GC requests — local or out of state. When the work is there, we show up.'],
+          ['title' => 'Responsive Communication.',             'desc' => 'Project inquiries receive a direct response within one business day. During active projects, issues are escalated as they arise — local or out of state.'],
           ['title' => '1-Year Workmanship Warranty',          'desc' => 'All completed installations are backed by a 1-year workmanship warranty. We stand behind every scope we execute.'],
         ];
         foreach ($reasons as $reason) : ?>
@@ -669,7 +715,7 @@ get_header(); ?>
         <?php
         $faqs = [
           ['q' => 'Do you self-perform all trades or use subcontractors?',    'a' => 'All six of our trade disciplines are self-performed by our own dedicated crews. We do not broker work to third-party labor. This is what allows us to maintain a consistent execution standard across every project and every state.'],
-          ['q' => 'Can you handle multiple trades on the same project?',       'a' => 'Yes. Multi-trade execution under a single contract is one of Imvera\'s core advantages. Framing, drywall, ceilings, flooring, FRP, and cabinetry can all be scoped together — one contract, one point of contact, one execution standard across the entire interior package.'],
+          ['q' => 'Can you handle multiple trades on the same project?',       'a' => 'Yes. Multi-trade execution under a single contract is one of Imvera\'s core advantages. Framing, drywall, ceilings, flooring, FRP, and cabinetry can all be scoped together — one contract, one point of contact, one execution standard across the entire interior package. Post-Construction Closeout & Cleaning is available as an additional closeout service on the same contract.'],
           ['q' => 'Are you a certified ECO Grip installer?',                   'a' => 'Yes. Imvera Group holds certified installer status for ECO Grip commercial flooring systems — one of the credentials that leading national food service operators require before awarding interior flooring contracts.'],
           ['q' => 'What states do you operate in?',                           'a' => 'We maintain active operations across Georgia, North Carolina, South Carolina, Tennessee, Texas, Kentucky, and Florida. Our primary commercial construction focus markets are Atlanta, Charlotte, Nashville, and the Raleigh-Durham Triangle.'],
           ['q' => 'How do you communicate with GC partners during a project?', 'a' => 'Daily progress updates with photo documentation are sent to GC project contacts throughout every active project. Issues are reported immediately before they affect schedule. Our standard is that you receive information without having to ask for it.'],
@@ -719,7 +765,7 @@ get_header(); ?>
       Your Next Interior Project Needs a Subcontractor Built for Certainty.
     </h2>
     <p class="text-base sm:text-lg leading-relaxed mb-4 max-w-2xl mx-auto" style="color: #b8d4ce;">
-      Imvera Group works with mid-to-large general contractors, franchise rollout contractors, and commercial developers across the Southeast who need multi-trade interior execution that performs at institutional standards.
+      Imvera Group works with mid-to-large general contractors, franchise rollout contractors, and commercial developers across seven active states who need multi-trade interior execution that performs at institutional standards.
     </p>
     <p class="text-sm leading-relaxed mb-10 max-w-xl mx-auto" style="color: #7fa89e;">
       If you're evaluating subcontractors for an upcoming project, managing an active rollout program, or looking to establish a recurring multi-market partnership — reach out. We respond within one business day.

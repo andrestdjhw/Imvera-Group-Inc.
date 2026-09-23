@@ -7,7 +7,7 @@ const SERVICES = [
   "FRP Installation",
   "Drywall & Finishing",
   "Metal Framing",
-  "Post-Construction Cleaning",
+  "Post-Construction Closeout & Cleaning",
 ]
 
 const MARKETS = [

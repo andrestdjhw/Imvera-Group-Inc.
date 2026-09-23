@@ -76,7 +76,7 @@ get_header(); ?>
         <div class="w-10 h-0.5 mb-4 rounded-full" style="background: linear-gradient(135deg, #6FC061, #2A9D93);"></div>
         <h3 class="font-bold text-xl mb-4" style="color: #162525;">The Problem We Solve</h3>
         <p class="text-sm leading-relaxed mb-4" style="color: #585858;">
-          Commercial construction is an environment where thin margins leave no room for subcontractor underperformance. GC margins average 6%. A single inspection failure, rework event, or schedule delay is not an inconvenience it is a financial event that can eliminate the profit on an entire scope.
+          Commercial construction runs on thin margins, leaving little room for subcontractor underperformance. An inspection failure, rework event, or schedule delay can quickly become a significant financial event for the project.
         </p>
         <p class="text-sm leading-relaxed italic pl-4" style="color: #585858; border-left: 4px solid #2A9D93;">
           The most dangerous subcontractor in this environment is not the most expensive one. It is the unreliable one.
@@ -97,7 +97,7 @@ get_header(); ?>
           Imvera Group was built specifically for this environment. We do not compete on price. We compete on operational certainty the ability to deliver what we commit to, in every market, on every project, without requiring the GC to manage us.
         </p>
         <p class="text-sm leading-relaxed" style="color: #585858;">
-          That means self-performed crews. Daily documentation. Immediate response. And a workmanship standard backed by a 1-year warranty.
+          That means self-performed crews. Daily documentation. Responsive communication. And a workmanship standard backed by a 1-year warranty.
         </p>
       </div>
 
@@ -139,8 +139,8 @@ get_header(); ?>
         ],
         [
           'num'   => '03',
-          'title' => 'Immediate Response',
-          'desc'  => 'When a GC calls local or out of state we respond. We go where the work is. Our scheduling model is built so that our crews are always deployed and always available for the right project.',
+          'title' => 'Responsive Communication',
+          'desc'  => 'Project inquiries receive a direct response within one business day, local or out of state. During active projects, communication is proactive and issues are escalated as they arise.',
           'icon'  => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>',
         ],
         [
@@ -206,7 +206,7 @@ get_header(); ?>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <?php
       $principles = [
-        ['title' => 'Operational Certainty',   'desc' => 'We deliver what we commit to. Schedules hold. Inspections pass. Rework does not happen.'],
+        ['title' => 'Operational Certainty',   'desc' => 'We deliver what we commit to. Built to protect schedules, support first-pass inspection readiness, and minimize preventable rework.'],
         ['title' => 'Execution Discipline',    'desc' => 'We follow specs without shortcuts, coordinate without friction, and close scopes without surprises.'],
         ['title' => 'Labor Stability',         'desc' => 'Stable, trained crews in every market. Workforce reliability is a strategic asset, not a given.'],
         ['title' => 'Institutional Integrity', 'desc' => 'We communicate proactively and address issues directly before they become the GC\'s problem.'],

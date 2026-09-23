@@ -65,7 +65,7 @@ get_header(); ?>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
         </svg>
         <p class="text-sm" style="color: #b8d4ce;">
-          <strong class="text-white">480 sheets per week · 2 person crew.</strong> Dedicated hanging, taping, and mudding crews never mixed with other trades.
+          <strong class="text-white">Up to 480 sheets per week · 2 person crew,</strong> depending on project conditions. Dedicated hanging, taping, and mudding crews never mixed with other trades.
         </p>
       </div>
 
@@ -112,7 +112,7 @@ get_header(); ?>
           All Phases. Self Performed. Smooth Finish Only.
         </h2>
         <p class="text-base leading-relaxed mb-4" style="color: #585858;">
-          Imvera Group self performs all phases of commercial drywall installation hanging, taping, mudding, and patching with dedicated crews that do not rotate to other trades. This discipline is what produces a consistent, inspection-ready finish on every project.
+          Imvera Group self performs all phases of commercial drywall installation hanging, taping, mudding, and patching with dedicated crews that do not rotate to other trades. This discipline is what supports a consistent, inspection-ready finish.
         </p>
         <p class="text-base leading-relaxed" style="color: #585858;">
           We install fire rated and moisture resistant assemblies for commercial interior environments across retail, healthcare, restaurant, office, and light industrial projects. Our finishing standard is smooth no textures which is the specification that commercial GC partners and institutional clients require for painted commercial interiors.
@@ -123,8 +123,8 @@ get_header(); ?>
       <div class="grid grid-cols-2 gap-4">
         <?php
         $stats = [
-          ['value' => '480',    'unit' => 'sheets/wk', 'label' => 'Weekly Output',  'sub' => '2-person crew'],
-          ['value' => '80',     'unit' => 'sheets/day', 'label' => 'Daily Output',   'sub' => 'Per 8-hour shift'],
+          ['value' => 'Up to 480', 'unit' => 'sheets/wk', 'label' => 'Typical Weekly Output', 'sub' => '2-person crew'],
+          ['value' => 'Up to 80',  'unit' => 'sheets/day', 'label' => 'Typical Daily Output', 'sub' => 'Per 8-hour shift'],
           ['value' => 'Smooth', 'unit' => '',            'label' => 'Finish Type',    'sub' => 'No textures — ever'],
           ['value' => '1yr',    'unit' => '',            'label' => 'Warranty',       'sub' => 'All completed installations'],
         ];
@@ -424,8 +424,8 @@ get_header(); ?>
         $specs = [
           ['label' => 'Trade',         'value' => 'Drywall & Finishing'],
           ['label' => 'Phases',        'value' => 'Hanging · Taping · Mudding · Patching'],
-          ['label' => 'Weekly Output', 'value' => '480 sheets (2-person crew)'],
-          ['label' => 'Daily Output',  'value' => '80 sheets per 8-hour shift'],
+          ['label' => 'Typical Weekly Output', 'value' => 'Up to 480 sheets (2-person crew)'],
+          ['label' => 'Typical Daily Output',  'value' => 'Up to 80 sheets per 8-hour shift'],
           ['label' => 'Finish Type',   'value' => 'Smooth only no textures'],
           ['label' => 'Assemblies',    'value' => 'Fire-rated & moisture-resistant'],
           ['label' => 'Warranty',      'value' => '1 year workmanship'],

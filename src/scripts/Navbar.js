@@ -58,8 +58,8 @@ const SERVICES = [
     ),
   },
   {
-    num:   "07",
-    title: "Post-Construction Cleaning",
+    num:   "+1",
+    title: "Post-Construction Closeout & Cleaning",
     href:  "/services/post-construction-cleaning",
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -214,7 +214,7 @@ function MegaMenu({ visible }) {
         background: "linear-gradient(135deg, rgba(111,192,97,0.05), rgba(42,157,147,0.05))",
       }}>
         <p style={{ fontSize: "0.8rem", color: "#585858", margin: 0 }}>
-          All seven trades self-performed by dedicated crews. One contract. One point of accountability.
+          Six core trades, self-performed by dedicated crews, plus closeout. One contract. One point of accountability.
         </p>
         <a href="/contact-us"
            style={{

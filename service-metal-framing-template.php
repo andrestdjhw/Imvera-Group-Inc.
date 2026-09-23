@@ -55,7 +55,7 @@ get_header(); ?>
       </h1>
 
       <p class="text-lg leading-relaxed mb-6 max-w-2xl" style="color: #b8d4ce;">
-        Executed from structural drawings. 16, 18, and 20 gauge steel per spec. Layouts marked and verified before framing starts. English speaking foreman on every project. Passes inspection first time.
+        Executed from structural drawings. 16, 18, and 20 gauge steel per spec. Layouts marked and verified before framing starts. English speaking foreman on every project. Built for first-pass inspection readiness.
       </p>
 
       <!-- Inspection callout -->
@@ -65,7 +65,7 @@ get_header(); ?>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
         </svg>
         <p class="text-sm" style="color: #b8d4ce;">
-          <strong class="text-white">Framing and ACT ceiling inspections passed on first submission.</strong> Pre inspection layout verification eliminates the most common reinspection cause.
+          <strong class="text-white">Built for first-pass framing and ACT ceiling inspection readiness.</strong> Pre inspection layout verification targets the most common reinspection cause.
         </p>
       </div>
 
@@ -124,7 +124,7 @@ get_header(); ?>
         <?php
         $stats = [
           ['value' => '3',        'label' => 'Gauges Available',     'sub' => '16, 18, and 20 gauge steel'],
-          ['value' => '✓',        'label' => 'Passes Inspection',    'sub' => 'First submission framing & ACT'],
+          ['value' => '✓',        'label' => 'Inspection-Ready',     'sub' => 'Built for first-pass framing & ACT'],
           ['value' => 'EN',       'label' => 'English Speaking',     'sub' => 'Foreman on every project'],
           ['value' => '1yr',      'label' => 'Warranty',             'sub' => 'All completed installations'],
         ];
@@ -291,7 +291,7 @@ get_header(); ?>
             'Layouts marked and verified from structural drawings before work begins',
             'English speaking foreman on every commercial project',
             'Full PPE: masks, ear protection, safety glasses, harness where required',
-            'Blocking installed correctly at all required locations passes inspection first time',
+            'Blocking installed correctly at all required locations, built for first-pass inspection readiness',
           ];
           foreach ($delivers as $d) : ?>
             <div class="flex items-start gap-3 px-6 py-4" style="border-color: rgba(42,157,147,0.08);">
@@ -316,9 +316,9 @@ get_header(); ?>
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
       </svg>
       <div>
-        <p class="font-bold text-sm mb-1" style="color: #162525;">First Submission Inspection Record</p>
+        <p class="font-bold text-sm mb-1" style="color: #162525;">Built for First-Pass Inspection Readiness</p>
         <p class="text-sm leading-relaxed" style="color: #585858;">
-          Imvera framing crews regularly pass framing and ACT ceiling inspections on first submission. The most common cause of framing reinspection blocking not installed where required is eliminated by Imvera's pre inspection layout verification process.
+          Imvera framing crews are trained to pass framing and ACT ceiling inspections on first submission. The most common cause of framing reinspection blocking not installed where required is targeted directly by Imvera's pre inspection layout verification process.
         </p>
       </div>
     </div>
@@ -446,7 +446,7 @@ get_header(); ?>
           ['label' => 'Drawings',       'value' => 'Works from structural plans'],
           ['label' => 'Foreman',        'value' => 'English speaking on every project'],
           ['label' => 'PPE',            'value' => 'Full masks, glasses, harness'],
-          ['label' => 'Inspections',    'value' => 'Passes first submission'],
+          ['label' => 'Inspections',    'value' => 'Built for first-pass readiness'],
           ['label' => 'Warranty',       'value' => '1 year workmanship'],
           ['label' => 'Active States',  'value' => 'GA · NC · SC · TN · TX · KY · FL'],
         ];
