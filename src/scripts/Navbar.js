@@ -307,7 +307,7 @@ function Navbar() {
           <div className="flex items-center gap-3 justify-end">
 
             {/* LinkedIn */}
-            <a href="https://www.linkedin.com/company/imvera-group"
+            <a href="https://www.linkedin.com/in/ivan-cordova-640129380/"
                target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                style={{ color: "#a8bfbb", transition: "color 0.2s" }}
                onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
@@ -318,7 +318,7 @@ function Navbar() {
             </a>
 
             {/* Facebook */}
-            <a href="https://www.facebook.com/imveragroup"
+            <a href="https://www.facebook.com/profile.php?id=61591688002950"
                target="_blank" rel="noopener noreferrer" aria-label="Facebook"
                style={{ color: "#a8bfbb", transition: "color 0.2s" }}
                onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
