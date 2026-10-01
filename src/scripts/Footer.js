@@ -1,13 +1,13 @@
 import React from "react"
 
 const SERVICES = [
-  "ECO Grip Flooring",
-  "Cabinets & Countertops",
-  "Acoustical Ceilings",
-  "FRP Installation",
-  "Drywall & Finishing",
-  "Metal Framing",
-  "Post-Construction Closeout & Cleaning",
+  { label: "ECO Grip Flooring",                    href: "/services/eco-grip-flooring" },
+  { label: "Cabinets & Countertops",                href: "/services/cabinets-countertops" },
+  { label: "Acoustical Ceilings",                   href: "/services/acoustical-ceilings" },
+  { label: "FRP Installation",                      href: "/services/frp-installation" },
+  { label: "Drywall & Finishing",                   href: "/services/drywall-finishing" },
+  { label: "Metal Framing",                         href: "/services/metal-framing" },
+  { label: "Post-Construction Closeout & Cleaning", href: "/services/post-construction-cleaning" },
 ]
 
 const MARKETS = [
@@ -119,16 +119,16 @@ function Footer() {
             </h4>
             <ul className="flex flex-col gap-2">
               {SERVICES.map((service) => (
-                <li key={service}>
+                <li key={service.href}>
                   <a
-                    href="/services"
+                    href={service.href}
                     className="text-sm flex items-center gap-2 transition-colors duration-200 group"
                     style={{ color: "#7fa89e" }}
                     onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
                     onMouseLeave={e => e.currentTarget.style.color = "#7fa89e"}
                   >
                     <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: "#6FC061", opacity: 0.6 }} />
-                    {service}
+                    {service.label}
                   </a>
                 </li>
               ))}

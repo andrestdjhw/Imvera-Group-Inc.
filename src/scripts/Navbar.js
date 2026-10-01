@@ -262,13 +262,13 @@ function Navbar() {
 
       {/* ── Top Bar ── */}
       <div style={{ backgroundColor: "#162525" }} className="text-white text-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-12"
-             style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-12 py-2"
+             style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) auto minmax(0,1fr)", alignItems: "center" }}>
 
           {/* Left: Phone + Email */}
-          <div className="flex items-center gap-5" style={{ color: "#a8bfbb" }}>
+          <div className="flex items-center gap-5 min-w-0" style={{ color: "#a8bfbb" }}>
             <a href={`tel:${PHONE.replace(/\D/g, "")}`}
-               className="flex items-center gap-1.5 transition-colors duration-200"
+               className="flex items-center gap-1.5 transition-colors duration-200 whitespace-nowrap"
                style={{ color: "inherit" }}
                onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
                onMouseLeave={e => e.currentTarget.style.color = "#a8bfbb"}>
@@ -278,21 +278,21 @@ function Navbar() {
               <span className="hidden sm:inline">{PHONE}</span>
             </a>
             <a href={`mailto:${EMAIL}`}
-               className="flex items-center gap-1.5 transition-colors duration-200"
+               className="hidden lg:flex items-center gap-1.5 transition-colors duration-200 whitespace-nowrap"
                style={{ color: "inherit" }}
                onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
                onMouseLeave={e => e.currentTarget.style.color = "#a8bfbb"}>
               <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              <span className="hidden sm:inline">{EMAIL}</span>
+              <span>{EMAIL}</span>
             </a>
           </div>
 
           {/* Center: Geo tag */}
           <a href="https://maps.google.com/?q=2975+Breckinridge+Blvd+Suite+11+Duluth+GA+30096"
              target="_blank" rel="noopener noreferrer"
-             className="hidden md:flex items-center gap-1.5 transition-colors duration-200"
+             className="hidden xl:flex items-center gap-1.5 transition-colors duration-200 whitespace-nowrap"
              style={{ color: "#7fa89e", textDecoration: "none" }}
              onMouseEnter={e => e.currentTarget.style.color = "#F1F6F2"}
              onMouseLeave={e => e.currentTarget.style.color = "#7fa89e"}>

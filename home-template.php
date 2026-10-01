@@ -457,6 +457,39 @@ get_header(); ?>
 
 
 <!-- ============================================================
+     SECTION 04A — REVIEWS
+     ============================================================ -->
+<section class="py-20 lg:py-28" style="background-color: #fff;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-2xl mx-auto text-center mb-12">
+      <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D93;">What GC Partners Say</p>
+      <h2 class="text-3xl sm:text-4xl font-bold leading-tight" style="color: #162525;">
+        Reviews from the Field.
+      </h2>
+    </div>
+
+    <?php echo do_shortcode('[trustindex no-registration=google]'); ?>
+
+    <div class="text-center mt-4">
+      <a href="https://www.google.com/maps/place//@33.9596762,-84.1110254,17z/data=!3m1!4b1!4m3!3m2!1s0xeca44fe8f822511:0x1de52e80d2162aa6!12e1?entry=ttu&g_ep=EgoyMDI2MDkyOC4wIKXMDSoASAFQAw%3D%3D"
+         target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center justify-center gap-2 font-semibold px-7 py-3.5 rounded transition-all duration-200 text-sm"
+         style="border: 1px solid #dde8e5; color: #162525;"
+         onmouseover="this.style.borderColor='#2A9D93'; this.style.color='#2A9D93'"
+         onmouseout="this.style.borderColor='#dde8e5'; this.style.color='#162525'">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.915a1 1 0 00.951-.69l1.519-4.674z"/>
+        </svg>
+        Leave a Google Review
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
      SECTION 04B — HOW IMVERA WORKS (PROCESS STRIP)
      ============================================================ -->
 <section class="py-20 lg:py-28" style="background-color: #F1F6F2;">
