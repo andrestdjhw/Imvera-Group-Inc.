@@ -243,7 +243,7 @@ function ContactForm({ variant = "dark", title, subtitle }) {
   // ── Success state ─────────────────────────────────────────
   if (status === "success") {
     return (
-      <div style={{ ...wrapperStyle, textAlign: "center", padding: "3rem 2rem" }}>
+      <div id="gtm-form-success" style={{ ...wrapperStyle, textAlign: "center", padding: "3rem 2rem" }}>
         <div style={{ width: "3rem", height: "3rem", borderRadius: "50%", background: "linear-gradient(135deg, #6FC061, #2A9D93)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1rem" }}>
           <svg width="20" height="20" fill="none" stroke="white" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
@@ -386,7 +386,7 @@ function ContactForm({ variant = "dark", title, subtitle }) {
 
         {/* Send error */}
         {status === "error" && (
-          <p style={{ fontSize: "0.75rem", color: "#f87171", textAlign: "center" }}>
+          <p id="gtm-form-error" style={{ fontSize: "0.75rem", color: "#f87171", textAlign: "center" }}>
             Something went wrong. Please try again or call us at 678-836-3266.
             {errMsg && <span style={{ display: "block", opacity: 0.6, marginTop: "0.25rem" }}>{errMsg}</span>}
           </p>
