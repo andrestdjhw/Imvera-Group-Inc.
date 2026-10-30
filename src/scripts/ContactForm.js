@@ -387,7 +387,7 @@ function ContactForm({ variant = "dark", title, subtitle }) {
         {/* Send error */}
         {status === "error" && (
           <p id="gtm-form-error" style={{ fontSize: "0.75rem", color: "#f87171", textAlign: "center" }}>
-            Something went wrong. Please try again or call us at 678-836-3266.
+            Something went wrong. Please try again or call us at 678-209-4759.
             {errMsg && <span style={{ display: "block", opacity: 0.6, marginTop: "0.25rem" }}>{errMsg}</span>}
           </p>
         )}

@@ -27,7 +27,7 @@ const NAV_LINKS = [
   { label: "Contact Us", href: "/contact-us" },
 ]
 
-const PHONE = "678-836-3266"
+const PHONE = "678-209-4759"
 const HEADQUARTERS = "2975 Breckinridge Blvd Suite 11, Duluth, GA 30096"
 
 function Footer() {

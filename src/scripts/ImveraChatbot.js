@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react"
 
 // ── Config ────────────────────────────────────────────────────
-const PHONE_DISPLAY  = "678-836-3266"
-const PHONE_LINK     = "tel:6788363266"
+const PHONE_DISPLAY  = "678-209-4759"
+const PHONE_LINK     = "tel:6782094759"
 const EMAIL_DISPLAY  = "info@imveragroup.com"
 const EMAIL_LINK     = "mailto:info@imveragroup.com"
 const CONTACT_LINK   = "/contact-us"

@@ -148,7 +148,7 @@ get_header(); ?>
               <strong style="color: #162525;">Imvera Group Inc.</strong><br>
               2975 Breckinridge Blvd, Suite 11<br>
               Duluth, GA 30096<br>
-              Phone: <a href="tel:6788363266">678-836-3266</a><br>
+              Phone: <a href="tel:6782094759">678-209-4759</a><br>
               Email: <a href="mailto:info@imveragroupinc.com">info@imveragroupinc.com</a>
             </p>
           ',

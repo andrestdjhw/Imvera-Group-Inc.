@@ -92,7 +92,7 @@ get_header(); ?>
             <h3 class="relative text-white font-bold text-base pb-4" style="border-bottom: 1px solid rgba(241,246,242,0.08);">Direct Contact</h3>
 
             <!-- Phone -->
-            <a href="tel:6788363266" class="relative flex items-start gap-3 group">
+            <a href="tel:6782094759" class="relative flex items-start gap-3 group">
               <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-200"
                    style="background: rgba(42,157,147,0.12);"
                    onmouseover="this.style.background='rgba(42,157,147,0.22)'"
@@ -105,7 +105,7 @@ get_header(); ?>
                 <p class="text-xs mb-0.5" style="color: #7fa89e;">Phone</p>
                 <p class="font-semibold text-sm transition-colors duration-200 text-white"
                    onmouseover="this.style.color='#2A9D93'"
-                   onmouseout="this.style.color='white'">678-836-3266</p>
+                   onmouseout="this.style.color='white'">678-209-4759</p>
               </div>
             </a>
 

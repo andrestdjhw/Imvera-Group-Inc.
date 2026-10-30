@@ -320,7 +320,7 @@ get_header(); ?>
             </svg>
             Request a Scope Review
           </a>
-          <a href="tel:6788363266"
+          <a href="tel:6782094759"
              class="inline-flex items-center gap-2 font-semibold px-7 py-4 rounded transition-all duration-200 text-sm"
              style="border: 1px solid rgba(241,246,242,0.2); color: #F1F6F2;"
              onmouseover="this.style.borderColor='rgba(42,157,147,0.5)'; this.style.background='rgba(241,246,242,0.05)'"
@@ -328,7 +328,7 @@ get_header(); ?>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
             </svg>
-            678-836-3266
+            678-209-4759
           </a>
         </div>
       </div>
